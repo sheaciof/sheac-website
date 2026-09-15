@@ -409,25 +409,45 @@ footer {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .hamburger {
-    display: block;
+    display: block !important;
+    font-size: 2rem;
+    padding: 0.5rem;
+    cursor: pointer;
   }
+
   .nav-menu {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: var(--primary);
+    background-color: var(--primary-dark);
     flex-direction: column;
     align-items: flex-start;
-    padding: 1rem 2rem;
-    display: none;
+    padding: 1.5rem 2rem;
+    gap: 1rem;
+    display: none; /* Hidden by default on mobile */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   }
+
   .nav-menu.active {
-    display: flex;
+    display: flex !important; /* Shows menu when 3-bar button is clicked */
   }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-link {
+    display: block;
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
   .hero h1 {
     font-size: 2rem;
   }
+
   .grid-2, .grid-3 {
     grid-template-columns: 1fr;
   }
