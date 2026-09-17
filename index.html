@@ -13,430 +13,635 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&family=Mukta:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
 
-  <!-- =========================================================
-       HEADER
-       ========================================================= -->
 
-  <header>
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header>
+
+  <!-- TOP CONTACT BAR -->
+  <div class="top-bar">
+
+    <div class="container top-bar-container">
+
+      <div class="top-contact">
+
+        <a href="mailto:info@sheac.org.np">
+          <i class="fa-solid fa-envelope"></i>
+          info@sheac.org.np
+        </a>
+
+        <a href="tel:+9779749798229">
+          <i class="fa-solid fa-phone"></i>
+          +977 9749798229
+        </a>
+
+      </div>
+
+
+      <div class="social-links">
+
+        <a href="https://facebook.com/sheaciof7"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Facebook">
+
+          <i class="fa-brands fa-facebook-f"></i>
+
+        </a>
+
+        <!-- Add official SHEAC LinkedIn URL here when available -->
+        <a href="#"
+           aria-label="LinkedIn">
+
+          <i class="fa-brands fa-linkedin-in"></i>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- MAIN NAVIGATION -->
+  <div class="main-header">
+
     <div class="container nav-container">
+
+
+      <!-- LOGO / BRAND -->
 
       <a href="index.html" class="brand-logo">
 
-        <img src="images/LOGO.png" alt="SHEAC Logo">
+        <img src="images/LOGO.png"
+             alt="SHEAC Logo">
 
         <div class="brand-text">
-          <span class="title">Self Help Environment Awareness Camp (SHEAC)</span>
+
+          <span class="title">
+            SHEAC
+          </span>
+
           <span class="sub-title">
             स्वंयसेवी वातावरण जागरण समूह
           </span>
+
         </div>
 
       </a>
 
-      <button
-        class="hamburger"
-        aria-label="Toggle Navigation"
-        aria-expanded="false">
-        &#9776;
+
+      <!-- MOBILE MENU BUTTON -->
+
+      <button class="hamburger"
+              aria-label="Toggle Navigation"
+              aria-expanded="false">
+
+        <i class="fa-solid fa-bars"></i>
+
       </button>
 
+
+      <!-- NAVIGATION -->
+
       <nav>
+
         <ul class="nav-menu">
 
+
+          <!-- HOME -->
+
           <li>
-            <a href="index.html" class="nav-link active">
+            <a href="index.html"
+               class="nav-link active">
               Home
             </a>
           </li>
 
-          <li>
-            <a href="about.html" class="nav-link">
+
+          <!-- ABOUT DROPDOWN -->
+
+          <li class="dropdown">
+
+            <a href="about.html"
+               class="nav-link dropdown-toggle">
+
               About
+              <i class="fa-solid fa-chevron-down"></i>
+
             </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a href="about.html">
+                  About Us
+                </a>
+              </li>
+
+              <li>
+                <a href="about.html#executive-members">
+                  Executive Members
+                </a>
+              </li>
+
+              <li>
+                <a href="about.html#founding-members">
+                  Founding Members
+                </a>
+              </li>
+
+            </ul>
+
           </li>
 
+
+          <!-- PROJECTS -->
+
           <li>
-            <a href="projects.html" class="nav-link">
+            <a href="projects.html"
+               class="nav-link">
               Projects
             </a>
           </li>
 
+
+          <!-- RESEARCH -->
+
           <li>
-            <a href="research.html" class="nav-link">
+            <a href="research.html"
+               class="nav-link">
               Research
             </a>
           </li>
 
+
+          <!-- ACTIVITIES -->
+
           <li>
-            <a href="activities.html" class="nav-link">
+            <a href="activities.html"
+               class="nav-link">
               Activities
             </a>
           </li>
 
-          <li>
-            <a href="gallery.html" class="nav-link">
-              Gallery
+
+          <!-- GALLERY / NEWS DROPDOWN -->
+
+          <li class="dropdown">
+
+            <a href="gallery.html"
+               class="nav-link dropdown-toggle">
+
+              Gallery/News
+              <i class="fa-solid fa-chevron-down"></i>
+
             </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a href="gallery.html">
+                  Photo Gallery
+                </a>
+              </li>
+
+              <li>
+                <a href="gallery.html#news">
+                  News
+                </a>
+              </li>
+
+            </ul>
+
           </li>
 
-          <li>
-            <a href="get-involved.html" class="nav-link">
+
+          <!-- GET INVOLVED DROPDOWN -->
+
+          <li class="dropdown">
+
+            <a href="get-involved.html"
+               class="nav-link dropdown-toggle">
+
               Get Involved
+              <i class="fa-solid fa-chevron-down"></i>
+
             </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a href="get-involved.html#volunteer">
+                  Volunteer With Us
+                </a>
+              </li>
+
+              <li>
+                <a href="get-involved.html#membership">
+                  Become a Member
+                </a>
+              </li>
+
+              <li>
+                <a href="get-involved.html#collaborate">
+                  Collaborate &amp; Partner
+                </a>
+              </li>
+
+              <li>
+                <a href="get-involved.html#donate">
+                  Donate
+                </a>
+              </li>
+
+            </ul>
+
           </li>
 
-          <li>
-            <a href="contact.html" class="nav-link">
-              Contact
-            </a>
-          </li>
 
         </ul>
+
       </nav>
 
     </div>
-  </header>
+
+  </div>
+
+</header>
 
 
-  <!-- =========================================================
-       HERO SECTION
-       ========================================================= -->
 
-  <section class="hero">
+<!-- =========================================================
+     HERO SECTION
+     ========================================================= -->
 
-    <!-- Dark/green overlay over group photo -->
-    <div class="hero-overlay"></div>
+<section class="hero">
 
-    <div class="hero-content">
-
-      <div class="hero-tagline">
-        Research. Educate. Conserve.
-      </div>
-
-      <h1>
-        Youth-led action for biodiversity and a healthier environment.
-      </h1>
-
-      <p>
-        Self Help Environment Awareness Camp (SHEAC) is a youth-led
-        environmental and biodiversity conservation organization based
-        in Pokhara, Nepal, combining research, education, and community
-        engagement.
-      </p>
-
-      <div class="hero-buttons">
-
-        <a href="#our-work" class="btn btn-primary">
-          Explore Our Work
-        </a>
-
-        <a href="get-involved.html" class="btn btn-accent">
-          Get Involved
-        </a>
-
-      </div>
-
-    </div>
-
-    <!-- Scroll down indicator -->
-    <a
-      href="#who-we-are"
-      class="scroll-down"
-      aria-label="Scroll down">
-
-      <span>↓</span>
-
-    </a>
-
-  </section>
+  <div class="hero-overlay"></div>
 
 
-  <!-- =========================================================
-       WHO WE ARE
-       ========================================================= -->
+  <div class="hero-content">
 
-  <section id="who-we-are" class="container">
-
-    <div class="section-title">
-
-      <h2>
-        Who We Are
-      </h2>
-
-      <p>
-        Turning environmental knowledge into practical conservation action
-      </p>
-
+    <div class="hero-tagline">
+      Research. Educate. Conserve.
     </div>
 
 
-    <div
-      style="
-        background: #fff;
-        padding: 2.5rem;
-        border-radius: 8px;
-        box-shadow: var(--shadow-sm);
-        text-align: center;
-      ">
+    <h1>
+      Youth-led action for biodiversity
+      and a healthier environment.
+    </h1>
 
-      <p
-        style="
-          max-width: 850px;
-          margin: 0 auto 1.5rem auto;
-          font-size: 1.05rem;
-        ">
 
-        Self Help Environment Awareness Camp (SHEAC) is a youth-led
-        environmental organization working to conserve biodiversity,
-        promote environmental awareness, and encourage community
-        participation in nature conservation. We connect scientific
-        research, youth leadership, and local community outreach.
+    <p>
+      Self Help Environment Awareness Camp (SHEAC) is a
+      youth-led environmental and biodiversity conservation
+      organization based in Pokhara, Nepal, combining
+      research, education, and community engagement.
+    </p>
 
-      </p>
 
-      <a href="about.html" class="btn btn-primary">
-        Learn More &rarr;
+    <div class="hero-buttons">
+
+      <a href="#our-work"
+         class="btn btn-primary">
+        Explore Our Work
+      </a>
+
+      <a href="get-involved.html"
+         class="btn btn-accent">
+        Get Involved
       </a>
 
     </div>
 
-  </section>
+  </div>
 
 
-  <!-- =========================================================
-       MAIN AREAS OF WORK
-       ========================================================= -->
+  <!-- SCROLL DOWN -->
 
-  <section id="our-work" class="container">
+  <a href="#who-we-are"
+     class="scroll-down"
+     aria-label="Scroll down">
 
-    <div class="section-title">
+    <span>↓</span>
 
-      <h2>
-        Main Areas of Work
-      </h2>
+  </a>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHO WE ARE
+     ========================================================= -->
+
+<section id="who-we-are"
+         class="container">
+
+  <div class="section-title">
+
+    <h2>
+      Who We Are
+    </h2>
+
+    <p>
+      Turning environmental knowledge into practical
+      conservation action
+    </p>
+
+  </div>
+
+
+  <div style="
+      background:#fff;
+      padding:2.5rem;
+      border-radius:8px;
+      box-shadow:var(--shadow-sm);
+      text-align:center;
+  ">
+
+    <p style="
+        max-width:850px;
+        margin:0 auto 1.5rem auto;
+        font-size:1.05rem;
+    ">
+
+      Self Help Environment Awareness Camp (SHEAC) is a
+      youth-led environmental organization working to
+      conserve biodiversity, promote environmental
+      awareness, and encourage community participation
+      in nature conservation.
+
+      We connect scientific research, youth leadership,
+      and local community outreach.
+
+    </p>
+
+
+    <a href="about.html"
+       class="btn btn-primary">
+
+      Learn More →
+
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MAIN AREAS OF WORK
+     ========================================================= -->
+
+<section id="our-work"
+         class="container">
+
+  <div class="section-title">
+
+    <h2>
+      Main Areas of Work
+    </h2>
+
+    <p>
+      Integrating field science with local action
+    </p>
+
+  </div>
+
+
+  <div class="grid-3">
+
+
+    <div class="card">
+
+      <h3>
+        Wildlife &amp; Bird Conservation
+      </h3>
 
       <p>
-        Integrating field science with local action
+        Field research, bird monitoring, wildlife habitat
+        protection, and human-wildlife coexistence outreach.
       </p>
+
+      <a href="research.html"
+         class="btn btn-accent"
+         style="margin-top:auto;">
+
+        Learn More
+
+      </a>
 
     </div>
 
 
-    <div class="grid-3">
 
+    <div class="card">
 
-      <!-- Wildlife -->
-      <div class="card">
+      <h3>
+        Plants &amp; Habitat Conservation
+      </h3>
 
-        <h3>
-          Wildlife &amp; Bird Conservation
-        </h3>
+      <p>
+        Plant diversity surveys, habitat restoration,
+        forest ecology, and native species protection
+        across Nepal.
+      </p>
 
-        <p>
-          Field research, bird monitoring, wildlife habitat protection,
-          and human-wildlife coexistence outreach.
-        </p>
+      <a href="research.html"
+         class="btn btn-accent"
+         style="margin-top:auto;">
 
-        <a
-          href="research.html"
-          class="btn btn-accent"
-          style="margin-top:auto;">
+        Learn More
 
-          Learn More
-
-        </a>
-
-      </div>
-
-
-      <!-- Plants -->
-      <div class="card">
-
-        <h3>
-          Plants &amp; Habitat Conservation
-        </h3>
-
-        <p>
-          Plant diversity surveys, habitat restoration, forest ecology,
-          and native species protection across Nepal.
-        </p>
-
-        <a
-          href="research.html"
-          class="btn btn-accent"
-          style="margin-top:auto;">
-
-          Learn More
-
-        </a>
-
-      </div>
-
-
-      <!-- Butterflies -->
-      <div class="card">
-
-        <h3>
-          Butterflies &amp; Insect Biodiversity
-        </h3>
-
-        <p>
-          Field-based documentation focusing on pollinators, butterfly
-          species diversity, and micro-habitats.
-        </p>
-
-        <a
-          href="research.html"
-          class="btn btn-accent"
-          style="margin-top:auto;">
-
-          Learn More
-
-        </a>
-
-      </div>
-
-
-      <!-- Biodiversity Research -->
-      <div class="card">
-
-        <h3>
-          Biodiversity Research
-        </h3>
-
-        <p>
-          Scientific inventorying, ecosystem studies, species mapping,
-          and empirical conservation research.
-        </p>
-
-        <a
-          href="research.html"
-          class="btn btn-accent"
-          style="margin-top:auto;">
-
-          Learn More
-
-        </a>
-
-      </div>
-
-
-      <!-- Environmental Education -->
-      <div class="card">
-
-        <h3>
-          Environmental Education
-        </h3>
-
-        <p>
-          School programs, workshops, nature camps, and awareness
-          campaigns for students and local communities.
-        </p>
-
-        <a
-          href="activities.html"
-          class="btn btn-accent"
-          style="margin-top:auto;">
-
-          Learn More
-
-        </a>
-
-      </div>
-
-
-      <!-- Youth Engagement -->
-      <div class="card">
-
-        <h3>
-          Youth &amp; Community Engagement
-        </h3>
-
-        <p>
-          Citizen science, volunteer mobilization, student capacity
-          building, and community stewardship.
-        </p>
-
-        <a
-          href="get-involved.html"
-          class="btn btn-accent"
-          style="margin-top:auto;">
-
-          Learn More
-
-        </a>
-
-      </div>
-
+      </a>
 
     </div>
 
-  </section>
 
 
-  <!-- =========================================================
-       FOOTER
-       ========================================================= -->
+    <div class="card">
 
-  <footer>
-
-    <div class="container footer-bottom">
+      <h3>
+        Butterflies &amp; Insect Biodiversity
+      </h3>
 
       <p>
-        <strong>
-          स्वंयसेवी वातावरण जागरण समूह 
-        </strong>
+        Field-based documentation focusing on pollinators,
+        butterfly species diversity, and micro-habitats.
       </p>
 
-      <p>
-        Self Help Environment Awareness Camp (SHEAC) — Pokhara, Nepal
-      </p>
+      <a href="research.html"
+         class="btn btn-accent"
+         style="margin-top:auto;">
 
-      <p style="margin-top: 0.5rem;">
+        Learn More
 
-        Email:
-
-        <a
-          href="mailto:sheaciof7@gmail.com"
-          style="color: var(--accent);">
-
-          sheaciof7@gmail.com
-
-        </a>
-
-        |
-
-        Facebook:
-
-        <a
-          href="https://facebook.com/sheaciof7"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="color: var(--accent);">
-
-          sheaciof7
-
-        </a>
-
-      </p>
-
-      <p style="margin-top: 1rem; opacity: 0.8;">
-
-        &copy; 2026 SHEAC. All rights reserved.
-
-      </p>
+      </a>
 
     </div>
 
-  </footer>
 
 
-  <!-- JavaScript -->
-  <script src="js/script.js"></script>
+    <div class="card">
+
+      <h3>
+        Biodiversity Research
+      </h3>
+
+      <p>
+        Scientific inventorying, ecosystem studies,
+        species mapping, and empirical conservation research.
+      </p>
+
+      <a href="research.html"
+         class="btn btn-accent"
+         style="margin-top:auto;">
+
+        Learn More
+
+      </a>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h3>
+        Environmental Education
+      </h3>
+
+      <p>
+        School programs, workshops, nature camps, and
+        awareness campaigns for students and communities.
+      </p>
+
+      <a href="activities.html"
+         class="btn btn-accent"
+         style="margin-top:auto;">
+
+        Learn More
+
+      </a>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h3>
+        Youth &amp; Community Engagement
+      </h3>
+
+      <p>
+        Citizen science, volunteer mobilization, student
+        capacity building, and community stewardship.
+      </p>
+
+      <a href="get-involved.html"
+         class="btn btn-accent"
+         style="margin-top:auto;">
+
+        Learn More
+
+      </a>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+  <div class="container footer-bottom">
+
+    <p>
+      <strong>
+        स्वंयसेवी वातावरण जागरण समूह (SHEAC)
+      </strong>
+    </p>
+
+    <p>
+      Self Help Environment Awareness Camp —
+      Pokhara, Nepal
+    </p>
+
+    <p style="margin-top:0.5rem;">
+
+      Email:
+
+      <a href="mailto:info@sheac.org.np">
+        info@sheac.org.np
+      </a>
+
+      |
+
+      Phone:
+
+      <a href="tel:+9779749798229">
+        +977 9749798229
+      </a>
+
+      |
+
+      Facebook:
+
+      <a href="https://facebook.com/sheaciof7"
+         target="_blank"
+         rel="noopener noreferrer">
+
+        sheaciof7
+
+      </a>
+
+    </p>
+
+
+    <p style="
+        margin-top:1rem;
+        opacity:0.8;
+    ">
+
+      &copy; 2026 SHEAC.
+      All rights reserved.
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script src="js/script.js"></script>
 
 </body>
 </html>
