@@ -1,192 +1,506 @@
-document.addEventListener('DOMContentLoaded', () => {
+```javascript id="h7m2qx"
+document.addEventListener("DOMContentLoaded", () => {
+
 
   /* =========================================================
      1. HEADER HIDE / SHOW ON SCROLL
      ========================================================= */
 
-  const header = document.querySelector('header');
+  const header = document.querySelector("header");
 
   let lastScrollPosition = window.scrollY;
 
-  window.addEventListener('scroll', () => {
+  if (header) {
 
-    const currentScrollPosition = window.scrollY;
+    window.addEventListener(
+      "scroll",
+      () => {
 
-    // Always show header when at the top
-    if (currentScrollPosition <= 10) {
-      header.classList.remove('header-hidden');
-      lastScrollPosition = currentScrollPosition;
-      return;
-    }
+        const currentScrollPosition = window.scrollY;
 
-    // Scrolling down
-    if (currentScrollPosition > lastScrollPosition) {
-      header.classList.add('header-hidden');
-    }
+        /* Always show header at the top */
 
-    // Scrolling up
-    else if (currentScrollPosition < lastScrollPosition) {
-      header.classList.remove('header-hidden');
-    }
+        if (currentScrollPosition <= 10) {
 
-    lastScrollPosition = currentScrollPosition;
+          header.classList.remove("header-hidden");
 
-  }, { passive: true });
+          lastScrollPosition = currentScrollPosition;
+
+          return;
+        }
+
+
+        /* Scrolling down */
+
+        if (currentScrollPosition > lastScrollPosition) {
+
+          header.classList.add("header-hidden");
+
+        }
+
+
+        /* Scrolling up */
+
+        else if (currentScrollPosition < lastScrollPosition) {
+
+          header.classList.remove("header-hidden");
+
+        }
+
+
+        lastScrollPosition = currentScrollPosition;
+
+      },
+      { passive: true }
+    );
+
+  }
+
 
 
   /* =========================================================
-     2. MOBILE HAMBURGER MENU
+     2. MOBILE NAVIGATION
      ========================================================= */
 
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav-menu');
-
-  if (hamburger && navMenu) {
-
-    hamburger.addEventListener('click', (e) => {
-
-      e.stopPropagation();
-
-      navMenu.classList.toggle('active');
-
-      const isOpen = navMenu.classList.contains('active');
-
-      hamburger.setAttribute('aria-expanded', isOpen);
-
-    });
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+  const mainNav = document.querySelector(".main-nav");
 
 
-    /* =======================================================
-       3. MOBILE DROPDOWN MENUS
-       ======================================================= */
+  /*
+     The new index.html uses the contact-toggle as the
+     three-line button, so there may be no .hamburger.
+     We support both to keep the site flexible.
+  */
 
-    const dropdowns = document.querySelectorAll('.dropdown');
-
-    dropdowns.forEach(dropdown => {
-
-      const toggle = dropdown.querySelector('.dropdown-toggle');
-
-      if (!toggle) return;
-
-      toggle.addEventListener('click', (e) => {
-
-        // Only use click dropdown behavior on mobile
-        if (window.innerWidth <= 768) {
-
-          e.preventDefault();
-
-          e.stopPropagation();
-
-          // Close other dropdowns
-          dropdowns.forEach(otherDropdown => {
-
-            if (otherDropdown !== dropdown) {
-              otherDropdown.classList.remove('open');
-            }
-
-          });
-
-          // Toggle current dropdown
-          dropdown.classList.toggle('open');
-
-        }
-
-      });
-
-    });
+  const mobileMenuButton =
+    hamburger || document.querySelector(".mobile-menu-toggle");
 
 
-    /* =======================================================
-       4. CLOSE MOBILE MENU WHEN CLICKING A NORMAL LINK
-       ======================================================= */
+  if (mobileMenuButton && navMenu) {
 
-    document.querySelectorAll('.nav-menu a').forEach(link => {
+    mobileMenuButton.addEventListener("click", (event) => {
 
-      link.addEventListener('click', () => {
+      event.stopPropagation();
 
-        if (
-          !link.classList.contains('dropdown-toggle') ||
-          window.innerWidth > 768
-        ) {
+      navMenu.classList.toggle("active");
 
-          navMenu.classList.remove('active');
-
-          hamburger.setAttribute('aria-expanded', 'false');
-
-          // Close all dropdowns
-          document.querySelectorAll('.dropdown').forEach(dropdown => {
-            dropdown.classList.remove('open');
-          });
-
-        }
-
-      });
-
-    });
-
-
-    /* =======================================================
-       5. CLOSE MENU WHEN CLICKING OUTSIDE
-       ======================================================= */
-
-    document.addEventListener('click', (e) => {
-
-      if (
-        !navMenu.contains(e.target) &&
-        !hamburger.contains(e.target)
-      ) {
-
-        navMenu.classList.remove('active');
-
-        hamburger.setAttribute('aria-expanded', 'false');
-
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-          dropdown.classList.remove('open');
-        });
-
+      if (mainNav) {
+        mainNav.classList.toggle("active");
       }
+
+      const isOpen =
+        navMenu.classList.contains("active");
+
+      mobileMenuButton.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
 
     });
 
   }
 
 
+
   /* =========================================================
-     6. NAVIGATION ACTIVE LINK
+     3. MOBILE DROPDOWN MENUS
      ========================================================= */
 
-  const currentPath =
-    window.location.pathname.split('/').pop() || 'index.html';
+  const dropdowns =
+    document.querySelectorAll(".dropdown");
 
-  document.querySelectorAll('.nav-link').forEach(link => {
 
-    const linkPath =
-      link.getAttribute('href')?.split('#')[0];
+  dropdowns.forEach((dropdown) => {
 
-    if (linkPath === currentPath) {
+    const toggle =
+      dropdown.querySelector(".dropdown-toggle");
 
-      link.classList.add('active');
 
-    }
+    if (!toggle) return;
+
+
+    toggle.addEventListener("click", (event) => {
+
+      /*
+         Desktop:
+         CSS handles dropdowns with hover.
+
+         Mobile/tablet:
+         JavaScript handles dropdowns with click.
+      */
+
+      if (window.innerWidth <= 900) {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+
+        /* Close other dropdowns */
+
+        dropdowns.forEach((otherDropdown) => {
+
+          if (otherDropdown !== dropdown) {
+
+            otherDropdown.classList.remove("open");
+
+          }
+
+        });
+
+
+        /* Toggle current dropdown */
+
+        dropdown.classList.toggle("open");
+
+      }
+
+    });
 
   });
 
 
+
   /* =========================================================
-     7. GALLERY LIGHTBOX
+     4. CLOSE MOBILE NAVIGATION AFTER NORMAL LINK
+     ========================================================= */
+
+  document
+    .querySelectorAll(".nav-menu a")
+    .forEach((link) => {
+
+      link.addEventListener("click", () => {
+
+        /*
+           Dropdown buttons stay open on mobile.
+           Normal links close the menu.
+        */
+
+        if (
+          !link.classList.contains("dropdown-toggle") ||
+          window.innerWidth > 900
+        ) {
+
+          if (navMenu) {
+
+            navMenu.classList.remove("active");
+
+          }
+
+          if (mainNav) {
+
+            mainNav.classList.remove("active");
+
+          }
+
+          if (mobileMenuButton) {
+
+            mobileMenuButton.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+          }
+
+
+          dropdowns.forEach((dropdown) => {
+
+            dropdown.classList.remove("open");
+
+          });
+
+        }
+
+      });
+
+    });
+
+
+
+  /* =========================================================
+     5. CONTACT DRAWER
+     ========================================================= */
+
+  const contactToggle =
+    document.querySelector(".contact-toggle");
+
+  const contactDrawer =
+    document.querySelector(".contact-drawer");
+
+  const contactClose =
+    document.querySelector(".contact-close");
+
+  const contactOverlay =
+    document.querySelector(".contact-overlay");
+
+
+  /*
+     Open contact drawer
+  */
+
+  const openContactDrawer = () => {
+
+    if (!contactDrawer) return;
+
+    contactDrawer.classList.add("open");
+
+    if (contactOverlay) {
+
+      contactOverlay.classList.add("active");
+
+    }
+
+    if (contactToggle) {
+
+      contactToggle.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+    }
+
+    contactDrawer.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+
+    /* Prevent background scrolling */
+
+    document.body.style.overflow = "hidden";
+
+  };
+
+
+  /*
+     Close contact drawer
+  */
+
+  const closeContactDrawer = () => {
+
+    if (!contactDrawer) return;
+
+    contactDrawer.classList.remove("open");
+
+    if (contactOverlay) {
+
+      contactOverlay.classList.remove("active");
+
+    }
+
+    if (contactToggle) {
+
+      contactToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    }
+
+    contactDrawer.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+
+    /* Restore scrolling */
+
+    document.body.style.overflow = "";
+
+  };
+
+
+  /*
+     Three-line button
+  */
+
+  if (contactToggle) {
+
+    contactToggle.addEventListener(
+      "click",
+      (event) => {
+
+        event.stopPropagation();
+
+        if (
+          contactDrawer &&
+          contactDrawer.classList.contains("open")
+        ) {
+
+          closeContactDrawer();
+
+        } else {
+
+          openContactDrawer();
+
+        }
+
+      }
+    );
+
+  }
+
+
+  /*
+     Close button
+  */
+
+  if (contactClose) {
+
+    contactClose.addEventListener(
+      "click",
+      closeContactDrawer
+    );
+
+  }
+
+
+  /*
+     Click dark overlay to close
+  */
+
+  if (contactOverlay) {
+
+    contactOverlay.addEventListener(
+      "click",
+      closeContactDrawer
+    );
+
+  }
+
+
+
+  /* =========================================================
+     6. CLOSE CONTACT DRAWER WITH ESC
+     ========================================================= */
+
+  document.addEventListener(
+    "keydown",
+    (event) => {
+
+      if (event.key === "Escape") {
+
+        closeContactDrawer();
+
+      }
+
+    }
+  );
+
+
+
+  /* =========================================================
+     7. CLOSE MENUS WHEN CLICKING OUTSIDE
+     ========================================================= */
+
+  document.addEventListener(
+    "click",
+    (event) => {
+
+      /*
+         Close mobile navigation if clicked outside
+      */
+
+      if (
+        mainNav &&
+        navMenu &&
+        mobileMenuButton &&
+        !mainNav.contains(event.target) &&
+        !mobileMenuButton.contains(event.target)
+      ) {
+
+        if (window.innerWidth <= 900) {
+
+          navMenu.classList.remove("active");
+
+          mainNav.classList.remove("active");
+
+          mobileMenuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+
+          dropdowns.forEach((dropdown) => {
+
+            dropdown.classList.remove("open");
+
+          });
+
+        }
+
+      }
+
+    }
+  );
+
+
+
+  /* =========================================================
+     8. ACTIVE NAVIGATION
+     ========================================================= */
+
+  const currentPath =
+    window.location.pathname.split("/").pop() ||
+    "index.html";
+
+
+  document
+    .querySelectorAll(".nav-link")
+    .forEach((link) => {
+
+      const href =
+        link.getAttribute("href");
+
+      if (!href) return;
+
+
+      const linkPath =
+        href.split("#")[0];
+
+
+      /*
+         Do not mark Home because Home is intentionally
+         removed from the navigation.
+      */
+
+      if (
+        linkPath === currentPath &&
+        linkPath !== "index.html"
+      ) {
+
+        link.classList.add("active");
+
+      }
+
+    });
+
+
+
+  /* =========================================================
+     9. GALLERY LIGHTBOX
      ========================================================= */
 
   const galleryItems =
-    document.querySelectorAll('.gallery-item img');
+    document.querySelectorAll(
+      ".gallery-item img"
+    );
 
   const lightbox =
-    document.getElementById('lightboxModal');
+    document.getElementById(
+      "lightboxModal"
+    );
 
   const lightboxImg =
-    document.getElementById('lightboxImg');
+    document.getElementById(
+      "lightboxImg"
+    );
 
   const lightboxClose =
-    document.querySelector('.lightbox-close');
+    document.querySelector(
+      ".lightbox-close"
+    );
 
 
   if (
@@ -195,17 +509,20 @@ document.addEventListener('DOMContentLoaded', () => {
     lightboxImg
   ) {
 
-    galleryItems.forEach(img => {
+    galleryItems.forEach((img) => {
 
-      img.addEventListener('click', () => {
+      img.addEventListener(
+        "click",
+        () => {
 
-        lightbox.style.display = 'flex';
+          lightbox.style.display = "flex";
 
-        lightboxImg.src = img.src;
+          lightboxImg.src = img.src;
 
-        lightboxImg.alt = img.alt;
+          lightboxImg.alt = img.alt;
 
-      });
+        }
+      );
 
     });
 
@@ -214,65 +531,101 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (lightboxClose) {
 
-      lightboxClose.addEventListener('click', () => {
+      lightboxClose.addEventListener(
+        "click",
+        () => {
 
-        lightbox.style.display = 'none';
+          lightbox.style.display = "none";
 
-      });
+        }
+      );
 
     }
 
 
     /* Click outside image */
 
-    lightbox.addEventListener('click', (e) => {
+    lightbox.addEventListener(
+      "click",
+      (event) => {
 
-      if (e.target === lightbox) {
+        if (event.target === lightbox) {
 
-        lightbox.style.display = 'none';
+          lightbox.style.display = "none";
 
-      }
-
-    });
-
-
-    /* ESC key */
-
-    document.addEventListener('keydown', (e) => {
-
-      if (e.key === 'Escape') {
-
-        lightbox.style.display = 'none';
+        }
 
       }
+    );
 
-    });
+
+    /* ESC */
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (event.key === "Escape") {
+
+          lightbox.style.display = "none";
+
+        }
+
+      }
+    );
 
   }
 
 
+
   /* =========================================================
-     8. CLOSE MOBILE MENU WHEN RESIZING TO DESKTOP
+     10. RESIZE HANDLING
      ========================================================= */
 
-  window.addEventListener('resize', () => {
+  window.addEventListener(
+    "resize",
+    () => {
 
-    if (window.innerWidth > 768) {
+      /*
+         When moving back to desktop,
+         close mobile navigation.
+      */
 
-      if (navMenu) {
-        navMenu.classList.remove('active');
+      if (window.innerWidth > 900) {
+
+        if (navMenu) {
+
+          navMenu.classList.remove("active");
+
+        }
+
+        if (mainNav) {
+
+          mainNav.classList.remove("active");
+
+        }
+
+        if (mobileMenuButton) {
+
+          mobileMenuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        }
+
+
+        dropdowns.forEach((dropdown) => {
+
+          dropdown.classList.remove("open");
+
+        });
+
       }
-
-      if (hamburger) {
-        hamburger.setAttribute('aria-expanded', 'false');
-      }
-
-      document.querySelectorAll('.dropdown').forEach(dropdown => {
-        dropdown.classList.remove('open');
-      });
 
     }
+  );
 
-  });
 
 });
+```
