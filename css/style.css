@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SHEAC WEBSITE STYLESHEET
+   SHEAC WEBSITE
    Self Help Environment Awareness Camp
    ========================================================================== */
 
@@ -13,8 +13,6 @@
   --primary-dark: #0F3D13;
   --secondary: #4CAF50;
   --accent: #F4B942;
-
-  --earth: #795548;
 
   --bg-main: #F7F8F3;
   --bg-card: #FFFFFF;
@@ -174,19 +172,112 @@ header {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
-.nav-container {
+
+/* ==========================================================================
+   6. TOP CONTACT BAR
+   ========================================================================== */
+
+.top-bar {
+  background-color: var(--primary-dark);
+
+  color: #FFFFFF;
+
+  font-size: 0.82rem;
+}
+
+.top-bar-container {
+  min-height: 38px;
+
   display: flex;
 
   align-items: center;
 
   justify-content: space-between;
+}
 
-  padding: 0.75rem 0;
+.top-contact {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1.5rem;
+}
+
+.top-contact a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.45rem;
+
+  color: #FFFFFF;
+}
+
+.top-contact a:hover {
+  color: var(--accent);
+}
+
+.top-contact i {
+  font-size: 0.8rem;
+}
+
+
+/* Social icons */
+
+.social-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.social-links a {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #FFFFFF;
+
+  font-size: 0.85rem;
+}
+
+.social-links a:hover {
+  background-color: var(--accent);
+
+  color: var(--primary-dark);
+
+  transform: translateY(-2px);
 }
 
 
 /* ==========================================================================
-   6. BRAND / LOGO
+   7. MAIN HEADER
+   ========================================================================== */
+
+.main-header {
+  background-color: #FFFFFF;
+}
+
+.nav-container {
+  min-height: 88px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+
+/* ==========================================================================
+   8. BRAND / LOGO
    ========================================================================== */
 
 .brand-logo {
@@ -194,11 +285,13 @@ header {
 
   align-items: center;
 
-  gap: 0.75rem;
+  gap: 0.8rem;
+
+  flex-shrink: 0;
 }
 
 .brand-logo img {
-  height: 75px;
+  height: 68px;
 
   width: auto;
 }
@@ -210,7 +303,7 @@ header {
 }
 
 .brand-text .title {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
 
   font-weight: 700;
 
@@ -224,7 +317,7 @@ header {
 
   font-family: 'Mukta', sans-serif;
 
-  font-size: 0.8rem;
+  font-size: 0.82rem;
 
   color: var(--text-muted);
 
@@ -233,7 +326,7 @@ header {
 
 
 /* ==========================================================================
-   7. NAVIGATION
+   9. NAVIGATION
    ========================================================================== */
 
 nav {
@@ -248,16 +341,26 @@ nav {
   gap: 1.25rem;
 }
 
+.nav-menu > li {
+  position: relative;
+}
+
 .nav-link {
   position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.35rem;
 
   color: var(--primary);
 
   font-weight: 600;
 
-  font-size: 0.93rem;
+  font-size: 0.92rem;
 
-  padding: 0.5rem 0;
+  padding: 0.8rem 0;
 }
 
 .nav-link:hover,
@@ -281,9 +384,97 @@ nav {
   background-color: var(--accent);
 }
 
+.dropdown-toggle i {
+  font-size: 0.65rem;
+
+  transition: transform 0.3s ease;
+}
+
 
 /* ==========================================================================
-   8. HAMBURGER
+   10. DROPDOWN MENU
+   ========================================================================== */
+
+.dropdown-menu {
+  position: absolute;
+
+  top: calc(100% + 5px);
+
+  left: 50%;
+
+  transform: translateX(-50%) translateY(10px);
+
+  min-width: 220px;
+
+  background-color: #FFFFFF;
+
+  border-top: 3px solid var(--secondary);
+
+  border-radius: 0 0 var(--radius) var(--radius);
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+  padding: 0.5rem 0;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+
+  z-index: 1100;
+}
+
+
+/* Show dropdown on desktop */
+
+.dropdown:hover > .dropdown-menu {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown:hover .dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+
+/* Dropdown links */
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu a {
+  display: block;
+
+  padding: 0.7rem 1.2rem;
+
+  color: var(--text-main);
+
+  font-size: 0.9rem;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background-color: #F1F7F1;
+
+  color: var(--primary);
+
+  padding-left: 1.45rem;
+}
+
+
+/* ==========================================================================
+   11. HAMBURGER
    ========================================================================== */
 
 .hamburger {
@@ -297,20 +488,20 @@ nav {
 
   color: var(--primary);
 
-  font-size: 2rem;
+  font-size: 1.8rem;
 
   padding: 0.4rem;
 }
 
 
 /* ==========================================================================
-   9. HERO SECTION
+   12. HERO SECTION
    ========================================================================== */
 
 .hero {
   position: relative;
 
-  min-height: calc(100vh - 105px);
+  min-height: calc(100vh - 126px);
 
   background-image: url('../images/Group.png');
 
@@ -334,7 +525,7 @@ nav {
 }
 
 
-/* Dark green overlay */
+/* Hero overlay */
 
 .hero-overlay {
   position: absolute;
@@ -343,8 +534,8 @@ nav {
 
   background:
     linear-gradient(
-      rgba(0, 0, 0, 0.35),
-      rgba(27, 94, 32, 0.70)
+      rgba(0, 0, 0, 0.38),
+      rgba(27, 94, 32, 0.72)
     );
 
   z-index: 1;
@@ -398,7 +589,7 @@ nav {
 }
 
 
-/* Hero paragraph */
+/* Paragraph */
 
 .hero p {
   max-width: 800px;
@@ -414,7 +605,7 @@ nav {
 
 
 /* ==========================================================================
-   10. HERO BUTTONS
+   13. HERO BUTTONS
    ========================================================================== */
 
 .hero-buttons {
@@ -471,7 +662,7 @@ nav {
 
 
 /* ==========================================================================
-   11. SCROLL DOWN BUTTON
+   14. SCROLL DOWN
    ========================================================================== */
 
 .scroll-down {
@@ -486,13 +677,11 @@ nav {
   transform: translateX(-50%);
 
   width: 42px;
-
   height: 42px;
 
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   border: 1px solid rgba(255, 255, 255, 0.75);
@@ -527,7 +716,7 @@ nav {
 
 
 /* ==========================================================================
-   12. PAGE BANNER
+   15. PAGE BANNER
    ========================================================================== */
 
 .page-banner {
@@ -561,7 +750,7 @@ nav {
 
 
 /* ==========================================================================
-   13. GRIDS
+   16. GRIDS
    ========================================================================== */
 
 .grid-3 {
@@ -584,7 +773,7 @@ nav {
 
 
 /* ==========================================================================
-   14. CARDS
+   17. CARDS
    ========================================================================== */
 
 .card {
@@ -630,8 +819,7 @@ nav {
 
   padding: 0.25rem 0.75rem;
 
-  background-color:
-    rgba(76, 175, 80, 0.15);
+  background-color: rgba(76, 175, 80, 0.15);
 
   color: var(--primary);
 
@@ -648,7 +836,7 @@ nav {
 
 
 /* ==========================================================================
-   15. GALLERY
+   18. GALLERY
    ========================================================================== */
 
 .gallery-grid {
@@ -690,7 +878,7 @@ nav {
 
 
 /* ==========================================================================
-   16. LIGHTBOX
+   19. LIGHTBOX
    ========================================================================== */
 
 .lightbox-modal {
@@ -737,7 +925,7 @@ nav {
 
 
 /* ==========================================================================
-   17. EXECUTIVE TEAM GROUP PHOTO
+   20. EXECUTIVE TEAM GROUP PHOTO
    ========================================================================== */
 
 .group-photo-card {
@@ -800,7 +988,7 @@ nav {
 
 
 /* ==========================================================================
-   18. FOOTER
+   21. FOOTER
    ========================================================================== */
 
 footer {
@@ -833,19 +1021,71 @@ footer {
 
 
 /* ==========================================================================
-   19. MOBILE RESPONSIVENESS
+   22. MOBILE RESPONSIVENESS
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+  .nav-menu {
+    gap: 0.8rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+
+  .brand-logo img {
+    height: 62px;
+  }
+
+  .brand-text .title {
+    font-size: 1.2rem;
+  }
+
+}
+
+
+/* ==========================================================================
+   23. MOBILE NAVIGATION
    ========================================================================== */
 
 @media (max-width: 768px) {
 
-  /* Header */
+  /* Top bar */
+
+  .top-bar-container {
+    min-height: 42px;
+
+    justify-content: center;
+  }
+
+  .top-contact {
+    gap: 1rem;
+  }
+
+  .top-contact a {
+    font-size: 0.75rem;
+  }
+
+  .top-contact a:last-child {
+    display: none;
+  }
+
+  .social-links {
+    display: none;
+  }
+
+
+  /* Main header */
 
   .nav-container {
-    padding: 0.65rem 0;
+    min-height: 76px;
+
+    padding: 0.5rem 0;
   }
 
   .brand-logo img {
-    height: 58px;
+    height: 55px;
   }
 
   .brand-text .title {
@@ -853,29 +1093,35 @@ footer {
   }
 
   .brand-text .sub-title {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
   }
 
 
   /* Hamburger */
 
   .hamburger {
-    display: block !important;
+    display: block;
 
-    font-size: 2rem;
-
-    padding: 0.5rem;
-
-    cursor: pointer;
+    z-index: 1200;
   }
 
 
-  /* Mobile navigation */
+  /* Navigation */
+
+  nav {
+    position: absolute;
+
+    top: 100%;
+
+    left: 0;
+
+    width: 100%;
+  }
 
   .nav-menu {
     position: absolute;
 
-    top: 100%;
+    top: 0;
 
     left: 0;
 
@@ -887,39 +1133,91 @@ footer {
 
     align-items: flex-start;
 
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.5rem 1.5rem;
 
-    gap: 0.5rem;
+    gap: 0;
 
     display: none;
 
-    box-shadow:
-      0 8px 16px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
   }
 
   .nav-menu.active {
     display: flex !important;
   }
 
-  .nav-menu li {
+  .nav-menu > li {
     width: 100%;
   }
 
   .nav-link {
-    display: block;
+    width: 100%;
+
+    font-size: 1rem;
+
+    padding: 0.7rem 0;
+
+    justify-content: space-between;
+  }
+
+  .nav-link.active::after {
+    width: 40px;
+  }
+
+
+  /* Mobile dropdown */
+
+  .dropdown-menu {
+    position: static;
+
+    transform: none;
+
+    min-width: 100%;
 
     width: 100%;
 
-    font-size: 1.05rem;
+    border-top: none;
 
-    padding: 0.65rem 0;
+    border-left: 3px solid var(--secondary);
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    padding: 0;
+
+    display: none;
+
+    opacity: 1;
+
+    visibility: visible;
+  }
+
+  .dropdown:hover > .dropdown-menu {
+    display: none;
+  }
+
+  .dropdown.open > .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu a {
+    padding: 0.6rem 1rem;
+
+    background-color: #F7F8F3;
+
+    font-size: 0.9rem;
+  }
+
+  .dropdown-menu a:hover {
+    padding-left: 1.2rem;
   }
 
 
   /* Hero */
 
   .hero {
-    min-height: calc(100vh - 85px);
+    min-height: calc(100vh - 118px);
 
     background-position: center center;
   }
@@ -932,8 +1230,6 @@ footer {
     font-size: 0.9rem;
 
     letter-spacing: 2px;
-
-    margin-bottom: 1rem;
   }
 
   .hero h1 {
@@ -1009,7 +1305,7 @@ footer {
 
 
 /* ==========================================================================
-   20. SMALL MOBILE DEVICES
+   24. SMALL MOBILE DEVICES
    ========================================================================== */
 
 @media (max-width: 480px) {
@@ -1018,12 +1314,20 @@ footer {
     width: 92%;
   }
 
+  .top-contact {
+    gap: 0.5rem;
+  }
+
+  .top-contact a {
+    font-size: 0.7rem;
+  }
+
   .brand-logo {
     gap: 0.5rem;
   }
 
   .brand-logo img {
-    height: 50px;
+    height: 48px;
   }
 
   .brand-text .title {
@@ -1031,7 +1335,7 @@ footer {
   }
 
   .brand-text .sub-title {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
   }
 
   .hero h1 {
