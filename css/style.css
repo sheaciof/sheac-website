@@ -61,6 +61,10 @@ body {
   min-height: 100vh;
 }
 
+body.contact-open {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -280,12 +284,22 @@ header {
    8. BRAND / LOGO
    ========================================================================== */
 
-.brand-logo {
+.brand {
   display: flex;
 
   align-items: center;
 
   gap: 0.8rem;
+
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 
   flex-shrink: 0;
 }
@@ -302,17 +316,19 @@ header {
   flex-direction: column;
 }
 
-.brand-text .title {
+.brand-text .brand-name {
   font-size: 1.4rem;
 
   font-weight: 700;
 
   color: var(--primary);
 
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
+
+  line-height: 1.25;
 }
 
-.brand-text .sub-title {
+.brand-text .brand-name-nepali {
   display: block;
 
   font-family: 'Mukta', sans-serif;
@@ -384,7 +400,7 @@ nav {
   background-color: var(--accent);
 }
 
-.dropdown-toggle i {
+.nav-link i {
   font-size: 0.65rem;
 
   transition: transform 0.3s ease;
@@ -439,7 +455,7 @@ nav {
   transform: translateX(-50%) translateY(0);
 }
 
-.dropdown:hover .dropdown-toggle i {
+.dropdown:hover .nav-link i {
   transform: rotate(180deg);
 }
 
@@ -491,11 +507,319 @@ nav {
   font-size: 1.8rem;
 
   padding: 0.4rem;
+
+  z-index: 1200;
 }
 
 
 /* ==========================================================================
-   12. HERO SECTION
+   12. CONTACT TOGGLE BUTTON
+   ========================================================================== */
+
+.contact-toggle {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  background: transparent;
+
+  border: none;
+
+  cursor: pointer;
+
+  padding: 0;
+
+  margin-left: 1rem;
+
+  flex-shrink: 0;
+
+  z-index: 1200;
+}
+
+.contact-toggle span {
+  display: block;
+
+  width: 25px;
+  height: 2px;
+
+  background-color: var(--primary);
+
+  border-radius: 2px;
+
+  transition: var(--transition);
+}
+
+.contact-toggle:hover span {
+  background-color: var(--secondary);
+}
+
+
+/* Animated contact button */
+
+.contact-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.contact-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.contact-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ==========================================================================
+   13. CONTACT SIDE DRAWER
+   ========================================================================== */
+
+.contact-drawer {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+
+  width: 380px;
+
+  max-width: 90%;
+
+  height: 100vh;
+
+  background-color: #FFFFFF;
+
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.18);
+
+  z-index: 2500;
+
+  transform: translateX(100%);
+
+  transition: transform 0.35s ease;
+
+  overflow-y: auto;
+}
+
+.contact-drawer.active {
+  transform: translateX(0);
+}
+
+
+/* Drawer header */
+
+.contact-drawer-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 1.4rem 1.5rem;
+
+  background-color: var(--primary-dark);
+
+  color: #FFFFFF;
+}
+
+.contact-drawer-header h2 {
+  margin: 0;
+
+  color: #FFFFFF;
+
+  font-size: 1.35rem;
+}
+
+.contact-close {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  background: transparent;
+
+  color: #FFFFFF;
+
+  font-size: 1.4rem;
+
+  cursor: pointer;
+
+  border-radius: 50%;
+
+  transition: var(--transition);
+}
+
+.contact-close:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+
+  color: var(--accent);
+}
+
+
+/* Drawer content */
+
+.contact-drawer-content {
+  padding: 1.8rem 1.5rem;
+}
+
+.contact-intro {
+  color: var(--text-muted);
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+
+  margin-bottom: 1.5rem;
+}
+
+
+/* Contact items */
+
+.contact-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 1rem;
+
+  padding: 1rem 0;
+
+  border-bottom: 1px solid var(--border-color);
+
+  color: var(--text-main);
+}
+
+.contact-item:hover {
+  color: var(--primary);
+}
+
+.contact-item-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(76, 175, 80, 0.12);
+
+  color: var(--primary);
+
+  border-radius: 50%;
+}
+
+.contact-item span:last-child {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.15rem;
+}
+
+.contact-item strong {
+  color: var(--primary);
+
+  font-size: 0.95rem;
+}
+
+.contact-item small {
+  color: var(--text-muted);
+
+  font-size: 0.85rem;
+
+  line-height: 1.5;
+}
+
+
+/* Drawer social */
+
+.drawer-social {
+  margin-top: 2rem;
+}
+
+.drawer-social p {
+  color: var(--primary);
+
+  font-weight: 700;
+
+  margin-bottom: 0.8rem;
+}
+
+.drawer-social .social-icons {
+  display: flex;
+
+  gap: 0.7rem;
+}
+
+.drawer-social .social-icons a {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--primary);
+
+  color: #FFFFFF;
+
+  border-radius: 50%;
+
+  transition: var(--transition);
+}
+
+.drawer-social .social-icons a:hover {
+  background-color: var(--secondary);
+
+  transform: translateY(-2px);
+}
+
+
+/* ==========================================================================
+   14. CONTACT DRAWER OVERLAY
+   ========================================================================== */
+
+.contact-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background-color: rgba(0, 0, 0, 0.45);
+
+  z-index: 2400;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.contact-overlay.active {
+  opacity: 1;
+
+  visibility: visible;
+}
+
+
+/* ==========================================================================
+   15. HERO SECTION
    ========================================================================== */
 
 .hero {
@@ -605,7 +929,7 @@ nav {
 
 
 /* ==========================================================================
-   13. HERO BUTTONS
+   16. HERO BUTTONS
    ========================================================================== */
 
 .hero-buttons {
@@ -662,7 +986,7 @@ nav {
 
 
 /* ==========================================================================
-   14. SCROLL DOWN
+   17. SCROLL DOWN
    ========================================================================== */
 
 .scroll-down {
@@ -716,7 +1040,7 @@ nav {
 
 
 /* ==========================================================================
-   15. PAGE BANNER
+   18. PAGE BANNER
    ========================================================================== */
 
 .page-banner {
@@ -750,7 +1074,7 @@ nav {
 
 
 /* ==========================================================================
-   16. GRIDS
+   19. GRIDS
    ========================================================================== */
 
 .grid-3 {
@@ -773,7 +1097,7 @@ nav {
 
 
 /* ==========================================================================
-   17. CARDS
+   20. CARDS
    ========================================================================== */
 
 .card {
@@ -836,7 +1160,7 @@ nav {
 
 
 /* ==========================================================================
-   18. GALLERY
+   21. GALLERY
    ========================================================================== */
 
 .gallery-grid {
@@ -878,7 +1202,7 @@ nav {
 
 
 /* ==========================================================================
-   19. LIGHTBOX
+   22. LIGHTBOX
    ========================================================================== */
 
 .lightbox-modal {
@@ -925,7 +1249,7 @@ nav {
 
 
 /* ==========================================================================
-   20. EXECUTIVE TEAM GROUP PHOTO
+   23. EXECUTIVE TEAM GROUP PHOTO
    ========================================================================== */
 
 .group-photo-card {
@@ -988,7 +1312,7 @@ nav {
 
 
 /* ==========================================================================
-   21. FOOTER
+   24. FOOTER
    ========================================================================== */
 
 footer {
@@ -1021,7 +1345,7 @@ footer {
 
 
 /* ==========================================================================
-   22. MOBILE RESPONSIVENESS
+   25. DESKTOP RESPONSIVENESS
    ========================================================================== */
 
 @media (max-width: 900px) {
@@ -1038,7 +1362,7 @@ footer {
     height: 62px;
   }
 
-  .brand-text .title {
+  .brand-text .brand-name {
     font-size: 1.2rem;
   }
 
@@ -1046,7 +1370,7 @@ footer {
 
 
 /* ==========================================================================
-   23. MOBILE NAVIGATION
+   26. MOBILE NAVIGATION
    ========================================================================== */
 
 @media (max-width: 768px) {
@@ -1084,15 +1408,23 @@ footer {
     padding: 0.5rem 0;
   }
 
+  .brand {
+    gap: 0.5rem;
+
+    max-width: calc(100% - 95px);
+  }
+
   .brand-logo img {
     height: 55px;
   }
 
-  .brand-text .title {
+  .brand-text .brand-name {
     font-size: 1.1rem;
+
+    line-height: 1.15;
   }
 
-  .brand-text .sub-title {
+  .brand-text .brand-name-nepali {
     font-size: 0.68rem;
   }
 
@@ -1103,6 +1435,20 @@ footer {
     display: block;
 
     z-index: 1200;
+  }
+
+
+  /* Contact button */
+
+  .contact-toggle {
+    width: 38px;
+    height: 38px;
+
+    margin-left: 0.25rem;
+  }
+
+  .contact-toggle span {
+    width: 23px;
   }
 
 
@@ -1214,6 +1560,15 @@ footer {
   }
 
 
+  /* Contact drawer */
+
+  .contact-drawer {
+    width: 350px;
+
+    max-width: 88%;
+  }
+
+
   /* Hero */
 
   .hero {
@@ -1305,7 +1660,7 @@ footer {
 
 
 /* ==========================================================================
-   24. SMALL MOBILE DEVICES
+   27. SMALL MOBILE DEVICES
    ========================================================================== */
 
 @media (max-width: 480px) {
@@ -1322,20 +1677,35 @@ footer {
     font-size: 0.7rem;
   }
 
-  .brand-logo {
+  .brand {
     gap: 0.5rem;
+
+    max-width: calc(100% - 90px);
   }
 
   .brand-logo img {
     height: 48px;
   }
 
-  .brand-text .title {
-    font-size: 1rem;
+  .brand-text .brand-name {
+    font-size: 0.9rem;
+
+    line-height: 1.15;
   }
 
-  .brand-text .sub-title {
+  .brand-text .brand-name-nepali {
     font-size: 0.62rem;
+
+    line-height: 1.2;
+  }
+
+  .contact-toggle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .contact-toggle span {
+    width: 21px;
   }
 
   .hero h1 {
