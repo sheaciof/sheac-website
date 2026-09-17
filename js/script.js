@@ -1,6 +1,4 @@
-```javascript id="h7m2qx"
 document.addEventListener("DOMContentLoaded", () => {
-
 
   /* =========================================================
      1. HEADER HIDE / SHOW ON SCROLL
@@ -57,42 +55,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-
   /* =========================================================
      2. MOBILE NAVIGATION
      ========================================================= */
 
   const hamburger = document.querySelector(".hamburger");
+
   const navMenu = document.querySelector(".nav-menu");
-  const mainNav = document.querySelector(".main-nav");
+
+  const mainNav = document.querySelector("nav");
 
 
-  /*
-     The new index.html uses the contact-toggle as the
-     three-line button, so there may be no .hamburger.
-     We support both to keep the site flexible.
-  */
+  if (hamburger && navMenu) {
 
-  const mobileMenuButton =
-    hamburger || document.querySelector(".mobile-menu-toggle");
-
-
-  if (mobileMenuButton && navMenu) {
-
-    mobileMenuButton.addEventListener("click", (event) => {
+    hamburger.addEventListener("click", (event) => {
 
       event.stopPropagation();
 
       navMenu.classList.toggle("active");
 
-      if (mainNav) {
-        mainNav.classList.toggle("active");
-      }
-
       const isOpen =
         navMenu.classList.contains("active");
 
-      mobileMenuButton.setAttribute(
+      hamburger.setAttribute(
         "aria-expanded",
         isOpen
       );
@@ -100,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   }
-
 
 
   /* =========================================================
@@ -116,19 +100,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggle =
       dropdown.querySelector(".dropdown-toggle");
 
-
     if (!toggle) return;
 
 
     toggle.addEventListener("click", (event) => {
 
-      /*
-         Desktop:
-         CSS handles dropdowns with hover.
-
-         Mobile/tablet:
-         JavaScript handles dropdowns with click.
-      */
+      /* Only use click behavior on mobile/tablet */
 
       if (window.innerWidth <= 900) {
 
@@ -150,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-        /* Toggle current dropdown */
+        /* Toggle selected dropdown */
 
         dropdown.classList.toggle("open");
 
@@ -161,65 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-
   /* =========================================================
-     4. CLOSE MOBILE NAVIGATION AFTER NORMAL LINK
-     ========================================================= */
-
-  document
-    .querySelectorAll(".nav-menu a")
-    .forEach((link) => {
-
-      link.addEventListener("click", () => {
-
-        /*
-           Dropdown buttons stay open on mobile.
-           Normal links close the menu.
-        */
-
-        if (
-          !link.classList.contains("dropdown-toggle") ||
-          window.innerWidth > 900
-        ) {
-
-          if (navMenu) {
-
-            navMenu.classList.remove("active");
-
-          }
-
-          if (mainNav) {
-
-            mainNav.classList.remove("active");
-
-          }
-
-          if (mobileMenuButton) {
-
-            mobileMenuButton.setAttribute(
-              "aria-expanded",
-              "false"
-            );
-
-          }
-
-
-          dropdowns.forEach((dropdown) => {
-
-            dropdown.classList.remove("open");
-
-          });
-
-        }
-
-      });
-
-    });
-
-
-
-  /* =========================================================
-     5. CONTACT DRAWER
+     4. CONTACT DRAWER
      ========================================================= */
 
   const contactToggle =
@@ -235,9 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".contact-overlay");
 
 
-  /*
-     Open contact drawer
-  */
+  /* Open contact drawer */
 
   const openContactDrawer = () => {
 
@@ -273,9 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
 
-  /*
-     Close contact drawer
-  */
+  /* Close contact drawer */
 
   const closeContactDrawer = () => {
 
@@ -311,9 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
 
-  /*
-     Three-line button
-  */
+  /* Three-line contact button */
 
   if (contactToggle) {
 
@@ -342,9 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /*
-     Close button
-  */
+  /* Close button */
 
   if (contactClose) {
 
@@ -356,9 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /*
-     Click dark overlay to close
-  */
+  /* Click overlay to close */
 
   if (contactOverlay) {
 
@@ -370,9 +280,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-
   /* =========================================================
-     6. CLOSE CONTACT DRAWER WITH ESC
+     5. ESCAPE KEY
      ========================================================= */
 
   document.addEventListener(
@@ -383,50 +292,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
         closeContactDrawer();
 
-      }
-
-    }
-  );
-
-
-
-  /* =========================================================
-     7. CLOSE MENUS WHEN CLICKING OUTSIDE
-     ========================================================= */
-
-  document.addEventListener(
-    "click",
-    (event) => {
-
-      /*
-         Close mobile navigation if clicked outside
-      */
-
-      if (
-        mainNav &&
-        navMenu &&
-        mobileMenuButton &&
-        !mainNav.contains(event.target) &&
-        !mobileMenuButton.contains(event.target)
-      ) {
-
-        if (window.innerWidth <= 900) {
+        if (navMenu) {
 
           navMenu.classList.remove("active");
 
-          mainNav.classList.remove("active");
+        }
 
-          mobileMenuButton.setAttribute(
+        dropdowns.forEach((dropdown) => {
+
+          dropdown.classList.remove("open");
+
+        });
+
+        if (hamburger) {
+
+          hamburger.setAttribute(
             "aria-expanded",
             "false"
           );
-
-
-          dropdowns.forEach((dropdown) => {
-
-            dropdown.classList.remove("open");
-
-          });
 
         }
 
@@ -436,46 +319,127 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 
-
   /* =========================================================
-     8. ACTIVE NAVIGATION
+     6. CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
      ========================================================= */
 
-  const currentPath =
-    window.location.pathname.split("/").pop() ||
-    "index.html";
-
-
-  document
-    .querySelectorAll(".nav-link")
-    .forEach((link) => {
-
-      const href =
-        link.getAttribute("href");
-
-      if (!href) return;
-
-
-      const linkPath =
-        href.split("#")[0];
-
-
-      /*
-         Do not mark Home because Home is intentionally
-         removed from the navigation.
-      */
+  document.addEventListener(
+    "click",
+    (event) => {
 
       if (
-        linkPath === currentPath &&
-        linkPath !== "index.html"
+        window.innerWidth <= 900 &&
+        navMenu &&
+        hamburger &&
+        !navMenu.contains(event.target) &&
+        !hamburger.contains(event.target)
       ) {
 
-        link.classList.add("active");
+        navMenu.classList.remove("active");
+
+        dropdowns.forEach((dropdown) => {
+
+          dropdown.classList.remove("open");
+
+        });
+
+        hamburger.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    }
+  );
+
+
+  /* =========================================================
+     7. CLOSE MOBILE MENU AFTER SELECTING A LINK
+     ========================================================= */
+
+  const navLinks =
+    document.querySelectorAll(
+      ".nav-menu a:not(.dropdown-toggle)"
+    );
+
+
+  navLinks.forEach((link) => {
+
+    link.addEventListener("click", () => {
+
+      if (window.innerWidth <= 900) {
+
+        if (navMenu) {
+
+          navMenu.classList.remove("active");
+
+        }
+
+        dropdowns.forEach((dropdown) => {
+
+          dropdown.classList.remove("open");
+
+        });
+
+        if (hamburger) {
+
+          hamburger.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        }
 
       }
 
     });
 
+  });
+
+
+  /* =========================================================
+     8. ACTIVE NAVIGATION
+     ========================================================= */
+
+  const currentPage =
+    window.location.pathname
+      .split("/")
+      .pop() || "index.html";
+
+
+  const allNavLinks =
+    document.querySelectorAll(
+      ".nav-menu a"
+    );
+
+
+  allNavLinks.forEach((link) => {
+
+    const href =
+      link.getAttribute("href");
+
+    if (!href) return;
+
+    const linkPage =
+      href.split("/").pop();
+
+
+    /*
+       Home is intentionally not in
+       the navigation.
+    */
+
+    if (
+      linkPage === currentPage &&
+      linkPage !== "index.html"
+    ) {
+
+      link.classList.add("active");
+
+    }
+
+  });
 
 
   /* =========================================================
@@ -519,7 +483,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
           lightboxImg.src = img.src;
 
-          lightboxImg.alt = img.alt;
+          lightboxImg.alt = img.alt || "";
+
+          document.body.style.overflow = "hidden";
 
         }
       );
@@ -537,6 +503,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
           lightbox.style.display = "none";
 
+          document.body.style.overflow = "";
+
         }
       );
 
@@ -552,6 +520,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.target === lightbox) {
 
           lightbox.style.display = "none";
+
+          document.body.style.overflow = "";
 
         }
 
@@ -569,13 +539,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
           lightbox.style.display = "none";
 
+          document.body.style.overflow = "";
+
         }
 
       }
     );
 
   }
-
 
 
   /* =========================================================
@@ -587,8 +558,8 @@ document.addEventListener("DOMContentLoaded", () => {
     () => {
 
       /*
-         When moving back to desktop,
-         close mobile navigation.
+         When returning to desktop,
+         close mobile navigation and dropdowns.
       */
 
       if (window.innerWidth > 900) {
@@ -599,21 +570,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        if (mainNav) {
+        if (hamburger) {
 
-          mainNav.classList.remove("active");
-
-        }
-
-        if (mobileMenuButton) {
-
-          mobileMenuButton.setAttribute(
+          hamburger.setAttribute(
             "aria-expanded",
             "false"
           );
 
         }
-
 
         dropdowns.forEach((dropdown) => {
 
@@ -626,6 +590,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 
-
 });
-```
