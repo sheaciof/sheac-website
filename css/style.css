@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SHEAC WEBSITE STYLESHEET
+   SHEAC WEBSITE
    Self Help Environment Awareness Camp
    ========================================================================== */
 
@@ -59,9 +59,6 @@ body {
   flex-direction: column;
 
   min-height: 100vh;
-
-  /* Space for fixed header */
-  padding-top: 126px;
 }
 
 a {
@@ -160,10 +157,9 @@ section {
    ========================================================================== */
 
 header {
-  position: fixed;
+  position: sticky;
 
   top: 0;
-  left: 0;
 
   width: 100%;
 
@@ -174,15 +170,6 @@ header {
   z-index: 1000;
 
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-
-  transition: transform 0.35s ease;
-}
-
-
-/* Header hides when scrolling down */
-
-header.header-hidden {
-  transform: translateY(-100%);
 }
 
 
@@ -235,16 +222,14 @@ header.header-hidden {
 }
 
 
-/* ==========================================================================
-   7. SOCIAL MEDIA ICONS
-   ========================================================================== */
+/* Social icons */
 
 .social-links {
   display: flex;
 
   align-items: center;
 
-  gap: 0.55rem;
+  gap: 0.8rem;
 }
 
 .social-links a {
@@ -273,7 +258,7 @@ header.header-hidden {
 
 
 /* ==========================================================================
-   8. MAIN HEADER
+   7. MAIN HEADER
    ========================================================================== */
 
 .main-header {
@@ -292,7 +277,7 @@ header.header-hidden {
 
 
 /* ==========================================================================
-   9. BRAND / LOGO
+   8. BRAND / LOGO
    ========================================================================== */
 
 .brand-logo {
@@ -341,7 +326,7 @@ header.header-hidden {
 
 
 /* ==========================================================================
-   10. NAVIGATION
+   9. NAVIGATION
    ========================================================================== */
 
 nav {
@@ -399,9 +384,6 @@ nav {
   background-color: var(--accent);
 }
 
-
-/* Dropdown arrow */
-
 .dropdown-toggle i {
   font-size: 0.65rem;
 
@@ -410,12 +392,8 @@ nav {
 
 
 /* ==========================================================================
-   11. DROPDOWN MENU
+   10. DROPDOWN MENU
    ========================================================================== */
-
-.dropdown {
-  position: relative;
-}
 
 .dropdown-menu {
   position: absolute;
@@ -442,8 +420,6 @@ nav {
 
   visibility: hidden;
 
-  pointer-events: none;
-
   transition:
     opacity 0.25s ease,
     transform 0.25s ease,
@@ -453,20 +429,15 @@ nav {
 }
 
 
-/* Desktop hover */
+/* Show dropdown on desktop */
 
 .dropdown:hover > .dropdown-menu {
   opacity: 1;
 
   visibility: visible;
 
-  pointer-events: auto;
-
   transform: translateX(-50%) translateY(0);
 }
-
-
-/* Rotate arrow */
 
 .dropdown:hover .dropdown-toggle i {
   transform: rotate(180deg);
@@ -503,7 +474,7 @@ nav {
 
 
 /* ==========================================================================
-   12. HAMBURGER
+   11. HAMBURGER
    ========================================================================== */
 
 .hamburger {
@@ -524,7 +495,7 @@ nav {
 
 
 /* ==========================================================================
-   13. HERO
+   12. HERO SECTION
    ========================================================================== */
 
 .hero {
@@ -588,7 +559,7 @@ nav {
 }
 
 
-/* Hero tagline */
+/* Tagline */
 
 .hero-tagline {
   font-size: 1.15rem;
@@ -605,7 +576,7 @@ nav {
 }
 
 
-/* Hero heading */
+/* Main heading */
 
 .hero h1 {
   font-size: 3.2rem;
@@ -618,7 +589,7 @@ nav {
 }
 
 
-/* Hero paragraph */
+/* Paragraph */
 
 .hero p {
   max-width: 800px;
@@ -634,7 +605,7 @@ nav {
 
 
 /* ==========================================================================
-   14. HERO BUTTONS
+   13. HERO BUTTONS
    ========================================================================== */
 
 .hero-buttons {
@@ -691,7 +662,7 @@ nav {
 
 
 /* ==========================================================================
-   15. SCROLL DOWN
+   14. SCROLL DOWN
    ========================================================================== */
 
 .scroll-down {
@@ -745,7 +716,7 @@ nav {
 
 
 /* ==========================================================================
-   16. PAGE BANNER
+   15. PAGE BANNER
    ========================================================================== */
 
 .page-banner {
@@ -779,7 +750,7 @@ nav {
 
 
 /* ==========================================================================
-   17. GRIDS
+   16. GRIDS
    ========================================================================== */
 
 .grid-3 {
@@ -802,7 +773,7 @@ nav {
 
 
 /* ==========================================================================
-   18. CARDS
+   17. CARDS
    ========================================================================== */
 
 .card {
@@ -865,7 +836,7 @@ nav {
 
 
 /* ==========================================================================
-   19. GALLERY
+   18. GALLERY
    ========================================================================== */
 
 .gallery-grid {
@@ -907,7 +878,7 @@ nav {
 
 
 /* ==========================================================================
-   20. LIGHTBOX
+   19. LIGHTBOX
    ========================================================================== */
 
 .lightbox-modal {
@@ -954,7 +925,7 @@ nav {
 
 
 /* ==========================================================================
-   21. EXECUTIVE TEAM GROUP PHOTO
+   20. EXECUTIVE TEAM GROUP PHOTO
    ========================================================================== */
 
 .group-photo-card {
@@ -1017,7 +988,7 @@ nav {
 
 
 /* ==========================================================================
-   22. FOOTER
+   21. FOOTER
    ========================================================================== */
 
 footer {
@@ -1025,153 +996,15 @@ footer {
 
   color: #FFFFFF;
 
-  padding: 4rem 0 1.5rem;
+  padding: 3.5rem 0 2rem 0;
 
   margin-top: auto;
 }
 
-
-/* Footer main content */
-
-.footer-content {
-  display: grid;
-
-  grid-template-columns:
-    1.5fr
-    1fr
-    1fr;
-
-  gap: 3rem;
-
-  padding-bottom: 2.5rem;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-
-/* Footer headings */
-
-.footer-content h3 {
-  color: #FFFFFF;
-
-  font-size: 1.15rem;
-
-  margin-bottom: 1rem;
-}
-
-
-/* Footer organization */
-
-.footer-about p {
-  color: #CFD8DC;
-
-  font-size: 0.9rem;
-
-  max-width: 420px;
-
-  line-height: 1.7;
-}
-
-
-/* Footer contact */
-
-.footer-contact p {
-  color: #CFD8DC;
-
-  font-size: 0.9rem;
-
-  margin-bottom: 0.65rem;
-}
-
-.footer-contact a {
-  color: #CFD8DC;
-}
-
-.footer-contact a:hover {
-  color: var(--accent);
-}
-
-.footer-contact i {
-  width: 22px;
-
-  color: var(--accent);
-
-  margin-right: 0.4rem;
-}
-
-
-/* Footer links */
-
-.footer-links a {
-  display: block;
-
-  color: #CFD8DC;
-
-  font-size: 0.9rem;
-
-  margin-bottom: 0.55rem;
-}
-
-.footer-links a:hover {
-  color: var(--accent);
-
-  padding-left: 4px;
-}
-
-
-/* ==========================================================================
-   23. FOOTER SOCIAL MEDIA
-   ========================================================================== */
-
-.footer-social {
-  display: flex;
-
-  align-items: center;
-
-  gap: 0.65rem;
-
-  margin-top: 1.2rem;
-}
-
-.footer-social a {
-  width: 38px;
-  height: 38px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid rgba(255, 255, 255, 0.35);
-
-  border-radius: 50%;
-
-  color: #FFFFFF;
-
-  font-size: 0.95rem;
-
-  transition: var(--transition);
-}
-
-.footer-social a:hover {
-  background-color: var(--accent);
-
-  border-color: var(--accent);
-
-  color: var(--primary-dark);
-
-  transform: translateY(-3px);
-}
-
-
-/* Footer bottom */
-
 .footer-bottom {
   text-align: center;
 
-  padding-top: 1.5rem;
-
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 
   color: #CFD8DC;
 }
@@ -1188,7 +1021,7 @@ footer {
 
 
 /* ==========================================================================
-   24. MOBILE RESPONSIVENESS
+   22. MOBILE RESPONSIVENESS
    ========================================================================== */
 
 @media (max-width: 900px) {
@@ -1209,25 +1042,14 @@ footer {
     font-size: 1.2rem;
   }
 
-  .footer-content {
-    grid-template-columns: 1fr 1fr;
-  }
-
 }
 
 
 /* ==========================================================================
-   25. MOBILE NAVIGATION
+   23. MOBILE NAVIGATION
    ========================================================================== */
 
 @media (max-width: 768px) {
-
-  /* Body */
-
-  body {
-    padding-top: 118px;
-  }
-
 
   /* Top bar */
 
@@ -1369,24 +1191,15 @@ footer {
     opacity: 1;
 
     visibility: visible;
-
-    pointer-events: auto;
   }
-
-
-  /* Prevent hover from opening mobile dropdown */
 
   .dropdown:hover > .dropdown-menu {
     display: none;
   }
 
-
-  /* JavaScript opens dropdown */
-
   .dropdown.open > .dropdown-menu {
     display: block;
   }
-
 
   .dropdown-menu a {
     padding: 0.6rem 1rem;
@@ -1471,19 +1284,28 @@ footer {
   }
 
 
-  /* Footer */
+  /* Page banner */
 
-  .footer-content {
-    grid-template-columns: 1fr;
+  .page-banner {
+    padding: 3rem 1rem;
+  }
 
-    gap: 2rem;
+  .page-banner h1 {
+    font-size: 1.9rem;
+  }
+
+
+  /* Group photo */
+
+  .group-photo-caption {
+    padding: 1.25rem;
   }
 
 }
 
 
 /* ==========================================================================
-   26. SMALL MOBILE DEVICES
+   24. SMALL MOBILE DEVICES
    ========================================================================== */
 
 @media (max-width: 480px) {
@@ -1534,10 +1356,6 @@ footer {
     width: 85%;
 
     max-width: 280px;
-  }
-
-  .footer-social {
-    gap: 0.5rem;
   }
 
 }
