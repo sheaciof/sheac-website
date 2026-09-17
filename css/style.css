@@ -1,42 +1,38 @@
-/* ==========================================================================
-   SHEAC WEBSITE STYLESHEET
-   Self Help Environment Awareness Camp
-   ========================================================================== */
+```css
+/* =========================================================
+   SHEAC WEBSITE
+   Think Globally, Act Locally
+   ========================================================= */
 
 
-/* ==========================================================================
+/* =========================================================
    1. ROOT VARIABLES
-   ========================================================================== */
+   ========================================================= */
 
 :root {
   --primary: #1B5E20;
-  --primary-dark: #0F3D13;
-  --secondary: #4CAF50;
-  --accent: #F4B942;
+  --primary-dark: #124116;
+  --secondary: #2E7D32;
+  --accent: #A5D6A7;
 
-  --bg-main: #F7F8F3;
-  --bg-card: #FFFFFF;
+  --text: #263238;
+  --text-light: #607D8B;
 
-  --text-main: #263238;
-  --text-muted: #546E7A;
+  --white: #FFFFFF;
+  --light-bg: #F5F8F5;
+  --border: #E0E7E1;
 
-  --border-color: #E0E0E0;
-
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Inter', 'Mukta', sans-serif;
-
-  --transition: all 0.3s ease;
-
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.10);
+  --max-width: 1200px;
 
   --radius: 8px;
+
+  --transition: all 0.3s ease;
 }
 
 
-/* ==========================================================================
+/* =========================================================
    2. RESET
-   ========================================================================== */
+   ========================================================= */
 
 * {
   margin: 0;
@@ -46,34 +42,28 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
 }
 
 body {
-  font-family: var(--font-body);
-  background-color: var(--bg-main);
-  color: var(--text-main);
-  line-height: 1.6;
-
-  display: flex;
-  flex-direction: column;
-
-  min-height: 100vh;
-
-  /* Space for fixed header */
-  padding-top: 126px;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: var(--transition);
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
 }
 
 img {
   max-width: 100%;
-  height: auto;
   display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
 }
 
 ul {
@@ -81,223 +71,63 @@ ul {
 }
 
 
-/* ==========================================================================
-   3. TYPOGRAPHY
-   ========================================================================== */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  color: var(--primary);
-
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-.section-title h2 {
-  font-size: 2.25rem;
-
-  position: relative;
-  display: inline-block;
-
-  padding-bottom: 0.5rem;
-}
-
-.section-title h2::after {
-  content: '';
-
-  position: absolute;
-
-  bottom: 0;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  width: 60px;
-  height: 4px;
-
-  background-color: var(--accent);
-
-  border-radius: 2px;
-}
-
-.section-title p {
-  color: var(--text-muted);
-
-  margin-top: 0.5rem;
-
-  font-size: 1.1rem;
-}
-
-
-/* ==========================================================================
-   4. LAYOUT
-   ========================================================================== */
+/* =========================================================
+   3. COMMON CONTAINER
+   ========================================================= */
 
 .container {
-  width: 90%;
-  max-width: 1200px;
-
+  width: min(92%, var(--max-width));
   margin: 0 auto;
 }
 
-section {
-  padding: 4.5rem 0;
-}
 
-
-/* ==========================================================================
-   5. HEADER
-   ========================================================================== */
+/* =========================================================
+   4. HEADER
+   ========================================================= */
 
 header {
   position: fixed;
-
   top: 0;
   left: 0;
-
   width: 100%;
 
-  background-color: #FFFFFF;
+  height: 92px;
 
-  color: var(--primary);
+  background: var(--white);
 
   z-index: 1000;
 
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
 
   transition: transform 0.35s ease;
 }
-
-
-/* Header hides when scrolling down */
 
 header.header-hidden {
   transform: translateY(-100%);
 }
 
 
-/* ==========================================================================
-   6. TOP CONTACT BAR
-   ========================================================================== */
+/* Header inner */
 
-.top-bar {
-  background-color: var(--primary-dark);
+.header-container {
+  width: min(94%, 1400px);
+  height: 100%;
 
-  color: #FFFFFF;
-
-  font-size: 0.82rem;
-}
-
-.top-bar-container {
-  min-height: 38px;
+  margin: 0 auto;
 
   display: flex;
-
   align-items: center;
 
-  justify-content: space-between;
+  gap: 2rem;
 }
 
-.top-contact {
+
+/* =========================================================
+   5. BRAND
+   ========================================================= */
+
+.brand {
   display: flex;
-
-  align-items: center;
-
-  gap: 1.5rem;
-}
-
-.top-contact a {
-  display: flex;
-
-  align-items: center;
-
-  gap: 0.45rem;
-
-  color: #FFFFFF;
-}
-
-.top-contact a:hover {
-  color: var(--accent);
-}
-
-.top-contact i {
-  font-size: 0.8rem;
-}
-
-
-/* ==========================================================================
-   7. SOCIAL MEDIA ICONS
-   ========================================================================== */
-
-.social-links {
-  display: flex;
-
-  align-items: center;
-
-  gap: 0.55rem;
-}
-
-.social-links a {
-  width: 28px;
-  height: 28px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  color: #FFFFFF;
-
-  font-size: 0.85rem;
-}
-
-.social-links a:hover {
-  background-color: var(--accent);
-
-  color: var(--primary-dark);
-
-  transform: translateY(-2px);
-}
-
-
-/* ==========================================================================
-   8. MAIN HEADER
-   ========================================================================== */
-
-.main-header {
-  background-color: #FFFFFF;
-}
-
-.nav-container {
-  min-height: 88px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-}
-
-
-/* ==========================================================================
-   9. BRAND / LOGO
-   ========================================================================== */
-
-.brand-logo {
-  display: flex;
-
   align-items: center;
 
   gap: 0.8rem;
@@ -305,55 +135,55 @@ header.header-hidden {
   flex-shrink: 0;
 }
 
-.brand-logo img {
-  height: 68px;
+.brand-logo {
+  width: 58px;
+  height: 58px;
 
-  width: auto;
+  object-fit: contain;
 }
 
 .brand-text {
   display: flex;
-
   flex-direction: column;
+
+  line-height: 1.25;
 }
 
-.brand-text .title {
-  font-size: 1.4rem;
+.brand-name {
+  font-family: "Montserrat", sans-serif;
 
+  font-size: 0.95rem;
   font-weight: 700;
 
   color: var(--primary);
 
-  letter-spacing: 0.5px;
+  max-width: 280px;
 }
 
-.brand-text .sub-title {
-  display: block;
+.brand-name-nepali {
+  font-family: "Mukta", sans-serif;
 
-  font-family: 'Mukta', sans-serif;
+  font-size: 0.9rem;
 
-  font-size: 0.82rem;
+  color: var(--text-light);
 
-  color: var(--text-muted);
-
-  line-height: 1.3;
+  margin-top: 2px;
 }
 
 
-/* ==========================================================================
-   10. NAVIGATION
-   ========================================================================== */
+/* =========================================================
+   6. MAIN NAVIGATION
+   ========================================================= */
 
-nav {
+.main-nav {
   margin-left: auto;
 }
 
 .nav-menu {
   display: flex;
-
   align-items: center;
 
-  gap: 1.25rem;
+  gap: 0.2rem;
 }
 
 .nav-menu > li {
@@ -361,57 +191,43 @@ nav {
 }
 
 .nav-link {
-  position: relative;
-
   display: flex;
-
   align-items: center;
 
   gap: 0.35rem;
 
-  color: var(--primary);
+  padding: 0.65rem 0.8rem;
 
+  font-size: 0.9rem;
   font-weight: 600;
 
-  font-size: 0.92rem;
+  color: var(--text);
 
-  padding: 0.8rem 0;
+  border-radius: 6px;
+
+  transition: var(--transition);
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--secondary);
+  color: var(--primary);
+  background: rgba(27, 94, 32, 0.06);
 }
 
-.nav-link.active::after {
-  content: '';
-
-  position: absolute;
-
-  bottom: 0;
-
-  left: 0;
-
-  width: 100%;
-
-  height: 2px;
-
-  background-color: var(--accent);
-}
-
-
-/* Dropdown arrow */
-
-.dropdown-toggle i {
+.nav-link i {
   font-size: 0.65rem;
 
   transition: transform 0.3s ease;
 }
 
+.dropdown:hover > .nav-link i {
+  transform: rotate(180deg);
+}
 
-/* ==========================================================================
-   11. DROPDOWN MENU
-   ========================================================================== */
+
+/* =========================================================
+   7. DESKTOP DROPDOWN
+   ========================================================= */
 
 .dropdown {
   position: relative;
@@ -420,28 +236,25 @@ nav {
 .dropdown-menu {
   position: absolute;
 
-  top: calc(100% + 5px);
-
+  top: calc(100% + 8px);
   left: 50%;
+
+  min-width: 225px;
 
   transform: translateX(-50%) translateY(10px);
 
-  min-width: 220px;
-
-  background-color: #FFFFFF;
+  background: var(--white);
 
   border-top: 3px solid var(--secondary);
 
   border-radius: 0 0 var(--radius) var(--radius);
 
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.13);
 
   padding: 0.5rem 0;
 
   opacity: 0;
-
   visibility: hidden;
-
   pointer-events: none;
 
   transition:
@@ -451,9 +264,6 @@ nav {
 
   z-index: 1100;
 }
-
-
-/* Desktop hover */
 
 .dropdown:hover > .dropdown-menu {
   opacity: 1;
@@ -465,80 +275,313 @@ nav {
   transform: translateX(-50%) translateY(0);
 }
 
-
-/* Rotate arrow */
-
-.dropdown:hover .dropdown-toggle i {
-  transform: rotate(180deg);
-}
-
-
-/* Dropdown links */
-
-.dropdown-menu li {
-  width: 100%;
-}
-
-.dropdown-menu a {
+.dropdown-menu li a {
   display: block;
 
-  padding: 0.7rem 1.2rem;
+  padding: 0.65rem 1.2rem;
 
-  color: var(--text-main);
+  font-size: 0.87rem;
 
-  font-size: 0.9rem;
+  color: var(--text);
 
-  font-weight: 500;
-
-  white-space: nowrap;
+  transition: var(--transition);
 }
 
-.dropdown-menu a:hover {
-  background-color: #F1F7F1;
+.dropdown-menu li a:hover {
+  background: rgba(27, 94, 32, 0.07);
 
   color: var(--primary);
 
-  padding-left: 1.45rem;
+  padding-left: 1.4rem;
 }
 
 
-/* ==========================================================================
-   12. HAMBURGER
-   ========================================================================== */
+/* =========================================================
+   8. CONTACT BUTTON
+   ========================================================= */
 
-.hamburger {
-  display: none;
+.contact-toggle {
+  width: 46px;
+  height: 46px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 7px;
+
+  background: var(--white);
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
 
   cursor: pointer;
 
-  background: none;
+  flex-shrink: 0;
 
-  border: none;
+  transition: var(--transition);
+}
 
-  color: var(--primary);
+.contact-toggle span {
+  display: block;
 
-  font-size: 1.8rem;
+  width: 21px;
+  height: 2px;
 
-  padding: 0.4rem;
+  background: var(--primary);
+
+  border-radius: 2px;
+
+  transition: var(--transition);
+}
+
+.contact-toggle:hover {
+  background: var(--primary);
+
+  border-color: var(--primary);
+}
+
+.contact-toggle:hover span {
+  background: var(--white);
 }
 
 
-/* ==========================================================================
-   13. HERO
-   ========================================================================== */
+/* =========================================================
+   9. RIGHT CONTACT DRAWER
+   ========================================================= */
+
+.contact-drawer {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+
+  width: min(390px, 90vw);
+  height: 100vh;
+
+  background: var(--white);
+
+  z-index: 2000;
+
+  box-shadow: -8px 0 35px rgba(0, 0, 0, 0.18);
+
+  transform: translateX(100%);
+
+  transition: transform 0.4s ease;
+
+  overflow-y: auto;
+}
+
+.contact-drawer.open {
+  transform: translateX(0);
+}
+
+
+/* Drawer header */
+
+.contact-drawer-header {
+  height: 92px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 1.6rem;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-drawer-header h2 {
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 1.25rem;
+
+  color: var(--primary);
+}
+
+.contact-close {
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  background: var(--white);
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.contact-close:hover {
+  background: var(--primary);
+
+  color: var(--white);
+
+  border-color: var(--primary);
+}
+
+
+/* Drawer content */
+
+.contact-drawer-content {
+  padding: 2rem 1.6rem;
+}
+
+.contact-intro {
+  color: var(--text-light);
+
+  font-size: 0.95rem;
+
+  margin-bottom: 2rem;
+}
+
+
+/* Contact item */
+
+.contact-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  padding: 1rem 0;
+
+  border-bottom: 1px solid var(--border);
+
+  transition: var(--transition);
+}
+
+.contact-item:hover {
+  color: var(--primary);
+}
+
+.contact-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: rgba(27, 94, 32, 0.08);
+
+  color: var(--primary);
+
+  border-radius: 50%;
+}
+
+.contact-item span:last-child {
+  display: flex;
+
+  flex-direction: column;
+
+  font-size: 0.92rem;
+
+  word-break: break-word;
+}
+
+.contact-item small {
+  color: var(--text-light);
+
+  font-size: 0.75rem;
+
+  margin-bottom: 2px;
+}
+
+
+/* Drawer social */
+
+.drawer-social {
+  margin-top: 2rem;
+}
+
+.drawer-social p {
+  font-weight: 700;
+
+  color: var(--primary);
+
+  margin-bottom: 0.8rem;
+}
+
+.social-icons {
+  display: flex;
+
+  gap: 0.7rem;
+}
+
+.social-icons a {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  color: var(--primary);
+
+  transition: var(--transition);
+}
+
+.social-icons a:hover {
+  background: var(--primary);
+
+  color: var(--white);
+
+  border-color: var(--primary);
+
+  transform: translateY(-3px);
+}
+
+
+/* Overlay */
+
+.contact-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.42);
+
+  z-index: 1500;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.contact-overlay.active {
+  opacity: 1;
+
+  visibility: visible;
+}
+
+
+/* =========================================================
+   10. HERO
+   ========================================================= */
 
 .hero {
   position: relative;
 
-  min-height: calc(100vh - 126px);
-
-  background-image: url('../images/Group.png');
-
-  background-position: center center;
-
-  background-size: cover;
-
-  background-repeat: no-repeat;
+  min-height: calc(100vh - 92px);
 
   display: flex;
 
@@ -546,15 +589,16 @@ nav {
 
   justify-content: center;
 
-  text-align: center;
-
-  color: #FFFFFF;
-
   overflow: hidden;
+
+  background-image: url("../images/Group.png");
+
+  background-size: cover;
+
+  background-position: center center;
+
+  color: var(--white);
 }
-
-
-/* Hero overlay */
 
 .hero-overlay {
   position: absolute;
@@ -563,143 +607,137 @@ nav {
 
   background:
     linear-gradient(
-      rgba(0, 0, 0, 0.38),
-      rgba(27, 94, 32, 0.72)
+      90deg,
+      rgba(0, 0, 0, 0.68),
+      rgba(0, 0, 0, 0.42),
+      rgba(0, 0, 0, 0.22)
     );
-
-  z-index: 1;
 }
-
-
-/* Hero content */
 
 .hero-content {
   position: relative;
 
   z-index: 2;
 
-  width: 90%;
+  width: min(90%, 900px);
 
-  max-width: 900px;
+  margin-right: auto;
+  margin-left: 8%;
 
-  margin: 0 auto;
-
-  padding: 5rem 0;
+  padding: 6rem 0;
 }
 
-
-/* Hero tagline */
-
 .hero-tagline {
-  font-size: 1.15rem;
+  display: inline-block;
 
-  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 0.95rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
 
   text-transform: uppercase;
 
-  letter-spacing: 3px;
+  margin-bottom: 1rem;
 
-  font-weight: 600;
-
-  margin-bottom: 1.2rem;
+  color: var(--accent);
 }
-
-
-/* Hero heading */
 
 .hero h1 {
-  font-size: 3.2rem;
+  max-width: 850px;
 
-  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
 
-  margin-bottom: 1.5rem;
+  font-size: clamp(2.3rem, 5vw, 4.5rem);
 
-  line-height: 1.15;
+  line-height: 1.12;
+
+  font-weight: 800;
+
+  margin-bottom: 1.4rem;
 }
-
-
-/* Hero paragraph */
 
 .hero p {
-  max-width: 800px;
+  max-width: 730px;
 
-  margin: 0 auto 2.2rem auto;
+  font-size: 1.05rem;
 
-  font-size: 1.15rem;
+  line-height: 1.8;
 
-  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
 
-  color: #FFFFFF;
+  margin-bottom: 2rem;
 }
 
 
-/* ==========================================================================
-   14. HERO BUTTONS
-   ========================================================================== */
+/* =========================================================
+   11. BUTTONS
+   ========================================================= */
 
 .hero-buttons {
   display: flex;
 
-  justify-content: center;
-
-  gap: 1rem;
-
   flex-wrap: wrap;
+
+  gap: 0.9rem;
 }
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
 
-  padding: 0.75rem 1.75rem;
+  align-items: center;
+  justify-content: center;
 
-  border-radius: var(--radius);
+  min-height: 48px;
 
-  font-weight: 600;
+  padding: 0.7rem 1.35rem;
 
-  text-align: center;
+  border-radius: 6px;
 
-  cursor: pointer;
+  font-weight: 700;
 
-  border: 2px solid transparent;
+  font-size: 0.9rem;
 
   transition: var(--transition);
 }
 
 .btn-primary {
-  background-color: var(--secondary);
+  background: var(--primary);
 
-  color: #FFFFFF;
+  color: var(--white);
 }
 
 .btn-primary:hover {
-  background-color: #388E3C;
+  background: var(--secondary);
 
   transform: translateY(-2px);
 }
 
 .btn-accent {
-  background-color: var(--accent);
+  background: var(--accent);
 
-  color: var(--text-main);
+  color: var(--primary-dark);
 }
 
 .btn-accent:hover {
-  background-color: #E0A32E;
+  background: var(--white);
 
   transform: translateY(-2px);
 }
 
 
-/* ==========================================================================
-   15. SCROLL DOWN
-   ========================================================================== */
+/* =========================================================
+   12. SCROLL DOWN
+   ========================================================= */
 
 .scroll-down {
   position: absolute;
 
   z-index: 3;
 
-  bottom: 25px;
+  bottom: 28px;
 
   left: 50%;
 
@@ -708,26 +746,28 @@ nav {
   width: 42px;
   height: 42px;
 
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  border-radius: 50%;
+
   display: flex;
 
   align-items: center;
   justify-content: center;
 
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  color: var(--white);
 
-  border-radius: 50%;
-
-  color: #FFFFFF;
-
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 
   animation: scrollBounce 2s infinite;
+
+  transition: var(--transition);
 }
 
 .scroll-down:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--white);
 
-  color: #FFFFFF;
+  color: var(--primary);
 }
 
 @keyframes scrollBounce {
@@ -738,308 +778,211 @@ nav {
   }
 
   50% {
-    transform: translateX(-50%) translateY(8px);
+    transform: translateX(-50%) translateY(7px);
   }
 
 }
 
 
-/* ==========================================================================
-   16. PAGE BANNER
-   ========================================================================== */
+/* =========================================================
+   13. SECTIONS
+   ========================================================= */
 
-.page-banner {
-  background:
-    linear-gradient(
-      rgba(27, 94, 32, 0.85),
-      rgba(15, 61, 19, 0.90)
-    ),
-    url('../images/Group.png') center / cover no-repeat;
-
-  color: #FFFFFF;
-
-  padding: 3.5rem 0;
-
-  text-align: center;
+.section {
+  padding: 6rem 0;
 }
 
-.page-banner h1 {
-  color: #FFFFFF;
-
-  font-size: 2.25rem;
-
-  margin-bottom: 0.5rem;
+.section-light {
+  background: var(--light-bg);
 }
 
-.page-banner p {
-  color: var(--accent);
+.section-heading {
+  max-width: 780px;
 
-  font-size: 1.1rem;
+  margin-bottom: 3rem;
 }
 
+.section-label {
+  display: block;
 
-/* ==========================================================================
-   17. GRIDS
-   ========================================================================== */
+  color: var(--secondary);
 
-.grid-3 {
-  display: grid;
+  font-size: 0.78rem;
 
-  grid-template-columns:
-    repeat(auto-fit, minmax(300px, 1fr));
+  font-weight: 800;
 
-  gap: 2rem;
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+
+  margin-bottom: 0.7rem;
 }
 
-.grid-2 {
-  display: grid;
+.section-heading h2 {
+  font-family: "Montserrat", sans-serif;
 
-  grid-template-columns:
-    repeat(auto-fit, minmax(400px, 1fr));
+  color: var(--primary-dark);
 
-  gap: 2rem;
-}
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
 
-
-/* ==========================================================================
-   18. CARDS
-   ========================================================================== */
-
-.card {
-  background: var(--bg-card);
-
-  border-radius: var(--radius);
-
-  overflow: hidden;
-
-  box-shadow: var(--shadow-sm);
-
-  transition: var(--transition);
-
-  display: flex;
-
-  flex-direction: column;
-
-  border: 1px solid var(--border-color);
-
-  padding: 1.5rem;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-
-  box-shadow: var(--shadow-md);
-}
-
-.card h3 {
-  margin-bottom: 0.75rem;
-}
-
-.card p {
-  color: var(--text-muted);
-
-  font-size: 0.95rem;
+  line-height: 1.2;
 
   margin-bottom: 1rem;
 }
 
-.card-tag {
-  display: inline-block;
-
-  padding: 0.25rem 0.75rem;
-
-  background-color: rgba(76, 175, 80, 0.15);
-
-  color: var(--primary);
-
-  border-radius: 20px;
-
-  font-size: 0.8rem;
-
-  font-weight: 600;
-
-  margin-bottom: 0.75rem;
-
-  width: fit-content;
-}
-
-
-/* ==========================================================================
-   19. GALLERY
-   ========================================================================== */
-
-.gallery-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fill, minmax(250px, 1fr));
-
-  gap: 1.25rem;
-}
-
-.gallery-item {
-  position: relative;
-
-  border-radius: var(--radius);
-
-  overflow: hidden;
-
-  cursor: pointer;
-
-  height: 220px;
-
-  background: #E0E0E0;
-}
-
-.gallery-item img {
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
-  transition: var(--transition);
-}
-
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
-
-
-/* ==========================================================================
-   20. LIGHTBOX
-   ========================================================================== */
-
-.lightbox-modal {
-  display: none;
-
-  position: fixed;
-
-  z-index: 2000;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  background: rgba(0, 0, 0, 0.9);
-
-  justify-content: center;
-
-  align-items: center;
-}
-
-.lightbox-modal img {
-  max-width: 90%;
-
-  max-height: 80%;
-
-  border-radius: 4px;
-}
-
-.lightbox-close {
-  position: absolute;
-
-  top: 20px;
-
-  right: 30px;
-
-  color: #FFFFFF;
-
-  font-size: 2.5rem;
-
-  cursor: pointer;
-}
-
-
-/* ==========================================================================
-   21. EXECUTIVE TEAM GROUP PHOTO
-   ========================================================================== */
-
-.group-photo-card {
-  background: var(--bg-card);
-
-  border-radius: var(--radius);
-
-  overflow: hidden;
-
-  box-shadow: var(--shadow-md);
-
-  border: 1px solid var(--border-color);
-
-  max-width: 950px;
-
-  margin: 0 auto;
-
-  text-align: center;
-}
-
-.group-photo-wrapper {
-  width: 100%;
-
-  max-height: 520px;
-
-  overflow: hidden;
-
-  background: #102A12;
-}
-
-.group-photo-wrapper img {
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
-  display: block;
-}
-
-.group-photo-caption {
-  padding: 1.5rem 2rem;
-
-  background-color: #FFFFFF;
-}
-
-.group-photo-caption h3 {
-  color: var(--primary);
-
-  font-size: 1.5rem;
-
-  margin-bottom: 0.25rem;
-}
-
-.group-photo-caption p {
-  color: var(--text-muted);
+.section-heading p {
+  color: var(--text-light);
 
   font-size: 1rem;
 }
 
 
-/* ==========================================================================
-   22. FOOTER
-   ========================================================================== */
+/* =========================================================
+   14. INTRODUCTION
+   ========================================================= */
+
+.intro-grid {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 2rem;
+}
+
+.intro-text {
+  max-width: 850px;
+}
+
+.intro-text p {
+  margin-bottom: 1.2rem;
+
+  color: var(--text-light);
+}
+
+.text-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  margin-top: 0.7rem;
+
+  color: var(--primary);
+
+  font-weight: 700;
+
+  font-size: 0.9rem;
+
+  transition: var(--transition);
+}
+
+.text-link i {
+  transition: transform 0.3s ease;
+}
+
+.text-link:hover {
+  color: var(--secondary);
+}
+
+.text-link:hover i {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   15. WORK CARDS
+   ========================================================= */
+
+.cards-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 1.4rem;
+}
+
+.work-card {
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  padding: 2rem 1.5rem;
+
+  transition: var(--transition);
+}
+
+.work-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+
+  border-color: rgba(46, 125, 50, 0.3);
+}
+
+.work-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(27, 94, 32, 0.09);
+
+  color: var(--primary);
+
+  border-radius: 50%;
+
+  font-size: 1.2rem;
+
+  margin-bottom: 1.2rem;
+}
+
+.work-card h3 {
+  font-family: "Montserrat", sans-serif;
+
+  color: var(--primary-dark);
+
+  font-size: 1.1rem;
+
+  line-height: 1.35;
+
+  margin-bottom: 0.8rem;
+}
+
+.work-card p {
+  color: var(--text-light);
+
+  font-size: 0.9rem;
+
+  line-height: 1.65;
+
+  margin-bottom: 0.8rem;
+}
+
+
+/* =========================================================
+   16. FOOTER
+   ========================================================= */
 
 footer {
-  background-color: var(--primary-dark);
+  background: var(--primary-dark);
 
-  color: #FFFFFF;
+  color: var(--white);
 
   padding: 4rem 0 1.5rem;
 
   margin-top: auto;
 }
 
-
-/* Footer main content */
-
 .footer-content {
   display: grid;
 
-  grid-template-columns:
-    1.5fr
-    1fr
-    1fr;
+  grid-template-columns: 1.5fr 1fr 1fr;
 
   gap: 3rem;
 
@@ -1049,79 +992,135 @@ footer {
 }
 
 
-/* Footer headings */
-
-.footer-content h3 {
-  color: #FFFFFF;
-
-  font-size: 1.15rem;
-
-  margin-bottom: 1rem;
-}
-
-
-/* Footer organization */
+/* Footer about */
 
 .footer-about p {
-  color: #CFD8DC;
+  color: rgba(255, 255, 255, 0.75);
 
   font-size: 0.9rem;
 
-  max-width: 420px;
-
   line-height: 1.7;
+
+  margin-top: 1rem;
+
+  max-width: 450px;
+}
+
+.footer-theme {
+  color: var(--accent) !important;
+
+  font-weight: 700;
+
+  font-size: 0.9rem !important;
+}
+
+
+/* Footer brand */
+
+.footer-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.footer-brand img {
+  width: 55px;
+  height: 55px;
+
+  object-fit: contain;
+}
+
+.footer-brand strong {
+  display: block;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 1.2rem;
+}
+
+.footer-brand span {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 0.78rem;
+
+  margin-top: 3px;
+}
+
+
+/* Footer headings */
+
+.footer-content h3 {
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 1rem;
+
+  margin-bottom: 1.1rem;
+
+  color: var(--white);
+}
+
+
+/* Footer links */
+
+.footer-links {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 0.88rem;
+
+  margin-bottom: 0.55rem;
+
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+
+  transform: translateX(4px);
 }
 
 
 /* Footer contact */
 
 .footer-contact p {
-  color: #CFD8DC;
+  display: flex;
 
-  font-size: 0.9rem;
+  align-items: flex-start;
 
-  margin-bottom: 0.65rem;
+  gap: 0.65rem;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 0.88rem;
+
+  margin-bottom: 0.8rem;
 }
 
-.footer-contact a {
-  color: #CFD8DC;
+.footer-contact i {
+  color: var(--accent);
+
+  margin-top: 5px;
+
+  width: 15px;
 }
 
 .footer-contact a:hover {
   color: var(--accent);
 }
 
-.footer-contact i {
-  width: 22px;
 
-  color: var(--accent);
-
-  margin-right: 0.4rem;
-}
-
-
-/* Footer links */
-
-.footer-links a {
-  display: block;
-
-  color: #CFD8DC;
-
-  font-size: 0.9rem;
-
-  margin-bottom: 0.55rem;
-}
-
-.footer-links a:hover {
-  color: var(--accent);
-
-  padding-left: 4px;
-}
-
-
-/* ==========================================================================
-   23. FOOTER SOCIAL MEDIA
-   ========================================================================== */
+/* Footer social */
 
 .footer-social {
   display: flex;
@@ -1146,7 +1145,7 @@ footer {
 
   border-radius: 50%;
 
-  color: #FFFFFF;
+  color: var(--white);
 
   font-size: 0.95rem;
 
@@ -1154,7 +1153,7 @@ footer {
 }
 
 .footer-social a:hover {
-  background-color: var(--accent);
+  background: var(--accent);
 
   border-color: var(--accent);
 
@@ -1167,179 +1166,120 @@ footer {
 /* Footer bottom */
 
 .footer-bottom {
-  text-align: center;
+  display: flex;
 
-  padding-top: 1.5rem;
+  align-items: center;
 
-  font-size: 0.85rem;
+  justify-content: space-between;
 
-  color: #CFD8DC;
+  gap: 1rem;
+
+  padding-top: 1.4rem;
 }
 
-.footer-bottom a {
-  color: var(--accent);
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.58);
 
-  font-weight: 500;
-}
-
-.footer-bottom a:hover {
-  color: #FFFFFF;
+  font-size: 0.78rem;
 }
 
 
-/* ==========================================================================
-   24. MOBILE RESPONSIVENESS
-   ========================================================================== */
+/* =========================================================
+   17. MOBILE NAVIGATION
+   ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
 
-  .nav-menu {
-    gap: 0.8rem;
-  }
+  .brand-name {
+    max-width: 220px;
 
-  .nav-link {
     font-size: 0.85rem;
   }
 
-  .brand-logo img {
-    height: 62px;
-  }
+  .nav-link {
+    padding: 0.55rem 0.55rem;
 
-  .brand-text .title {
-    font-size: 1.2rem;
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr 1fr;
+    font-size: 0.82rem;
   }
 
 }
 
 
-/* ==========================================================================
-   25. MOBILE NAVIGATION
-   ========================================================================== */
+/* =========================================================
+   18. TABLET
+   ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
-  /* Body */
-
-  body {
-    padding-top: 118px;
+  header {
+    height: 78px;
   }
 
-
-  /* Top bar */
-
-  .top-bar-container {
-    min-height: 42px;
-
-    justify-content: center;
+  .header-container {
+    width: 92%;
   }
 
-  .top-contact {
-    gap: 1rem;
+  .brand-logo {
+    width: 50px;
+    height: 50px;
   }
 
-  .top-contact a {
-    font-size: 0.75rem;
+  .brand-name {
+    font-size: 0.8rem;
   }
 
-  .top-contact a:last-child {
-    display: none;
+  .brand-name-nepali {
+    font-size: 0.78rem;
   }
 
-  .social-links {
-    display: none;
+  .main-nav {
+    position: fixed;
+
+    top: 78px;
+
+    right: 0;
+
+    width: min(360px, 88vw);
+
+    height: calc(100vh - 78px);
+
+    background: var(--white);
+
+    box-shadow: -8px 0 25px rgba(0, 0, 0, 0.1);
+
+    transform: translateX(100%);
+
+    transition: transform 0.35s ease;
+
+    overflow-y: auto;
+
+    margin: 0;
+
+    z-index: 1800;
   }
 
-
-  /* Main header */
-
-  .nav-container {
-    min-height: 76px;
-
-    padding: 0.5rem 0;
-  }
-
-  .brand-logo img {
-    height: 55px;
-  }
-
-  .brand-text .title {
-    font-size: 1.1rem;
-  }
-
-  .brand-text .sub-title {
-    font-size: 0.68rem;
-  }
-
-
-  /* Hamburger */
-
-  .hamburger {
-    display: block;
-
-    z-index: 1200;
-  }
-
-
-  /* Navigation */
-
-  nav {
-    position: absolute;
-
-    top: 100%;
-
-    left: 0;
-
-    width: 100%;
+  .main-nav.active {
+    transform: translateX(0);
   }
 
   .nav-menu {
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    background-color: #FFFFFF;
-
     flex-direction: column;
 
-    align-items: flex-start;
-
-    padding: 1rem 1.5rem 1.5rem;
+    align-items: stretch;
 
     gap: 0;
 
-    display: none;
-
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-  }
-
-  .nav-menu.active {
-    display: flex !important;
-  }
-
-  .nav-menu > li {
-    width: 100%;
+    padding: 1rem;
   }
 
   .nav-link {
+    justify-content: space-between;
+
     width: 100%;
 
-    font-size: 1rem;
+    padding: 0.9rem 0.8rem;
 
-    padding: 0.7rem 0;
-
-    justify-content: space-between;
-  }
-
-  .nav-link.active::after {
-    width: 40px;
+    border-bottom: 1px solid var(--border);
   }
 
 
@@ -1348,13 +1288,13 @@ footer {
   .dropdown-menu {
     position: static;
 
-    transform: none;
+    width: 100%;
 
     min-width: 100%;
 
-    width: 100%;
+    transform: none;
 
-    border-top: none;
+    border: none;
 
     border-left: 3px solid var(--secondary);
 
@@ -1373,30 +1313,27 @@ footer {
     pointer-events: auto;
   }
 
-
-  /* Prevent hover from opening mobile dropdown */
-
   .dropdown:hover > .dropdown-menu {
     display: none;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: none;
   }
-
-
-  /* JavaScript opens dropdown */
 
   .dropdown.open > .dropdown-menu {
     display: block;
   }
 
+  .dropdown-menu li a {
+    padding: 0.75rem 1rem;
 
-  .dropdown-menu a {
-    padding: 0.6rem 1rem;
-
-    background-color: #F7F8F3;
-
-    font-size: 0.9rem;
+    background: var(--light-bg);
   }
 
-  .dropdown-menu a:hover {
+  .dropdown-menu li a:hover {
     padding-left: 1.2rem;
   }
 
@@ -1404,70 +1341,161 @@ footer {
   /* Hero */
 
   .hero {
-    min-height: calc(100vh - 118px);
+    min-height: calc(100vh - 78px);
+  }
+
+  .hero-content {
+    margin-left: 6%;
+  }
+
+
+  /* Cards */
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* Footer */
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   19. MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  header {
+    height: 72px;
+  }
+
+  .header-container {
+    width: 94%;
+
+    gap: 0.6rem;
+  }
+
+  .brand {
+    gap: 0.55rem;
+  }
+
+  .brand-logo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .brand-name {
+    max-width: 190px;
+
+    font-size: 0.72rem;
+
+    line-height: 1.15;
+  }
+
+  .brand-name-nepali {
+    font-size: 0.72rem;
+
+    line-height: 1.1;
+  }
+
+  .contact-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+
+  /* Mobile navigation */
+
+  .main-nav {
+    top: 72px;
+
+    height: calc(100vh - 72px);
+  }
+
+
+  /* Hero */
+
+  .hero {
+    min-height: calc(100vh - 72px);
 
     background-position: center center;
   }
 
   .hero-content {
-    padding: 4rem 0;
+    width: 88%;
+
+    margin: 0 auto;
+
+    padding: 4rem 0 5rem;
   }
 
   .hero-tagline {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
 
-    letter-spacing: 2px;
+    letter-spacing: 0.06em;
   }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: clamp(2rem, 9vw, 3rem);
 
-    line-height: 1.2;
+    line-height: 1.15;
   }
 
   .hero p {
-    font-size: 1rem;
+    font-size: 0.92rem;
 
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   .hero-buttons {
-    gap: 0.75rem;
+    flex-direction: column;
+
+    align-items: stretch;
   }
 
   .btn {
-    padding: 0.7rem 1.3rem;
-  }
-
-  .scroll-down {
-    bottom: 18px;
+    width: 100%;
   }
 
 
   /* Sections */
 
-  section {
-    padding: 3.5rem 0;
+  .section {
+    padding: 4rem 0;
   }
 
-  .section-title {
+  .section-heading {
     margin-bottom: 2rem;
   }
 
-  .section-title h2 {
-    font-size: 1.8rem;
-  }
 
-  .section-title p {
-    font-size: 1rem;
-  }
+  /* Cards */
 
-
-  /* Grids */
-
-  .grid-2,
-  .grid-3 {
+  .cards-grid {
     grid-template-columns: 1fr;
+  }
+
+
+  /* Contact drawer */
+
+  .contact-drawer {
+    width: 88vw;
+  }
+
+  .contact-drawer-header {
+    height: 72px;
+
+    padding: 0 1.2rem;
+  }
+
+  .contact-drawer-content {
+    padding: 1.5rem 1.2rem;
   }
 
 
@@ -1476,68 +1504,42 @@ footer {
   .footer-content {
     grid-template-columns: 1fr;
 
-    gap: 2rem;
+    gap: 2.2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
   }
 
 }
 
 
-/* ==========================================================================
-   26. SMALL MOBILE DEVICES
-   ========================================================================== */
+/* =========================================================
+   20. SMALL MOBILE
+   ========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
 
-  .container {
-    width: 92%;
+  .brand-name {
+    max-width: 155px;
+
+    font-size: 0.68rem;
   }
 
-  .top-contact {
-    gap: 0.5rem;
-  }
-
-  .top-contact a {
-    font-size: 0.7rem;
+  .brand-name-nepali {
+    font-size: 0.66rem;
   }
 
   .brand-logo {
-    gap: 0.5rem;
-  }
-
-  .brand-logo img {
-    height: 48px;
-  }
-
-  .brand-text .title {
-    font-size: 1rem;
-  }
-
-  .brand-text .sub-title {
-    font-size: 0.62rem;
+    width: 42px;
+    height: 42px;
   }
 
   .hero h1 {
-    font-size: 1.75rem;
-  }
-
-  .hero p {
-    font-size: 0.95rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-
-    align-items: center;
-  }
-
-  .hero-buttons .btn {
-    width: 85%;
-
-    max-width: 280px;
-  }
-
-  .footer-social {
-    gap: 0.5rem;
+    font-size: 1.9rem;
   }
 
 }
+```
