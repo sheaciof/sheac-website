@@ -1,593 +1,148 @@
-document.addEventListener("DOMContentLoaded", () => {
+/**
+ * SHEAC Official Website JavaScript
+ * Pure Vanilla JS (No jQuery, React, or External JS Frameworks)
+ */
 
-  /* =========================================================
-     1. HEADER HIDE / SHOW ON SCROLL
-     ========================================================= */
-
-  const header = document.querySelector("header");
-
-  let lastScrollPosition = window.scrollY;
-
-  if (header) {
-
-    window.addEventListener(
-      "scroll",
-      () => {
-
-        const currentScrollPosition = window.scrollY;
-
-        /* Always show header at the top */
-
-        if (currentScrollPosition <= 10) {
-
-          header.classList.remove("header-hidden");
-
-          lastScrollPosition = currentScrollPosition;
-
-          return;
-        }
-
-
-        /* Scrolling down */
-
-        if (currentScrollPosition > lastScrollPosition) {
-
-          header.classList.add("header-hidden");
-
-        }
-
-
-        /* Scrolling up */
-
-        else if (currentScrollPosition < lastScrollPosition) {
-
-          header.classList.remove("header-hidden");
-
-        }
-
-
-        lastScrollPosition = currentScrollPosition;
-
-      },
-      { passive: true }
-    );
-
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Automatic Current Year updating
+  const yearSpan = document.getElementById('currentYear');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
   }
 
+  // 2. Mobile Menu / Hamburger Toggle
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const primaryNav = document.getElementById('primary-nav');
+  const navMenu = primaryNav ? primaryNav.querySelector('.nav-menu') : null;
 
-  /* =========================================================
-     2. MOBILE NAVIGATION
-     ========================================================= */
+  function toggleMobileMenu() {
+    if (!navMenu || !hamburgerBtn) return;
+    const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+    hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
+    navMenu.classList.toggle('active');
 
-  const hamburger = document.querySelector(".hamburger");
-
-  const navMenu = document.querySelector(".nav-menu");
-
-  const mainNav = document.querySelector("nav");
-
-
-  if (hamburger && navMenu) {
-
-    hamburger.addEventListener("click", (event) => {
-
-      event.stopPropagation();
-
-      navMenu.classList.toggle("active");
-
-      const isOpen =
-        navMenu.classList.contains("active");
-
-      hamburger.setAttribute(
-        "aria-expanded",
-        isOpen
-      );
-
-    });
-
+    // Toggle hamburger icon between bars and close
+    const icon = hamburgerBtn.querySelector('i');
+    if (icon) {
+      if (navMenu.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+      } else {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      }
+    }
   }
 
+  function closeMobileMenu() {
+    if (!navMenu || !hamburgerBtn) return;
+    navMenu.classList.remove('active');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    const icon = hamburgerBtn.querySelector('i');
+    if (icon) {
+      icon.classList.remove('fa-xmark');
+      icon.classList.add('fa-bars');
+    }
+  }
 
-  /* =========================================================
-     3. MOBILE DROPDOWN MENUS
-     ========================================================= */
+  if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', toggleMobileMenu);
+  }
 
-  const dropdowns =
-    document.querySelectorAll(".dropdown");
-
-
-  dropdowns.forEach((dropdown) => {
-
-    const toggle =
-      dropdown.querySelector(".dropdown-toggle");
-
-    if (!toggle) return;
-
-
-    toggle.addEventListener("click", (event) => {
-
-      /* Only use click behavior on mobile/tablet */
-
-      if (window.innerWidth <= 900) {
-
-        event.preventDefault();
-
-        event.stopPropagation();
-
-
-        /* Close other dropdowns */
-
-        dropdowns.forEach((otherDropdown) => {
-
-          if (otherDropdown !== dropdown) {
-
-            otherDropdown.classList.remove("open");
-
+  // 3. Mobile Dropdown Toggle (Click handling for small screens)
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= 991) {
+        e.preventDefault();
+        const parentDropdown = toggle.closest('.dropdown');
+        if (parentDropdown) {
+          const isOpen = parentDropdown.classList.contains('open');
+          // Close other dropdowns
+          document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+          if (!isOpen) {
+            parentDropdown.classList.add('open');
+            toggle.setAttribute('aria-expanded', 'true');
+          } else {
+            toggle.setAttribute('aria-expanded', 'false');
           }
-
-        });
-
-
-        /* Toggle selected dropdown */
-
-        dropdown.classList.toggle("open");
-
+        }
       }
-
     });
-
   });
 
-
-  /* =========================================================
-     4. CONTACT DRAWER
-     ========================================================= */
-
-  const contactToggle =
-    document.querySelector(".contact-toggle");
-
-  const contactDrawer =
-    document.querySelector(".contact-drawer");
-
-  const contactClose =
-    document.querySelector(".contact-close");
-
-  const contactOverlay =
-    document.querySelector(".contact-overlay");
-
-
-  /* Open contact drawer */
-
-  const openContactDrawer = () => {
-
-    if (!contactDrawer) return;
-
-    contactDrawer.classList.add("open");
-
-    if (contactOverlay) {
-
-      contactOverlay.classList.add("active");
-
-    }
-
-    if (contactToggle) {
-
-      contactToggle.setAttribute(
-        "aria-expanded",
-        "true"
-      );
-
-    }
-
-    contactDrawer.setAttribute(
-      "aria-hidden",
-      "false"
-    );
-
-
-    /* Prevent background scrolling */
-
-    document.body.style.overflow = "hidden";
-
-  };
-
-
-  /* Close contact drawer */
-
-  const closeContactDrawer = () => {
-
-    if (!contactDrawer) return;
-
-    contactDrawer.classList.remove("open");
-
-    if (contactOverlay) {
-
-      contactOverlay.classList.remove("active");
-
-    }
-
-    if (contactToggle) {
-
-      contactToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-    }
-
-    contactDrawer.setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
-
-    /* Restore scrolling */
-
-    document.body.style.overflow = "";
-
-  };
-
-
-  /* Three-line contact button */
-
-  if (contactToggle) {
-
-    contactToggle.addEventListener(
-      "click",
-      (event) => {
-
-        event.stopPropagation();
-
-        if (
-          contactDrawer &&
-          contactDrawer.classList.contains("open")
-        ) {
-
-          closeContactDrawer();
-
-        } else {
-
-          openContactDrawer();
-
-        }
-
+  // Close mobile menu on selecting any link inside navigation
+  const navLinks = document.querySelectorAll('.nav-menu a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 991) {
+        closeMobileMenu();
       }
-    );
-
-  }
-
-
-  /* Close button */
-
-  if (contactClose) {
-
-    contactClose.addEventListener(
-      "click",
-      closeContactDrawer
-    );
-
-  }
-
-
-  /* Click overlay to close */
-
-  if (contactOverlay) {
-
-    contactOverlay.addEventListener(
-      "click",
-      closeContactDrawer
-    );
-
-  }
-
-
-  /* =========================================================
-     5. ESCAPE KEY
-     ========================================================= */
-
-  document.addEventListener(
-    "keydown",
-    (event) => {
-
-      if (event.key === "Escape") {
-
-        closeContactDrawer();
-
-        if (navMenu) {
-
-          navMenu.classList.remove("active");
-
-        }
-
-        dropdowns.forEach((dropdown) => {
-
-          dropdown.classList.remove("open");
-
-        });
-
-        if (hamburger) {
-
-          hamburger.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-        }
-
-      }
-
-    }
-  );
-
-
-  /* =========================================================
-     6. CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
-     ========================================================= */
-
-  document.addEventListener(
-    "click",
-    (event) => {
-
-      if (
-        window.innerWidth <= 900 &&
-        navMenu &&
-        hamburger &&
-        !navMenu.contains(event.target) &&
-        !hamburger.contains(event.target)
-      ) {
-
-        navMenu.classList.remove("active");
-
-        dropdowns.forEach((dropdown) => {
-
-          dropdown.classList.remove("open");
-
-        });
-
-        hamburger.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-      }
-
-    }
-  );
-
-
-  /* =========================================================
-     7. CLOSE MOBILE MENU AFTER SELECTING A LINK
-     ========================================================= */
-
-  const navLinks =
-    document.querySelectorAll(
-      ".nav-menu a:not(.dropdown-toggle)"
-    );
-
-
-  navLinks.forEach((link) => {
-
-    link.addEventListener("click", () => {
-
-      if (window.innerWidth <= 900) {
-
-        if (navMenu) {
-
-          navMenu.classList.remove("active");
-
-        }
-
-        dropdowns.forEach((dropdown) => {
-
-          dropdown.classList.remove("open");
-
-        });
-
-        if (hamburger) {
-
-          hamburger.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-        }
-
-      }
-
     });
-
   });
 
+  // 4. Contact Drawer Controls
+  const drawerTrigger = document.getElementById('contactDrawerTrigger');
+  const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+  const contactDrawer = document.getElementById('contactDrawer');
+  const drawerOverlay = document.getElementById('drawerOverlay');
 
-  /* =========================================================
-     8. ACTIVE NAVIGATION
-     ========================================================= */
-
-  const currentPage =
-    window.location.pathname
-      .split("/")
-      .pop() || "index.html";
-
-
-  const allNavLinks =
-    document.querySelectorAll(
-      ".nav-menu a"
-    );
-
-
-  allNavLinks.forEach((link) => {
-
-    const href =
-      link.getAttribute("href");
-
-    if (!href) return;
-
-    const linkPage =
-      href.split("/").pop();
-
-
-    /*
-       Home is intentionally not in
-       the navigation.
-    */
-
-    if (
-      linkPage === currentPage &&
-      linkPage !== "index.html"
-    ) {
-
-      link.classList.add("active");
-
+  function openContactDrawer() {
+    if (contactDrawer && drawerOverlay) {
+      contactDrawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      contactDrawer.setAttribute('aria-hidden', 'false');
+      drawerOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
-
-  });
-
-
-  /* =========================================================
-     9. GALLERY LIGHTBOX
-     ========================================================= */
-
-  const galleryItems =
-    document.querySelectorAll(
-      ".gallery-item img"
-    );
-
-  const lightbox =
-    document.getElementById(
-      "lightboxModal"
-    );
-
-  const lightboxImg =
-    document.getElementById(
-      "lightboxImg"
-    );
-
-  const lightboxClose =
-    document.querySelector(
-      ".lightbox-close"
-    );
-
-
-  if (
-    galleryItems.length > 0 &&
-    lightbox &&
-    lightboxImg
-  ) {
-
-    galleryItems.forEach((img) => {
-
-      img.addEventListener(
-        "click",
-        () => {
-
-          lightbox.style.display = "flex";
-
-          lightboxImg.src = img.src;
-
-          lightboxImg.alt = img.alt || "";
-
-          document.body.style.overflow = "hidden";
-
-        }
-      );
-
-    });
-
-
-    /* Close button */
-
-    if (lightboxClose) {
-
-      lightboxClose.addEventListener(
-        "click",
-        () => {
-
-          lightbox.style.display = "none";
-
-          document.body.style.overflow = "";
-
-        }
-      );
-
-    }
-
-
-    /* Click outside image */
-
-    lightbox.addEventListener(
-      "click",
-      (event) => {
-
-        if (event.target === lightbox) {
-
-          lightbox.style.display = "none";
-
-          document.body.style.overflow = "";
-
-        }
-
-      }
-    );
-
-
-    /* ESC */
-
-    document.addEventListener(
-      "keydown",
-      (event) => {
-
-        if (event.key === "Escape") {
-
-          lightbox.style.display = "none";
-
-          document.body.style.overflow = "";
-
-        }
-
-      }
-    );
-
   }
 
-
-  /* =========================================================
-     10. RESIZE HANDLING
-     ========================================================= */
-
-  window.addEventListener(
-    "resize",
-    () => {
-
-      /*
-         When returning to desktop,
-         close mobile navigation and dropdowns.
-      */
-
-      if (window.innerWidth > 900) {
-
-        if (navMenu) {
-
-          navMenu.classList.remove("active");
-
-        }
-
-        if (hamburger) {
-
-          hamburger.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-        }
-
-        dropdowns.forEach((dropdown) => {
-
-          dropdown.classList.remove("open");
-
-        });
-
-      }
-
+  function closeContactDrawer() {
+    if (contactDrawer && drawerOverlay) {
+      contactDrawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      contactDrawer.setAttribute('aria-hidden', 'true');
+      drawerOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // Restore background scrolling
     }
-  );
+  }
 
+  if (drawerTrigger) drawerTrigger.addEventListener('click', openContactDrawer);
+  if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeContactDrawer);
+  if (drawerOverlay) drawerOverlay.addEventListener('click', closeContactDrawer);
+
+  // 5. Global Keyboard Accessibility & Outside Clicks
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeContactDrawer();
+      closeMobileMenu();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    // Close mobile menu if clicked outside header
+    if (navMenu && navMenu.classList.contains('active')) {
+      const isClickInsideHeader = e.target.closest('.main-header');
+      if (!isClickInsideHeader) {
+        closeMobileMenu();
+      }
+    }
+  });
+
+  // 6. Responsive Window Resize Handling
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 991) {
+      closeMobileMenu();
+      document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+    }
+  });
+
+  // 7. Active Navigation Link Highlighting
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+      link.classList.add('active');
+    }
+  });
 });
