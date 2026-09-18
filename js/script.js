@@ -145,4 +145,27 @@ document.addEventListener('DOMContentLoaded', () => {
       link.classList.add('active');
     }
   });
+
+  // 8. Hide/Show Header on Scroll
+  const header = document.querySelector('.main-header');
+  let lastScrollY = window.scrollY;
+
+  if (header) {
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+
+      // Keep header visible near top of the page
+      if (currentScrollY < 100) {
+        header.classList.remove('header-hidden');
+      } else if (currentScrollY > lastScrollY && !navMenu?.classList.contains('active')) {
+        // Scrolling down & mobile menu is closed -> Hide Header
+        header.classList.add('header-hidden');
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up -> Reveal Header
+        header.classList.remove('header-hidden');
+      }
+
+      lastScrollY = currentScrollY;
+    });
+  }
 });
