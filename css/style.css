@@ -25,6 +25,8 @@
   /* Social Brand Colors */
   --facebook-color: #1877F2;
   --linkedin-color: #0A66C2;
+  --facebook-bg-light: #E7F1FF;
+  --linkedin-bg-light: #E8F4F9;
 }
 
 /* Reset & Box Sizing */
@@ -606,24 +608,6 @@ img {
   margin-bottom: 12px;
 }
 
-.drawer-socials .social-links a {
-  background-color: var(--primary);
-  color: #ffffff;
-}
-
-/* Specific Social Colors - Drawer */
-.drawer-socials .social-links a.facebook:hover,
-.drawer-socials .social-links a[href*="facebook.com"]:hover {
-  background-color: var(--facebook-color) !important;
-  color: #ffffff !important;
-}
-
-.drawer-socials .social-links a.linkedin:hover,
-.drawer-socials .social-links a[href*="linkedin.com"]:hover {
-  background-color: var(--linkedin-color) !important;
-  color: #ffffff !important;
-}
-
 /* --------------------------------------------------------------------------
    Footer Component
    -------------------------------------------------------------------------- */
@@ -740,68 +724,84 @@ footer {
   color: var(--accent);
 }
 
-/* Update ROOT brand colors to high-visibility shades */
-:root {
-  --facebook-color: #1877F2;
-  --linkedin-color: #0077B5;
-  --facebook-bg-light: #E7F1FF;
-  --linkedin-bg-light: #E8F4F9;
-}
-
-/* Base Social Icon Buttons in Footer */
+/* --------------------------------------------------------------------------
+   Universal High-Visibility Social Links (Footer & Drawer)
+   -------------------------------------------------------------------------- */
+.social-links,
 .footer-social-links {
   display: flex;
   gap: 12px;
   margin-top: 16px;
 }
 
-.footer-social-links a {
-  display: inline-flex;
+/* Base style for Facebook Links */
+a[href*="facebook"],
+a.facebook {
+  background-color: var(--facebook-bg-light) !important;
+  color: var(--facebook-color) !important;
+  border-radius: 50%;
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  font-size: 1.2rem;
+  box-shadow: 0 2px 6px rgba(24, 119, 242, 0.3);
   transition: var(--transition);
 }
 
-/* Directly visible high-contrast Facebook styling */
-.footer-social-links a.facebook,
-.footer-social-links a[href*="facebook.com"] {
-  background-color: var(--facebook-bg-light) !important;
+a[href*="facebook"] i,
+a.facebook i {
   color: var(--facebook-color) !important;
-  box-shadow: 0 2px 6px rgba(24, 119, 242, 0.3);
 }
 
-/* Directly visible high-contrast LinkedIn styling */
-.footer-social-links a.linkedin,
-.footer-social-links a[href*="linkedin.com"] {
-  background-color: var(--linkedin-bg-light) !important;
-  color: var(--linkedin-color) !important;
-  box-shadow: 0 2px 6px rgba(0, 119, 181, 0.3);
-}
-
-/* High contrast hover states */
-.footer-social-links a.facebook:hover,
-.footer-social-links a[href*="facebook.com"]:hover {
+a[href*="facebook"]:hover,
+a.facebook:hover {
   background-color: var(--facebook-color) !important;
   color: #FFFFFF !important;
   transform: translateY(-3px);
 }
 
-.footer-social-links a.linkedin:hover,
-.footer-social-links a[href*="linkedin.com"]:hover {
+a[href*="facebook"]:hover i,
+a.facebook:hover i {
+  color: #FFFFFF !important;
+}
+
+/* Base style for LinkedIn Links */
+a[href*="linkedin"],
+a.linkedin {
+  background-color: var(--linkedin-bg-light) !important;
+  color: var(--linkedin-color) !important;
+  border-radius: 50%;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 2px 6px rgba(10, 102, 194, 0.3);
+  transition: var(--transition);
+}
+
+a[href*="linkedin"] i,
+a.linkedin i {
+  color: var(--linkedin-color) !important;
+}
+
+a[href*="linkedin"]:hover,
+a.linkedin:hover {
   background-color: var(--linkedin-color) !important;
   color: #FFFFFF !important;
   transform: translateY(-3px);
+}
+
+a[href*="linkedin"]:hover i,
+a.linkedin:hover i {
+  color: #FFFFFF !important;
 }
 
 /* --------------------------------------------------------------------------
    Responsive Media Queries
    -------------------------------------------------------------------------- */
 @media (max-width: 991px) {
-  /* Hide desktop header contact details on mobile screens */
   .header-contact-details {
     display: none !important;
   }
@@ -892,58 +892,4 @@ footer {
   .contact-drawer {
     max-width: 100%;
   }
-}
-/* ==========================================================================
-   High-Visibility Social Icons Fix (Footer & Drawer)
-   ========================================================================== */
-
-/* 1. Directly target Facebook icons and anchor links */
-.footer-content .social-links a[href*="facebook"],
-.footer-contact .social-links a[href*="facebook"],
-.social-links a .fa-facebook,
-.social-links a .fa-facebook-f {
-  background-color: #E7F1FF !important;
-  color: #1877F2 !important;
-  border-radius: 50%;
-  padding: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  box-shadow: 0 2px 8px rgba(24, 119, 242, 0.4);
-  transition: all 0.3s ease;
-}
-
-/* 2. Directly target LinkedIn icons and anchor links */
-.footer-content .social-links a[href*="linkedin"],
-.footer-contact .social-links a[href*="linkedin"],
-.social-links a .fa-linkedin,
-.social-links a .fa-linkedin-in {
-  background-color: #E8F4F9 !important;
-  color: #0A66C2 !important;
-  border-radius: 50%;
-  padding: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  box-shadow: 0 2px 8px rgba(10, 102, 194, 0.4);
-  transition: all 0.3s ease;
-}
-
-/* 3. Hover Effects */
-.social-links a[href*="facebook"]:hover,
-.social-links a[href*="facebook"]:hover i {
-  background-color: #1877F2 !important;
-  color: #FFFFFF !important;
-  transform: translateY(-3px);
-}
-
-.social-links a[href*="linkedin"]:hover,
-.social-links a[href*="linkedin"]:hover i {
-  background-color: #0A66C2 !important;
-  color: #FFFFFF !important;
-  transform: translateY(-3px);
 }
