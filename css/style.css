@@ -21,6 +21,10 @@
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.10);
   --radius: 8px;
+
+  /* Social Brand Colors */
+  --facebook-color: #1877F2;
+  --linkedin-color: #0A66C2;
 }
 
 /* Reset & Box Sizing */
@@ -102,7 +106,7 @@ img {
 }
 
 .header-logo-img {
-  height: 80px; /* Increased from 64px to make the logo larger */
+  height: 80px;
   width: auto;
   object-fit: contain;
 }
@@ -607,9 +611,17 @@ img {
   color: #ffffff;
 }
 
-.drawer-socials .social-links a:hover {
-  background-color: var(--accent);
-  color: var(--primary-dark);
+/* Specific Social Colors - Drawer */
+.drawer-socials .social-links a.facebook:hover,
+.drawer-socials .social-links a[href*="facebook.com"]:hover {
+  background-color: var(--facebook-color) !important;
+  color: #ffffff !important;
+}
+
+.drawer-socials .social-links a.linkedin:hover,
+.drawer-socials .social-links a[href*="linkedin.com"]:hover {
+  background-color: var(--linkedin-color) !important;
+  color: #ffffff !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -726,6 +738,29 @@ footer {
 
 .footer-contact a:hover {
   color: var(--accent);
+}
+
+/* Specific Social Link Styling - Footer */
+.footer-social-links a.facebook,
+.footer-social-links a[href*="facebook.com"] {
+  color: var(--facebook-color);
+}
+
+.footer-social-links a.linkedin,
+.footer-social-links a[href*="linkedin.com"] {
+  color: var(--linkedin-color);
+}
+
+.footer-social-links a.facebook:hover,
+.footer-social-links a[href*="facebook.com"]:hover {
+  color: #ffffff;
+  background-color: var(--facebook-color);
+}
+
+.footer-social-links a.linkedin:hover,
+.footer-social-links a[href*="linkedin.com"]:hover {
+  color: #ffffff;
+  background-color: var(--linkedin-color);
 }
 
 .footer-bottom {
