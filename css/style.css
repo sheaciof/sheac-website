@@ -102,7 +102,7 @@ img {
 }
 
 .header-logo-img {
-  height: 95px;
+  height: 64px;
   width: auto;
   object-fit: contain;
 }
@@ -115,14 +115,14 @@ img {
 .brand-text .title {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 3.15rem;
-  color: var(--primary-green);
+  font-size: 1.15rem;
+  color: var(--primary-dark);
   line-height: 1.2;
 }
 
 .brand-text .sub-title {
   font-family: 'Mukta', sans-serif;
-  font-size: 2.85rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
   line-height: 1.2;
 }
