@@ -102,7 +102,7 @@ img {
 }
 
 .header-logo-img {
-  height: 64px;
+  height: 80px; /* Increased from 64px to make the logo larger */
   width: auto;
   object-fit: contain;
 }
