@@ -82,7 +82,7 @@ img {
    Main Header & Navigation
    -------------------------------------------------------------------------- */
 .main-header {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
@@ -159,7 +159,7 @@ img {
 }
 
 .nav-bar {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   border-top: 1px solid var(--border-color);
 }
 
@@ -180,7 +180,8 @@ img {
   color: var(--text-main);
   font-weight: 600;
   font-size: 0.95rem;
-  padding: 8px 0;
+  padding: 12px 0;
+  display: inline-block;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -200,7 +201,7 @@ img {
   font-size: 0.95rem;
   color: var(--text-main);
   cursor: pointer;
-  padding: 8px 0;
+  padding: 12px 0;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -215,7 +216,7 @@ img {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   min-width: 200px;
   box-shadow: var(--shadow-md);
   border-radius: var(--radius);
@@ -519,7 +520,7 @@ img {
   width: 100%;
   max-width: 380px;
   height: 100%;
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   z-index: 1010;
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
   transition: right 0.3s ease-in-out;
@@ -812,11 +813,11 @@ a.linkedin:hover i {
 
   .nav-menu {
     position: fixed;
-    top: 80px;
+    top: 100%;
     left: -100%;
     width: 100%;
-    height: calc(100vh - 80px);
-    background-color: #ffffff;
+    height: calc(100vh - 100%);
+    background-color: var(--bg-card);
     flex-direction: column;
     align-items: flex-start;
     padding: 20px;
