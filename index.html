@@ -66,21 +66,7 @@
 </head>
 <body>
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="top-bar-container">
-      <div class="top-contact">
-        <a href="mailto:info@sheac.org.np"><i class="fa-solid fa-envelope"></i> <span>info@sheac.org.np</span></a>
-        <a href="tel:+9779749798229"><i class="fa-solid fa-phone"></i> <span>+977 9749798229</span></a>
-      </div>
-      <div class="social-links">
-        <a href="https://facebook.com/sheaciof7" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.linkedin.com/in/sheaciof/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Main Header -->
+  <!-- Main Header with integrated contact details on top right -->
   <header class="main-header">
     <div class="nav-container">
       <a href="index.html" class="brand-logo" aria-label="SHEAC Homepage">
@@ -91,8 +77,22 @@
         </div>
       </a>
 
-      <nav id="primary-nav">
-        <ul class="nav-menu">
+      <!-- Contact Details inside white header section (Top Right) -->
+      <div class="header-contact-details">
+        <a href="mailto:info@sheac.org.np"><i class="fa-solid fa-envelope"></i> info@sheac.org.np</a>
+        <a href="tel:+9779749798229"><i class="fa-solid fa-phone"></i> +977 9749798229</a>
+      </div>
+
+      <!-- Single Mobile Hamburger Menu Icon -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav id="primary-nav" class="nav-bar">
+      <div class="nav-inner-container">
+        <ul class="nav-menu" id="navMenu">
           <li class="dropdown">
             <button class="dropdown-toggle" aria-expanded="false">About <i class="fa-solid fa-chevron-down"></i></button>
             <ul class="dropdown-menu">
@@ -122,19 +122,8 @@
             </ul>
           </li>
         </ul>
-      </nav>
-
-      <div class="header-actions">
-        <button class="contact-drawer-btn" id="contactDrawerTrigger" aria-label="Open contact information">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false">
-          <i class="fa-solid fa-bars"></i>
-        </button>
       </div>
-    </div>
+    </nav>
   </header>
 
   <!-- Hero Section -->
@@ -207,50 +196,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Contact Drawer Overlay -->
-  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
-
-  <!-- Sliding Contact Drawer -->
-  <aside class="contact-drawer" id="contactDrawer" aria-hidden="true">
-    <div class="drawer-header">
-      <h3>Contact SHEAC</h3>
-      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close contact drawer">&times;</button>
-    </div>
-    <div class="drawer-body">
-      <p class="drawer-theme"><strong>Think Globally, Act Locally</strong></p>
-      <ul class="drawer-contact-list">
-        <li>
-          <i class="fa-solid fa-location-dot"></i>
-          <div>
-            <strong>Location:</strong>
-            <p>Pokhara, Kaski, Nepal</p>
-          </div>
-        </li>
-        <li>
-          <i class="fa-solid fa-envelope"></i>
-          <div>
-            <strong>Email:</strong>
-            <p><a href="mailto:info@sheac.org.np">info@sheac.org.np</a></p>
-          </div>
-        </li>
-        <li>
-          <i class="fa-solid fa-phone"></i>
-          <div>
-            <strong>Phone:</strong>
-            <p><a href="tel:+9779749798229">+977 9749798229</a></p>
-          </div>
-        </li>
-      </ul>
-      <div class="drawer-socials">
-        <h4>Connect With Us</h4>
-        <div class="social-links">
-          <a href="https://facebook.com/sheaciof7" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.linkedin.com/in/sheaciof/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        </div>
-      </div>
-    </div>
-  </aside>
 
   <!-- Footer -->
   <footer>
