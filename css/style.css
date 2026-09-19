@@ -908,3 +908,135 @@ a.linkedin:hover i {
   margin: 0 auto;
   line-height: 1.4;
 }
+/* Container & Alignment Helpers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.margin-bottom-lg {
+  margin-bottom: 2.5rem;
+}
+
+/* Page Banner */
+.page-banner {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  color: #ffffff;
+  padding: 50px 20px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-banner h1 {
+  color: #ffffff;
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
+.page-banner p {
+  color: #E8F5E9;
+  font-size: 1.1rem;
+}
+
+/* Custom About Cards */
+.about-card {
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.hero-card {
+  margin-bottom: 2.5rem;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+/* Grids */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Value Cards */
+.value-card {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--secondary);
+}
+
+.value-icon {
+  width: 44px;
+  height: 44px;
+  background-color: #E8F5E9;
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+/* Team Photo Section */
+.team-section {
+  padding: 50px 0;
+  background-color: var(--bg-main);
+}
+
+.group-photo-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.team-photo {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.group-photo-caption {
+  padding: 20px;
+  text-align: center;
+  border-top: 3px solid var(--primary);
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
