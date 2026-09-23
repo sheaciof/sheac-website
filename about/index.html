@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | SHEAC Nepal</title>
+    <link rel="icon" type="image/png" href="../images/LOGO.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-[#F7F8F3] text-[#263238] flex flex-col min-h-screen">
+    <header class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <img src="../images/LOGO.png" alt="SHEAC Logo" class="h-12 w-auto">
+                <span class="font-bold text-lg text-[#1B5E20]">SHEAC</span>
+            </a>
+            <nav class="hidden md:flex gap-6 font-medium text-sm">
+                <a href="/">Home</a>
+                <a href="/about/" class="text-[#1B5E20] font-bold">About</a>
+                <a href="/projects/">Projects</a>
+                <a href="/research/">Research</a>
+                <a href="/activities/">Activities</a>
+                <a href="/gallery/">Gallery</a>
+                <a href="/get-involved/volunteer/">Get Involved</a>
+                <a href="/contact/" class="px-4 py-2 bg-[#1B5E20] text-white rounded-full">Contact</a>
+            </nav>
+        </div>
+    </header>
 
+    <main class="max-w-5xl mx-auto px-4 py-12 flex-grow space-y-10">
+        <div class="text-center space-y-2">
+            <h1 class="text-3xl font-bold text-[#0F3D13]">About SHEAC</h1>
+            <p class="text-gray-600">Learn about our mission, leaders, and history.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <a href="/about/executive-team/" class="bg-white p-6 rounded-2xl shadow-sm border hover:border-[#1B5E20] transition text-center space-y-3">
+                <i class="fa-solid fa-users-gear text-3xl text-[#1B5E20]"></i>
+                <h3 class="font-bold text-lg">Executive Team</h3>
+                <p class="text-xs text-gray-500">Meet our current committee members leading operations.</p>
+            </a>
+            <a href="/about/founding-members/" class="bg-white p-6 rounded-2xl shadow-sm border hover:border-[#1B5E20] transition text-center space-y-3">
+                <i class="fa-solid fa-seedling text-3xl text-[#1B5E20]"></i>
+                <h3 class="font-bold text-lg">Founding Members</h3>
+                <p class="text-xs text-gray-500">Discover the pioneers who established SHEAC.</p>
+            </a>
+            <a href="/about/alumni/" class="bg-white p-6 rounded-2xl shadow-sm border hover:border-[#1B5E20] transition text-center space-y-3">
+                <i class="fa-solid fa-[#1B5E20] fa-user-graduate text-3xl"></i>
+                <h3 class="font-bold text-lg">Alumni</h3>
+                <p class="text-xs text-gray-500">Connecting forestry professionals and past members.</p>
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-[#0F3D13] text-gray-300 py-6 text-center text-sm">
+        &copy; 2026 SHEAC Nepal.
+    </footer>
+</body>
+</html>
