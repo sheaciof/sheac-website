@@ -1,463 +1,1228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- =========================================================
+         SHEAC OFFICIAL WEBSITE
+         File: index.html
+         Location: sheac-website/index.html
+         ========================================================= -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHEAC | Self Help Environment Awareness Camp - Pokhara, Nepal</title>
-    
-    <meta name="description" content="Self Help Environment Awareness Camp (SHEAC) is a youth-led environmental and biodiversity conservation organization based at Institute of Forestry, Pokhara, Nepal. Motto: Think Globally, Act Locally.">
-    <meta name="keywords" content="SHEAC Nepal, Self Help Environment Awareness Camp, environmental conservation Nepal, biodiversity conservation Pokhara, wildlife conservation, bird conservation, plant research, youth conservation Nepal, Institute of Forestry Pokhara">
-    <meta name="author" content="SHEAC Nepal">
+
+    <!-- SEO -->
+    <title>Self Help Environment Awareness Camp (SHEAC) | Nepal</title>
+
+    <meta name="description"
+          content="Self Help Environment Awareness Camp (SHEAC) is a youth-led environmental and biodiversity conservation organization based in Pokhara, Nepal.">
+
+    <meta name="keywords"
+          content="SHEAC, Self Help Environment Awareness Camp, Nepal, Pokhara, biodiversity conservation, wildlife conservation, bird conservation, environmental awareness, forestry">
+
+    <meta name="author"
+          content="Self Help Environment Awareness Camp (SHEAC)">
+
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://sheac.org.np/">
 
+    <!-- =========================================================
+         FAVICON / GOOGLE SEARCH BRANDING
+         ========================================================= -->
+    <link rel="icon" type="image/png" href="/images/LOGO.png">
+    <link rel="apple-touch-icon" href="/images/LOGO.png">
+
+    <!-- =========================================================
+         OPEN GRAPH
+         ========================================================= -->
     <meta property="og:type" content="website">
+    <meta property="og:title"
+          content="Self Help Environment Awareness Camp (SHEAC) | Nepal">
+    <meta property="og:description"
+          content="Youth-led environmental and biodiversity conservation initiative based in Pokhara, Nepal.">
     <meta property="og:url" content="https://sheac.org.np/">
-    <meta property="og:title" content="SHEAC | Self Help Environment Awareness Camp">
-    <meta property="og:description" content="Youth-led initiative for environmental awareness, biodiversity conservation, research, and community action in Nepal. Motto: Think Globally, Act Locally.">
-    <meta property="og:image" content="images/Group.png">
+    <meta property="og:site_name"
+          content="Self Help Environment Awareness Camp (SHEAC)">
+    <meta property="og:image"
+          content="https://sheac.org.np/images/LOGO.png">
 
+    <!-- =========================================================
+         TWITTER / SOCIAL PREVIEW
+         ========================================================= -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SHEAC Nepal | Think Globally, Act Locally">
-    <meta name="twitter:description" content="Youth-led environmental and biodiversity conservation organization based in Pokhara, Nepal.">
-    <meta name="twitter:image" content="images/LOGO.png">
+    <meta name="twitter:title"
+          content="Self Help Environment Awareness Camp (SHEAC)">
+    <meta name="twitter:description"
+          content="Youth-led environmental and biodiversity conservation initiative based in Pokhara, Nepal.">
+    <meta name="twitter:image"
+          content="https://sheac.org.np/images/LOGO.png">
 
-    <link rel="icon" type="image/png" href="images/LOGO.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandPrimary: '#1B5E20',
-                        brandDark: '#0F3D13',
-                        brandLeaf: '#4CAF50',
-                        brandGold: '#F4B942',
-                        brandEarth: '#795548',
-                        brandSoftBg: '#F7F8F3',
-                        brandText: '#263238'
-                    },
-                    fontFamily: {
-                        heading: ['Montserrat', 'sans-serif'],
-                        body: ['Inter', 'sans-serif'],
-                        nepali: ['Mukta', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <link rel="stylesheet" href="css/style.css">
-
+    <!-- =========================================================
+         GOOGLE / SEARCH ENGINE ORGANIZATION DATA
+         ========================================================= -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "NonProfitOrganization",
-      "name": "Self Help Environment Awareness Camp",
-      "alternateName": "स्वंयसेवी वातावरण जागरण समूह (SHEAC)",
-      "url": "https://sheac.org.np",
-      "logo": "https://sheac.org.np/images/LOGO.png",
-      "description": "Youth-led environmental and biodiversity conservation organization based in Pokhara, Nepal.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Pokhara",
-        "addressRegion": "Kaski",
-        "addressCountry": "Nepal"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+977-9749798229",
-        "contactType": "general info",
-        "email": "info@sheac.org.np"
-      },
-      "sameAs": [
-        "https://www.facebook.com/sheaciof7",
-        "https://www.linkedin.com/in/sheaciof"
-      ]
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Self Help Environment Awareness Camp",
+        "alternateName": "SHEAC",
+        "url": "https://sheac.org.np/",
+        "logo": "https://sheac.org.np/images/LOGO.png",
+        "description": "Youth-led environmental and biodiversity conservation organization based in Pokhara, Nepal.",
+        "email": "info@sheac.org.np",
+        "telephone": "+9779749798229",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pokhara",
+            "addressRegion": "Gandaki",
+            "addressCountry": "NP"
+        },
+        "sameAs": [
+            "https://www.facebook.com/sheaciof7",
+            "https://www.linkedin.com/in/sheaciof"
+        ]
     }
     </script>
-</head>
-<body class="flex flex-col min-h-screen text-brandText antialiased selection:bg-brandLeaf selection:text-white">
 
-    <div class="bg-brandDark text-white text-xs md:text-sm py-2 px-4 shadow-inner">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
-                <a href="mailto:info@sheac.org.np" class="hover:text-brandGold transition-colors flex items-center gap-1.5">
-                    <i class="fa-solid fa-envelope text-brandLeaf"></i> info@sheac.org.np
-                </a>
-                <span class="hidden sm:inline text-gray-500">|</span>
-                <a href="tel:+9779749798229" class="hover:text-brandGold transition-colors flex items-center gap-1.5">
-                    <i class="fa-solid fa-phone text-brandLeaf"></i> +977 9749798229
-                </a>
-                <span class="hidden sm:inline text-gray-500">|</span>
-                <span class="text-gray-300 flex items-center gap-1">
-                    <i class="fa-solid fa-location-dot text-brandLeaf"></i> Pokhara, Kaski, Nepal
-                </span>
-            </div>
-            <div class="flex items-center gap-4">
-                <span class="font-semibold text-brandGold hidden md:inline tracking-wide uppercase text-xs">Think Globally, Act Locally</span>
-                <div class="flex items-center gap-3 text-sm">
-                    <a href="https://www.facebook.com/sheaciof7" target="_blank" aria-label="Facebook Profile" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/in/sheaciof" target="_blank" aria-label="LinkedIn Profile" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-                </div>
-            </div>
+    <!-- =========================================================
+         FONTS
+         ========================================================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&family=Mukta:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- =========================================================
+         FONT AWESOME
+         ========================================================= -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- =========================================================
+         MAIN WEBSITE CSS
+         ========================================================= -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<!-- =============================================================
+     TOP CONTACT / SOCIAL BAR
+     ============================================================= -->
+<div class="utility-bar">
+
+    <div class="container utility-inner">
+
+        <div class="utility-left">
+
+            <a href="mailto:info@sheac.org.np"
+               class="utility-link">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <span>info@sheac.org.np</span>
+
+            </a>
+
+            <span class="utility-divider">|</span>
+
+            <a href="tel:+9779749798229"
+               class="utility-link">
+
+                <i class="fa-solid fa-phone"></i>
+
+                <span>+977 9749798229</span>
+
+            </a>
+
+            <span class="utility-divider">|</span>
+
+            <span class="utility-location">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <span>Pokhara, Kaski, Nepal</span>
+
+            </span>
+
         </div>
+
+        <div class="utility-right">
+
+            <span class="utility-motto">
+                Think Globally, Act Locally
+            </span>
+
+            <div class="social-links">
+
+                <a href="https://www.facebook.com/sheaciof7"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="SHEAC Facebook">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </a>
+
+                <a href="https://www.linkedin.com/in/sheaciof"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="SHEAC LinkedIn">
+
+                    <i class="fa-brands fa-linkedin-in"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-gray-100 transition-all">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20 sm:h-24">
-                
-                <a href="/" class="flex items-center gap-3 group py-2">
-                    <img src="images/LOGO.png" alt="SHEAC Official Logo" class="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/120x120/1B5E20/FFFFFF?text=SHEAC+LOGO';">
-                    <div class="flex flex-col">
-                        <span class="font-heading text-lg sm:text-xl font-extrabold text-brandPrimary tracking-tight leading-tight group-hover:text-brandDark transition-colors">
-                            SHEAC <span class="hidden lg:inline text-sm font-medium text-gray-600">| Pokhara, Nepal</span>
-                        </span>
-                        <span class="text-xs sm:text-sm font-semibold text-gray-700 nepali-text leading-none mt-0.5">
-                            स्वंयसेवी वातावरण जागरण समूह
-                        </span>
-                        <span class="text-[10px] sm:text-xs text-brandEarth font-medium tracking-wide mt-0.5 hidden sm:block">
-                            Think Globally, Act Locally
-                        </span>
-                    </div>
-                </a>
+</div>
 
-                <nav class="hidden lg:flex items-center gap-1 font-medium text-sm text-gray-800">
-                    <a href="/" class="px-3 py-2 rounded-md hover:text-brandPrimary hover:bg-emerald-50 transition-colors">Home</a>
-                    
-                    <div class="relative group">
-                        <button class="flex items-center gap-1 px-3 py-2 rounded-md hover:text-brandPrimary hover:bg-emerald-50 transition-colors focus:outline-none">
-                            <span>About</span>
-                            <i class="fa-solid fa-chevron-down text-xs text-gray-500 group-hover:rotate-180 transition-transform"></i>
-                        </button>
-                        <div class="absolute left-0 top-full pt-1 w-56 hidden group-hover:block transition-all duration-200 z-50">
-                            <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2">
-                                <a href="/about/" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">About SHEAC</a>
-                                <a href="/about/founding-members/" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Founding Members</a>
-                                <a href="/about/alumni/" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Alumni Directory</a>
-                                <a href="/about/executive-team/" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Executive Team</a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <a href="/projects/" class="px-3 py-2 rounded-md hover:text-brandPrimary hover:bg-emerald-50 transition-colors">Projects</a>
-                    <a href="/research/" class="px-3 py-2 rounded-md hover:text-brandPrimary hover:bg-emerald-50 transition-colors">Research</a>
-                    <a href="/activities/" class="px-3 py-2 rounded-md hover:text-brandPrimary hover:bg-emerald-50 transition-colors">Activities</a>
+<!-- =============================================================
+     MAIN HEADER
+     ============================================================= -->
+<header class="site-header">
 
-                    <div class="relative group">
-                        <button class="flex items-center gap-1 px-3 py-2 rounded-md hover:text-brandPrimary hover:bg-emerald-50 transition-colors focus:outline-none">
-                            <span>Gallery & News</span>
-                            <i class="fa-solid fa-chevron-down text-xs text-gray-500 group-hover:rotate-180 transition-transform"></i>
-                        </button>
-                        <div class="absolute left-0 top-full pt-1 w-48 hidden group-hover:block transition-all duration-200 z-50">
-                            <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2">
-                                <a href="/gallery/" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Photos & Gallery</a>
-                            </div>
-                        </div>
-                    </div>
+    <div class="container header-inner">
 
-                    <div class="relative group">
-                        <button class="flex items-center gap-1 px-3 py-2 rounded-md hover:text-brandPrimary hover:bg-emerald-50 transition-colors focus:outline-none">
-                            <span class="text-brandPrimary font-semibold">Get Involved</span>
-                            <i class="fa-solid fa-chevron-down text-xs text-brandPrimary group-hover:rotate-180 transition-transform"></i>
-                        </button>
-                        <div class="absolute right-0 top-full pt-1 w-56 hidden group-hover:block transition-all duration-200 z-50">
-                            <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2">
-                                <a href="/get-involved/volunteer/" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Volunteer With Us</a>
-                                <a href="/get-involved/membership/" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Become a Member</a>
-                                <a href="/get-involved/donation/" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Donation & Support</a>
-                                <a href="/get-involved/collaboration/" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Partner & Collaborate</a>
-                            </div>
-                        </div>
-                    </div>
+        <!-- =====================================================
+             LOGO + ORGANIZATION NAME
+             ===================================================== -->
+        <a href="/"
+           class="brand"
+           aria-label="SHEAC Home">
 
-                    <a href="/contact/" class="ml-2 px-4 py-2 bg-brandPrimary text-white rounded-full font-semibold hover:bg-brandDark transition-all shadow-md hover:shadow-lg">
-                        Contact
-                    </a>
-                </nav>
+            <img src="/images/LOGO.png"
+                 alt="SHEAC Official Logo"
+                 class="brand-logo">
 
-                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-gray-700 hover:text-brandPrimary hover:bg-emerald-50 focus:outline-none" aria-label="Toggle navigation menu">
-                    <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
+            <div class="brand-text">
+
+                <div class="brand-title">
+                    SHEAC
+                    <span class="brand-location">
+                        | Pokhara, Nepal
+                    </span>
+                </div>
+
+                <div class="brand-nepali">
+                    स्वंयसेवी वातावरण जागरण समूह
+                </div>
+
+                <div class="brand-motto">
+                    Think Globally, Act Locally
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- =====================================================
+             DESKTOP NAVIGATION
+             ===================================================== -->
+        <nav class="main-nav" aria-label="Main Navigation">
+
+            <!-- ABOUT -->
+            <div class="nav-dropdown">
+
+                <button type="button"
+                        class="nav-dropdown-button">
+
+                    <span>About</span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
                 </button>
-            </div>
-        </div>
 
-        <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-200 bg-white px-4 pt-3 pb-6 space-y-2 max-h-[85vh] overflow-y-auto shadow-2xl">
-            <a href="/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Home</a>
-            
-            <div class="space-y-1 pl-2 border-l-2 border-brandLeaf my-1">
-                <span class="block px-3 py-1 text-xs uppercase font-bold text-gray-400">About SHEAC</span>
-                <a href="/about/" class="block px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-brandPrimary">About Overview</a>
-                <a href="/about/founding-members/" class="block px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-brandPrimary">Founding Members</a>
-                <a href="/about/alumni/" class="block px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-brandPrimary">Alumni Directory</a>
-                <a href="/about/executive-team/" class="block px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-brandPrimary">Executive Team</a>
-            </div>
+                <div class="dropdown-menu">
 
-            <a href="/projects/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Projects</a>
-            <a href="/research/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Research</a>
-            <a href="/activities/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Activities</a>
-            <a href="/gallery/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Gallery & News</a>
+                    <a href="/about/">
+                        About SHEAC
+                    </a>
 
-            <div class="space-y-1 pl-2 border-l-2 border-brandGold my-1">
-                <span class="block px-3 py-1 text-xs uppercase font-bold text-gray-400">Get Involved</span>
-                <a href="/get-involved/volunteer/" class="block px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-brandPrimary">Volunteer</a>
-                <a href="/get-involved/membership/" class="block px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-brandPrimary">Membership</a>
-                <a href="/get-involved/donation/" class="block px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-brandPrimary">Donate & Support</a>
-                <a href="/get-involved/collaboration/" class="block px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-brandPrimary">Collaboration</a>
+                    <a href="/about/founding-members/">
+                        Founding Members
+                    </a>
+
+                    <a href="/about/alumni/">
+                        Alumni Directory
+                    </a>
+
+                    <a href="/about/executive-team/">
+                        Executive Team
+                    </a>
+
+                </div>
+
             </div>
 
-            <a href="/contact/" class="block w-full text-center mt-4 px-4 py-2.5 bg-brandPrimary text-white rounded-lg font-semibold hover:bg-brandDark">
-                Contact SHEAC
+
+            <!-- PROJECTS -->
+            <a href="/projects/"
+               class="nav-link">
+
+                Projects
+
             </a>
+
+
+            <!-- RESEARCH -->
+            <a href="/research/"
+               class="nav-link">
+
+                Research
+
+            </a>
+
+
+            <!-- ACTIVITIES -->
+            <a href="/activities/"
+               class="nav-link">
+
+                Activities
+
+            </a>
+
+
+            <!-- GALLERY & NEWS -->
+            <div class="nav-dropdown">
+
+                <button type="button"
+                        class="nav-dropdown-button">
+
+                    <span>Gallery &amp; News</span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="/gallery/">
+                        Photos &amp; Gallery
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- GET INVOLVED -->
+            <div class="nav-dropdown">
+
+                <button type="button"
+                        class="nav-dropdown-button nav-active">
+
+                    <span>Get Involved</span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
+
+                <div class="dropdown-menu dropdown-right">
+
+                    <a href="/get-involved/volunteer/">
+                        Volunteer With Us
+                    </a>
+
+                    <a href="/get-involved/membership/">
+                        Become a Member
+                    </a>
+
+                    <a href="/get-involved/donation/">
+                        Donation &amp; Support
+                    </a>
+
+                    <a href="/get-involved/collaboration/">
+                        Partner &amp; Collaborate
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT -->
+            <a href="/contact/"
+               class="nav-contact">
+
+                Contact
+
+            </a>
+
+        </nav>
+
+
+        <!-- =====================================================
+             MOBILE MENU BUTTON
+             ===================================================== -->
+        <button type="button"
+                class="mobile-menu-button"
+                id="mobileMenuBtn"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+
+            <i class="fa-solid fa-bars"
+               id="menuIcon"></i>
+
+        </button>
+
+    </div>
+
+
+    <!-- =========================================================
+         MOBILE NAVIGATION
+         ========================================================= -->
+    <div class="mobile-menu"
+         id="mobileMenu">
+
+        <!-- About -->
+        <div class="mobile-menu-group">
+
+            <span class="mobile-menu-label">
+                About SHEAC
+            </span>
+
+            <a href="/about/">
+                About Overview
+            </a>
+
+            <a href="/about/founding-members/">
+                Founding Members
+            </a>
+
+            <a href="/about/alumni/">
+                Alumni Directory
+            </a>
+
+            <a href="/about/executive-team/">
+                Executive Team
+            </a>
+
         </div>
-    </header>
 
-    <main class="flex-grow">
-        <section id="page-home">
-            <div class="relative bg-brandDark text-white overflow-hidden min-h-[540px] flex items-center">
-                <div class="absolute inset-0 z-0">
-                    <img src="images/Group.png" alt="SHEAC Conservation Group" class="w-full h-full object-cover object-center opacity-30 scale-105 transform hover:scale-100 transition-transform duration-1000" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511497584788-8767610419ea?auto=format&fit=crop&w=1600&q=80';">
-                    <div class="absolute inset-0 bg-gradient-to-r from-brandDark via-brandDark/80 to-transparent"></div>
+
+        <!-- Main links -->
+        <a href="/projects/">
+            Projects
+        </a>
+
+        <a href="/research/">
+            Research
+        </a>
+
+        <a href="/activities/">
+            Activities
+        </a>
+
+        <a href="/gallery/">
+            Gallery &amp; News
+        </a>
+
+
+        <!-- Get Involved -->
+        <div class="mobile-menu-group mobile-gold-group">
+
+            <span class="mobile-menu-label">
+                Get Involved
+            </span>
+
+            <a href="/get-involved/volunteer/">
+                Volunteer
+            </a>
+
+            <a href="/get-involved/membership/">
+                Membership
+            </a>
+
+            <a href="/get-involved/donation/">
+                Donate &amp; Support
+            </a>
+
+            <a href="/get-involved/collaboration/">
+                Collaboration
+            </a>
+
+        </div>
+
+
+        <!-- Contact -->
+        <a href="/contact/"
+           class="mobile-contact-button">
+
+            Contact SHEAC
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =============================================================
+     DIRECTORY PATH BAR
+     ============================================================= -->
+<div class="directory-bar">
+
+    <div class="container directory-inner">
+
+        <span class="directory-path">
+
+            <i class="fa-solid fa-folder-tree"></i>
+
+            <strong>Active Directory Path:</strong>
+
+            <span class="directory-current">
+                https://sheac.org.np/
+            </span>
+
+        </span>
+
+        <span class="directory-note">
+            Static Subdirectory Clean URLs
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =============================================================
+     MAIN CONTENT
+     ============================================================= -->
+<main>
+
+    <!-- =========================================================
+         HERO SECTION
+         ========================================================= -->
+    <section class="home-hero">
+
+        <div class="hero-background">
+
+            <img src="/images/Group.png"
+                 alt="SHEAC Conservation Group">
+
+            <div class="hero-overlay"></div>
+
+        </div>
+
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <div class="hero-badge">
+
+                    <i class="fa-solid fa-leaf"></i>
+
+                    Official Youth Environmental Movement
+
                 </div>
 
-                <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-                    <div class="max-w-3xl space-y-6">
-                        <div class="inline-flex items-center gap-2 bg-brandGold/20 text-brandGold border border-brandGold/40 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide">
-                            <i class="fa-solid fa-leaf"></i> Official Youth Environmental Movement
-                        </div>
-                        
-                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight font-heading">
-                            Self Help Environment Awareness Camp
-                        </h1>
-                        <p class="text-xl sm:text-2xl text-brandGold font-semibold nepali-text tracking-wide">
-                            स्वंयसेवी वातावरण जागरण समूह (SHEAC)
-                        </p>
 
-                        <p class="text-base sm:text-lg text-gray-200 leading-relaxed font-light">
-                            A youth-led initiative based in Pokhara, Nepal, dedicated to biodiversity conservation, wildlife research, plant studies, bird monitoring, and sustainable community action.
-                        </p>
+                <h1>
+                    Self Help Environment Awareness Camp
+                </h1>
 
-                        <div class="pt-2 pb-1">
-                            <span class="inline-block bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg text-brandGold font-bold text-sm tracking-widest uppercase border border-white/20">
-                                Official Motto: Think Globally, Act Locally
-                            </span>
-                        </div>
 
-                        <div class="flex flex-wrap items-center gap-4 pt-4">
-                            <a href="/projects/" class="px-6 py-3.5 bg-brandLeaf text-white font-semibold rounded-lg hover:bg-emerald-600 transition-all shadow-lg hover:shadow-xl flex items-center gap-2">
-                                <span>Explore Our Work</span>
-                                <i class="fa-solid fa-arrow-right text-sm"></i>
-                            </a>
-                            <a href="/get-involved/volunteer/" class="px-6 py-3.5 bg-brandGold text-brandDark font-bold rounded-lg hover:bg-yellow-400 transition-all shadow-lg hover:shadow-xl flex items-center gap-2">
-                                <span>Get Involved</span>
-                                <i class="fa-solid fa-hand-holding-heart"></i>
-                            </a>
-                        </div>
-                    </div>
+                <p class="hero-nepali">
+                    स्वंयसेवी वातावरण जागरण समूह (SHEAC)
+                </p>
+
+
+                <p class="hero-description">
+
+                    A youth-led initiative based in Pokhara, Nepal,
+                    dedicated to biodiversity conservation, wildlife
+                    research, plant studies, bird monitoring, and
+                    sustainable community action.
+
+                </p>
+
+
+                <div class="hero-motto">
+
+                    Official Motto:
+                    <strong>Think Globally, Act Locally</strong>
+
                 </div>
+
+
+                <div class="hero-buttons">
+
+                    <a href="/projects/"
+                       class="btn btn-primary">
+
+                        <span>Explore Our Work</span>
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+
+                    <a href="/get-involved/volunteer/"
+                       class="btn btn-gold">
+
+                        <span>Get Involved</span>
+
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+
+                    </a>
+
+                </div>
+
             </div>
 
-            <div class="py-16 bg-white border-b border-gray-100">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div class="space-y-5">
-                            <span class="text-brandPrimary font-bold text-sm uppercase tracking-wider">Who We Are</span>
-                            <h2 class="text-3xl font-extrabold text-brandDark font-heading">Bridging Youth Energy with Conservation Science</h2>
-                            <p class="text-gray-600 leading-relaxed">
-                                Self Help Environment Awareness Camp (SHEAC) is an active, youth-driven environmental organization based in Pokhara, Kaski, Nepal. Founded by forestry students and conservation enthusiasts, SHEAC connects scientific field research, ecological education, biodiversity monitoring, and grassroots youth participation.
-                            </p>
-                            <p class="text-gray-600 leading-relaxed">
-                                Operating under our steadfast ethos, <strong>"Think Globally, Act Locally"</strong>, we empower local communities, students, and young researchers to take proactive ownership of natural ecosystems.
-                            </p>
-                            <div class="pt-2">
-                                <a href="/about/" class="inline-flex items-center gap-2 font-bold text-brandPrimary hover:text-brandDark transition-colors">
-                                    Learn More About SHEAC <i class="fa-solid fa-chevron-right text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
+        </div>
 
-                        <div class="bg-brandSoftBg rounded-2xl p-8 border border-emerald-100 shadow-sm flex flex-col items-center text-center">
-                            <img src="images/LOGO.png" alt="SHEAC Logo Large" class="h-40 w-auto mb-4 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/200x200/1B5E20/FFFFFF?text=SHEAC+LOGO';">
-                            <h3 class="text-lg font-bold text-brandDark">Self Help Environment Awareness Camp</h3>
-                            <p class="text-sm text-gray-500 nepali-text font-medium">स्वंयसेवी वातावरण जागरण समूह</p>
-                            <span class="mt-3 text-xs bg-brandPrimary text-white px-3 py-1 rounded-full font-medium">Pokhara, Nepal</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    </section>
 
-            <div class="py-16 bg-brandSoftBg">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center max-w-2xl mx-auto mb-12">
-                        <span class="text-brandPrimary font-bold text-sm uppercase tracking-wider">Core Pillars</span>
-                        <h2 class="text-3xl font-extrabold text-brandDark font-heading mt-1">Our Thematic Focus Areas</h2>
-                        <p class="text-gray-600 text-sm mt-2">Dedicated pathways driving ecological stability and environmental education across Nepal.</p>
-                    </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow group">
-                            <div class="w-12 h-12 bg-emerald-100 text-brandPrimary rounded-lg flex items-center justify-center text-2xl mb-4 group-hover:bg-brandPrimary group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-tree"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-brandDark mb-2 font-heading">Biodiversity Conservation</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Protecting fragile ecosystem habitats and supporting landscape-level conservation actions in Western Nepal.</p>
-                        </div>
+    <!-- =========================================================
+         WHO WE ARE
+         ========================================================= -->
+    <section class="section section-white">
 
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow group">
-                            <div class="w-12 h-12 bg-emerald-100 text-brandPrimary rounded-lg flex items-center justify-center text-2xl mb-4 group-hover:bg-brandPrimary group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-paw"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-brandDark mb-2 font-heading">Wildlife Conservation</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Promoting wildlife protection, camera-trapping surveys, public awareness, and human-wildlife coexistence models.</p>
-                        </div>
+        <div class="container">
 
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow group">
-                            <div class="w-12 h-12 bg-emerald-100 text-brandPrimary rounded-lg flex items-center justify-center text-2xl mb-4 group-hover:bg-brandPrimary group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-feather"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-brandDark mb-2 font-heading">Bird Conservation</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Conducting avian fauna surveys, monitoring migratory waterfowl across Pokhara's lake clusters, and birding education.</p>
-                        </div>
+            <div class="two-column">
 
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow group">
-                            <div class="w-12 h-12 bg-emerald-100 text-brandPrimary rounded-lg flex items-center justify-center text-2xl mb-4 group-hover:bg-brandPrimary group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-seedling"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-brandDark mb-2 font-heading">Plant & Butterfly Studies</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Plant identification drives, butterfly biodiversity mapping, herbarium documentation, and urban forestry initiatives.</p>
-                        </div>
+                <!-- TEXT -->
+                <div class="info-content">
 
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow group">
-                            <div class="w-12 h-12 bg-emerald-100 text-brandPrimary rounded-lg flex items-center justify-center text-2xl mb-4 group-hover:bg-brandPrimary group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-bullhorn"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-brandDark mb-2 font-heading">Environmental Awareness</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Organizing school awareness camps, eco-club workshops, plastic-reduction drives, and public rally campaigns.</p>
-                        </div>
+                    <span class="section-label">
+                        Who We Are
+                    </span>
 
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow group">
-                            <div class="w-12 h-12 bg-emerald-100 text-brandPrimary rounded-lg flex items-center justify-center text-2xl mb-4 group-hover:bg-brandPrimary group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-microscope"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-brandDark mb-2 font-heading">Research & Education</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Encouraging field research, mentorship for undergraduate thesis students, and publishing open scientific insights.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <h2>
+                        Bridging Youth Energy with Conservation Science
+                    </h2>
 
-            <div class="py-12 bg-brandPrimary text-white">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                        <div>
-                            <span class="text-3xl sm:text-4xl font-extrabold font-heading text-brandGold block">15+</span>
-                            <span class="text-xs sm:text-sm uppercase tracking-wider text-emerald-100">Years Active</span>
-                        </div>
-                        <div>
-                            <span class="text-3xl sm:text-4xl font-extrabold font-heading text-brandGold block">50+</span>
-                            <span class="text-xs sm:text-sm uppercase tracking-wider text-emerald-100">Field Activities</span>
-                        </div>
-                        <div>
-                            <span class="text-3xl sm:text-4xl font-extrabold font-heading text-brandGold block">30+</span>
-                            <span class="text-xs sm:text-sm uppercase tracking-wider text-emerald-100">Research Grants & Papers</span>
-                        </div>
-                        <div>
-                            <span class="text-3xl sm:text-4xl font-extrabold font-heading text-brandGold block">500+</span>
-                            <span class="text-xs sm:text-sm uppercase tracking-wider text-emerald-100">Youth Volunteers</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <p>
 
-            <div class="py-16 bg-white">
-                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-gradient-to-br from-brandDark to-brandPrimary rounded-3xl p-8 sm:p-12 text-white shadow-xl">
-                    <h2 class="text-2xl sm:text-4xl font-extrabold font-heading mb-4">Be Part of the Conservation Movement</h2>
-                    <p class="text-emerald-100 max-w-2xl mx-auto mb-8 text-sm sm:text-base">
-                        Whether through field volunteering, academic research, institutional collaboration, or community membership, your contributions safeguard Nepal's rich biodiversity.
+                        Self Help Environment Awareness Camp (SHEAC)
+                        is an active, youth-driven environmental
+                        organization based in Pokhara, Kaski, Nepal.
+                        Founded by forestry students and conservation
+                        enthusiasts, SHEAC connects scientific field
+                        research, ecological education, biodiversity
+                        monitoring, and grassroots youth participation.
+
                     </p>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <a href="/get-involved/volunteer/" class="px-6 py-3 bg-brandGold text-brandDark font-bold rounded-lg hover:bg-yellow-400 transition-colors shadow">
+
+
+                    <p>
+
+                        Operating under our steadfast ethos,
+                        <strong>"Think Globally, Act Locally"</strong>,
+                        we empower local communities, students, and
+                        young researchers to take proactive ownership
+                        of natural ecosystems.
+
+                    </p>
+
+
+                    <div class="content-link">
+
+                        <a href="/about/">
+
+                            Learn More About SHEAC
+
+                            <i class="fa-solid fa-chevron-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOGO CARD -->
+                <div class="logo-display-card">
+
+                    <img src="/images/LOGO.png"
+                         alt="SHEAC Logo"
+                         class="large-logo">
+
+                    <h3>
+                        Self Help Environment Awareness Camp
+                    </h3>
+
+                    <p class="nepali-text">
+                        स्वंयसेवी वातावरण जागरण समूह
+                    </p>
+
+                    <span class="location-badge">
+                        Pokhara, Nepal
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         OUR THEMATIC FOCUS AREAS
+         ========================================================= -->
+    <section class="section section-soft">
+
+        <div class="container">
+
+            <div class="section-heading centered">
+
+                <span class="section-label">
+                    Core Pillars
+                </span>
+
+                <h2>
+                    Our Thematic Focus Areas
+                </h2>
+
+                <p>
+
+                    Dedicated pathways driving ecological stability
+                    and environmental education across Nepal.
+
+                </p>
+
+            </div>
+
+
+            <div class="focus-grid">
+
+                <!-- CARD 1 -->
+                <article class="focus-card">
+
+                    <div class="focus-icon">
+
+                        <i class="fa-solid fa-tree"></i>
+
+                    </div>
+
+                    <h3>
+                        Biodiversity Conservation
+                    </h3>
+
+                    <p>
+
+                        Protecting fragile ecosystem habitats and
+                        supporting landscape-level conservation
+                        actions in Western Nepal.
+
+                    </p>
+
+                </article>
+
+
+                <!-- CARD 2 -->
+                <article class="focus-card">
+
+                    <div class="focus-icon">
+
+                        <i class="fa-solid fa-paw"></i>
+
+                    </div>
+
+                    <h3>
+                        Wildlife Conservation
+                    </h3>
+
+                    <p>
+
+                        Promoting wildlife protection, camera-trapping
+                        surveys, public awareness, and human-wildlife
+                        coexistence models.
+
+                    </p>
+
+                </article>
+
+
+                <!-- CARD 3 -->
+                <article class="focus-card">
+
+                    <div class="focus-icon">
+
+                        <i class="fa-solid fa-feather"></i>
+
+                    </div>
+
+                    <h3>
+                        Bird Conservation
+                    </h3>
+
+                    <p>
+
+                        Conducting avian fauna surveys, monitoring
+                        migratory waterfowl across Pokhara's lake
+                        clusters, and birding education.
+
+                    </p>
+
+                </article>
+
+
+                <!-- CARD 4 -->
+                <article class="focus-card">
+
+                    <div class="focus-icon">
+
+                        <i class="fa-solid fa-seedling"></i>
+
+                    </div>
+
+                    <h3>
+                        Plant &amp; Butterfly Studies
+                    </h3>
+
+                    <p>
+
+                        Plant identification drives, butterfly
+                        biodiversity mapping, herbarium documentation,
+                        and urban forestry initiatives.
+
+                    </p>
+
+                </article>
+
+
+                <!-- CARD 5 -->
+                <article class="focus-card">
+
+                    <div class="focus-icon">
+
+                        <i class="fa-solid fa-bullhorn"></i>
+
+                    </div>
+
+                    <h3>
+                        Environmental Awareness
+                    </h3>
+
+                    <p>
+
+                        Organizing school awareness camps, eco-club
+                        workshops, plastic-reduction drives, and
+                        public rally campaigns.
+
+                    </p>
+
+                </article>
+
+
+                <!-- CARD 6 -->
+                <article class="focus-card">
+
+                    <div class="focus-icon">
+
+                        <i class="fa-solid fa-microscope"></i>
+
+                    </div>
+
+                    <h3>
+                        Research &amp; Education
+                    </h3>
+
+                    <p>
+
+                        Encouraging field research, mentorship for
+                        undergraduate thesis students, and publishing
+                        open scientific insights.
+
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         STATISTICS
+         ========================================================= -->
+    <section class="stats-section">
+
+        <div class="container">
+
+            <div class="stats-grid">
+
+                <div class="stat-item">
+
+                    <span class="stat-number">
+                        15+
+                    </span>
+
+                    <span class="stat-label">
+                        Years Active
+                    </span>
+
+                </div>
+
+
+                <div class="stat-item">
+
+                    <span class="stat-number">
+                        50+
+                    </span>
+
+                    <span class="stat-label">
+                        Field Activities
+                    </span>
+
+                </div>
+
+
+                <div class="stat-item">
+
+                    <span class="stat-number">
+                        30+
+                    </span>
+
+                    <span class="stat-label">
+                        Research Grants &amp; Papers
+                    </span>
+
+                </div>
+
+
+                <div class="stat-item">
+
+                    <span class="stat-number">
+                        500+
+                    </span>
+
+                    <span class="stat-label">
+                        Youth Volunteers
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         HOMEPAGE CALL TO ACTION
+         ========================================================= -->
+    <section class="section section-white">
+
+        <div class="container">
+
+            <div class="home-cta">
+
+                <h2>
+                    Be Part of the Conservation Movement
+                </h2>
+
+                <p>
+
+                    Whether through field volunteering, academic
+                    research, institutional collaboration, or
+                    community membership, your contributions
+                    safeguard Nepal's rich biodiversity.
+
+                </p>
+
+
+                <div class="cta-buttons">
+
+                    <a href="/get-involved/volunteer/"
+                       class="btn btn-gold">
+
+                        Volunteer With Us
+
+                    </a>
+
+
+                    <a href="/get-involved/membership/"
+                       class="btn btn-white">
+
+                        Become a Member
+
+                    </a>
+
+
+                    <a href="/contact/"
+                       class="btn btn-outline-white">
+
+                        Contact SHEAC
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =============================================================
+     FOOTER
+     ============================================================= -->
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <!-- =================================================
+                 ORGANIZATION
+                 ================================================= -->
+            <div class="footer-column footer-brand">
+
+                <div class="footer-logo-wrap">
+
+                    <img src="/images/LOGO.png"
+                         alt="SHEAC Logo"
+                         class="footer-logo">
+
+                    <div>
+
+                        <h3>
+                            SHEAC
+                        </h3>
+
+                        <p class="nepali-text footer-nepali">
+                            स्वंयसेवी वातावरण जागरण समूह
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <p class="footer-description">
+
+                    Youth-led environmental and biodiversity
+                    conservation initiative based in Pokhara,
+                    Nepal. Dedicated to research, education,
+                    wildlife protection, and sustainable local action.
+
+                </p>
+
+
+                <p class="footer-motto">
+                    Think Globally, Act Locally
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUICK LINKS
+                 ================================================= -->
+            <div class="footer-column">
+
+                <h4>
+                    Quick Links
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="/about/">
+                            About SHEAC
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/projects/">
+                            Conservation Projects
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/research/">
+                            Research Publications
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/activities/">
+                            Activities &amp; Workshops
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/gallery/">
+                            Gallery &amp; News
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- =================================================
+                 GET INVOLVED
+                 ================================================= -->
+            <div class="footer-column">
+
+                <h4>
+                    Get Involved
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="/get-involved/volunteer/">
                             Volunteer With Us
                         </a>
-                        <a href="/get-involved/membership/" class="px-6 py-3 bg-white text-brandPrimary font-bold rounded-lg hover:bg-gray-100 transition-colors shadow">
+                    </li>
+
+                    <li>
+                        <a href="/get-involved/membership/">
                             Become a Member
                         </a>
-                        <a href="/contact/" class="px-6 py-3 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-colors">
-                            Contact SHEAC
+                    </li>
+
+                    <li>
+                        <a href="/get-involved/donation/">
+                            Donation &amp; Support
                         </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+                    </li>
 
-    <footer class="bg-brandDark text-white pt-16 pb-8 border-t-4 border-brandPrimary">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-emerald-900">
-                <div class="space-y-4">
-                    <div class="flex items-center gap-3">
-                        <img src="images/LOGO.png" alt="SHEAC Logo Footer" class="h-12 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/1B5E20/FFFFFF?text=SHEAC';">
-                        <div>
-                            <h3 class="font-bold font-heading text-lg leading-tight">SHEAC</h3>
-                            <p class="text-xs nepali-text text-brandGold">स्वंयसेवी वातावरण जागरण समूह</p>
-                        </div>
-                    </div>
-                    <p class="text-xs text-gray-300 leading-relaxed">
-                        Youth-led environmental and biodiversity conservation initiative based in Pokhara, Nepal. Dedicated to research, education, wildlife protection, and sustainable local action.
-                    </p>
-                    <p class="text-xs font-bold text-brandGold tracking-wider uppercase">
-                        Think Globally, Act Locally
-                    </p>
-                </div>
+                    <li>
+                        <a href="/get-involved/collaboration/">
+                            Partner With Us
+                        </a>
+                    </li>
 
-                <div class="space-y-3">
-                    <h4 class="font-bold text-sm uppercase tracking-wider text-brandGold font-heading">Quick Links</h4>
-                    <ul class="space-y-2 text-xs text-gray-300">
-                        <li><a href="/about/" class="hover:text-brandGold transition-colors">About SHEAC</a></li>
-                        <li><a href="/projects/" class="hover:text-brandGold transition-colors">Conservation Projects</a></li>
-                        <li><a href="/research/" class="hover:text-brandGold transition-colors">Research Publications</a></li>
-                        <li><a href="/activities/" class="hover:text-brandGold transition-colors">Activities & Workshops</a></li>
-                        <li><a href="/gallery/" class="hover:text-brandGold transition-colors">Gallery & News</a></li>
-                    </ul>
-                </div>
+                </ul>
 
-                <div class="space-y-3">
-                    <h4 class="font-bold text-sm uppercase tracking-wider text-brandGold font-heading">Get Involved</h4>
-                    <ul class="space-y-2 text-xs text-gray-300">
-                        <li><a href="/get-involved/volunteer/" class="hover:text-brandGold transition-colors">Volunteer With Us</a></li>
-                        <li><a href="/get-involved/membership/" class="hover:text-brandGold transition-colors">Become a Member</a></li>
-                        <li><a href="/get-involved/donation/" class="hover:text-brandGold transition-colors">Donation & Support</a></li>
-                        <li><a href="/get-involved/collaboration/" class="hover:text-brandGold transition-colors">Partner With Us</a></li>
-                    </ul>
-                </div>
-
-                <div class="space-y-3 text-xs text-gray-300">
-                    <h4 class="font-bold text-sm uppercase tracking-wider text-brandGold font-heading">Official Contact</h4>
-                    <p><i class="fa-solid fa-location-dot text-brandLeaf mr-1.5"></i> Pokhara, Kaski, Nepal</p>
-                    <p><i class="fa-solid fa-envelope text-brandLeaf mr-1.5"></i> info@sheac.org.np</p>
-                    <p><i class="fa-solid fa-envelope text-brandLeaf mr-1.5"></i> sheaciof7@gmail.com</p>
-                    <p><i class="fa-solid fa-phone text-brandLeaf mr-1.5"></i> +977 9749798229</p>
-                    <div class="flex items-center gap-3 pt-2 text-base">
-                        <a href="https://www.facebook.com/sheaciof7" target="_blank" aria-label="Facebook" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.linkedin.com/in/sheaciof" target="_blank" aria-label="LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-                    </div>
-                </div>
             </div>
 
-            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400 gap-4">
-                <p>© SHEAC — Self Help Environment Awareness Camp. All rights reserved.</p>
-                <p class="text-brandGold font-medium">Official Motto: Think Globally, Act Locally</p>
+
+            <!-- =================================================
+                 CONTACT
+                 ================================================= -->
+            <div class="footer-column footer-contact">
+
+                <h4>
+                    Official Contact
+                </h4>
+
+
+                <p>
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Pokhara, Kaski, Nepal
+
+                </p>
+
+
+                <p>
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <a href="mailto:info@sheac.org.np">
+                        info@sheac.org.np
+                    </a>
+
+                </p>
+
+
+                <p>
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <a href="tel:+9779749798229">
+                        +977 9749798229
+                    </a>
+
+                </p>
+
+
+                <div class="footer-social">
+
+                    <a href="https://www.facebook.com/sheaciof7"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Facebook">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </a>
+
+
+                    <a href="https://www.linkedin.com/in/sheaciof"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="LinkedIn">
+
+                        <i class="fa-brands fa-linkedin-in"></i>
+
+                    </a>
+
+                </div>
+
             </div>
+
         </div>
-    </footer>
 
-    <script src="js/script.js"></script>
+
+        <!-- =====================================================
+             COPYRIGHT
+             ===================================================== -->
+        <div class="footer-bottom">
+
+            <p>
+                © SHEAC — Self Help Environment Awareness Camp.
+                All rights reserved.
+            </p>
+
+            <p>
+                Official Motto:
+                <strong>Think Globally, Act Locally</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =============================================================
+     BACK TO TOP BUTTON
+     ============================================================= -->
+<button type="button"
+        id="backToTop"
+        class="back-to-top"
+        aria-label="Back to top">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+
+<!-- =============================================================
+     MAIN JAVASCRIPT
+     ============================================================= -->
+<script src="/js/script.js"></script>
+
 </body>
 </html>
