@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHEAC | Self Help Environment Awareness Camp</title>
+    <link rel="icon" type="image/png" href="images/LOGO.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&family=Mukta:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#F7F8F3] text-[#263238] flex flex-col min-h-screen">
+    <!-- Navigation -->
+    <header class="bg-white shadow-sm border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <img src="images/LOGO.png" alt="SHEAC Logo" class="h-12 w-auto">
+                <div>
+                    <span class="font-bold text-lg text-[#1B5E20] block leading-tight">SHEAC</span>
+                    <span class="text-xs nepali-text text-gray-600">स्वंयसेवी वातावरण जागरण समूह</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex gap-6 font-medium text-sm">
+                <a href="/" class="text-[#1B5E20] font-bold">Home</a>
+                <a href="/about/" class="hover:text-[#1B5E20]">About</a>
+                <a href="/projects/" class="hover:text-[#1B5E20]">Projects</a>
+                <a href="/research/" class="hover:text-[#1B5E20]">Research</a>
+                <a href="/activities/" class="hover:text-[#1B5E20]">Activities</a>
+                <a href="/gallery/" class="hover:text-[#1B5E20]">Gallery</a>
+                <a href="/get-involved/volunteer/" class="hover:text-[#1B5E20]">Get Involved</a>
+                <a href="/contact/" class="px-4 py-2 bg-[#1B5E20] text-white rounded-full hover:bg-[#0F3D13] transition">Contact</a>
+            </nav>
+            <button class="md:hidden text-2xl text-[#1B5E20]" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden border-t bg-white px-4 py-4 flex flex-col gap-3 font-medium">
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/projects/">Projects</a>
+            <a href="/research/">Research</a>
+            <a href="/activities/">Activities</a>
+            <a href="/gallery/">Gallery</a>
+            <a href="/get-involved/volunteer/">Get Involved</a>
+            <a href="/contact/">Contact</a>
+        </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="bg-[#0F3D13] text-white py-20 px-4 text-center relative">
+        <div class="max-w-4xl mx-auto space-y-4">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Self Help Environment Awareness Camp</h1>
+            <p class="text-2xl nepali-text text-[#F4B942]">स्वंयसेवी वातावरण जागरण समूह (SHEAC)</p>
+            <p class="text-lg text-gray-200 max-w-2xl mx-auto">Youth-led environmental awareness, wildlife conservation, and sustainability initiatives based at IOF Pokhara Campus, Nepal.</p>
+            <div class="pt-4 flex flex-wrap gap-4 justify-center">
+                <a href="/get-involved/volunteer/" class="px-6 py-3 bg-[#F4B942] text-[#0F3D13] font-bold rounded-xl shadow hover:bg-yellow-400 transition">Get Involved</a>
+                <a href="/projects/" class="px-6 py-3 bg-white/10 backdrop-blur text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition">Explore Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+            <div class="w-12 h-12 bg-green-100 text-[#1B5E20] rounded-xl flex items-center justify-center text-xl mb-4">
+                <i class="fa-solid fa-[#1B5E20] fa-leaf"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Conservation</h3>
+            <p class="text-gray-600 text-sm">Protecting biodiversity and wild ecosystems through youth advocacy, research, and ground action.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+            <div class="w-12 h-12 bg-green-100 text-[#1B5E20] rounded-xl flex items-center justify-center text-xl mb-4">
+                <i class="fa-solid fa-recycle"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Waste Management</h3>
+            <p class="text-gray-600 text-sm">Driving circular economy initiatives like Green Loop Pokhara and "Best Out of Waste" workshops.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+            <div class="w-12 h-12 bg-green-100 text-[#1B5E20] rounded-xl flex items-center justify-center text-xl mb-4">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Youth Leadership</h3>
+            <p class="text-gray-600 text-sm">Empowering students and local communities with eco-literacy and technical skills.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0F3D13] text-gray-300 mt-auto py-10 px-4">
+        <div class="max-w-7xl mx-auto text-center space-y-4">
+            <p class="font-bold text-white">Self Help Environment Awareness Camp (SHEAC-NEPAL-IOF)</p>
+            <p class="text-sm">Pokhara, Kaski, Nepal | info@sheac.org.np</p>
+            <p class="text-xs text-gray-400">&copy; 2026 SHEAC Nepal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
