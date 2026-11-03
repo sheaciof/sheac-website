@@ -87,12 +87,12 @@
       },
       "sameAs": [
         "https://www.facebook.com/sheaciof7",
-        "https://www.linkedin.com/in/sheaciof"
+        "https://www.linkedin.com/company/sheaciof"
       ]
     }
     </script>
 </head>
-<body class="flex flex-col min-h-screen text-brandText antialiased selection:bg-brandLeaf selection:text-white">
+<body class="activities-page flex flex-col min-h-screen text-brandText antialiased selection:bg-brandLeaf selection:text-white">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- TOP UTILITY / BRANDING BAR -->
     <div class="bg-brandDark text-white text-xs md:text-sm py-2 px-4 shadow-inner">
@@ -114,7 +114,7 @@
                 <span class="font-semibold text-brandGold hidden md:inline tracking-wide uppercase text-xs">Think Globally, Act Locally</span>
                 <div class="flex items-center gap-3 text-sm">
                     <a href="https://www.facebook.com/sheaciof7" target="_blank" rel="noopener" aria-label="SHEAC on Facebook" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/in/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/company/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
@@ -170,9 +170,11 @@
                             <span>Gallery &amp; News</span>
                             <i class="fa-solid fa-chevron-down text-xs text-gray-500 group-hover:rotate-180 transition-transform"></i>
                         </button>
-                        <div class="absolute left-0 top-full pt-1 w-48 hidden group-hover:block z-50">
+                        <div class="absolute left-0 top-full pt-1 w-56 hidden group-hover:block z-50">
                             <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2">
-                                <a href="../gallery/" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Photos &amp; Gallery</a>
+                                <a href="../gallery/#photos" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Photos</a>
+                                <a href="../gallery/#videos" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Videos &amp; Posters</a>
+                                <a href="../gallery/#news" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Articles &amp; News</a>
                             </div>
                         </div>
                     </div>
@@ -224,7 +226,15 @@
             <a href="../projects/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Projects</a>
             <a href="../research/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Research</a>
             <a href="../activities/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary nav-active-mobile">Activities</a>
-            <a href="../gallery/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Gallery &amp; News</a>
+            <button onclick="toggleMobileAccordion('mGallery')" class="w-full flex items-center justify-between px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">
+                <span>Gallery &amp; News</span>
+                <i id="mGallery-icon" class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+            </button>
+            <div id="mGallery" class="hidden pl-4 space-y-1 border-l-2 border-brandLeaf ml-3">
+                <a href="../gallery/#photos" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-emerald-50 hover:text-brandPrimary">Photos</a>
+                <a href="../gallery/#videos" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-emerald-50 hover:text-brandPrimary">Videos &amp; Posters</a>
+                <a href="../gallery/#news" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-emerald-50 hover:text-brandPrimary">Articles &amp; News</a>
+            </div>
 
             <!-- Get Involved accordion -->
             <button onclick="toggleMobileAccordion('mGI')" class="w-full flex items-center justify-between px-3 py-2 rounded-md font-medium text-brandPrimary hover:bg-emerald-50">
@@ -254,9 +264,8 @@
 
         <section class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-brandSoftBg border border-dashed border-brandPrimary/40 rounded-xl p-4 mb-10 text-sm text-gray-600">
-                    <i class="fa-solid fa-circle-info text-brandPrimary mr-1.5"></i>
-                    The activities below are oragnized or collaborated by SHEAC in Pokhara, Nepal. 
+                <div class="activity-intro bg-brandSoftBg border border-dashed border-brandPrimary/40 rounded-xl p-4 mb-10 text-sm text-gray-600">
+                    <p>The activities below are organized by SHEAC or carried out in collaboration with SHEAC.</p>
                 </div>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 <!-- =====================================================
@@ -718,7 +727,7 @@
                     <p><a href="tel:+9779749798229" class="hover:text-brandGold transition-colors"><i class="fa-solid fa-phone text-brandLeaf mr-1.5"></i> +977 9749798229</a></p>
                     <div class="flex items-center gap-3 pt-2 text-base">
                         <a href="https://www.facebook.com/sheaciof7" target="_blank" rel="noopener" aria-label="SHEAC on Facebook" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.linkedin.com/in/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/company/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -751,6 +760,27 @@
                 Copy Details
             </button>
         </div>
+    </div>
+
+    <!-- ACTIVITY DETAILS MODAL -->
+    <div id="activityDetailsModal" class="fixed inset-0 z-[70] hidden items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+         role="dialog" aria-modal="true" aria-labelledby="activityDetailsTitle">
+        <article class="activity-details-panel bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div class="relative h-52 sm:h-72 bg-brandSoftBg">
+                <img id="activityDetailsImage" src="" alt="" class="w-full h-full object-cover">
+                <button id="closeActivityDetails" type="button"
+                        class="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/95 text-gray-700 shadow hover:bg-white"
+                        aria-label="Close activity details">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="p-6 sm:p-8">
+                <span id="activityDetailsCategory" class="badge badge-completed mb-3 inline-block"></span>
+                <h2 id="activityDetailsTitle" class="text-2xl font-bold font-heading text-brandDark mb-3"></h2>
+                <p id="activityDetailsLocation" class="text-sm text-gray-500 mb-5"></p>
+                <p id="activityDetailsDescription" class="text-gray-600 text-sm leading-relaxed"></p>
+            </div>
+        </article>
     </div>
 
     <!-- IMAGE LIGHTBOX MODAL (Gallery page) -->
