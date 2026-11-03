@@ -87,7 +87,7 @@
       },
       "sameAs": [
         "https://www.facebook.com/sheaciof7",
-        "https://www.linkedin.com/in/sheaciof"
+        "https://www.linkedin.com/company/sheaciof"
       ]
     }
     </script>
@@ -114,7 +114,7 @@
                 <span class="font-semibold text-brandGold hidden md:inline tracking-wide uppercase text-xs">Think Globally, Act Locally</span>
                 <div class="flex items-center gap-3 text-sm">
                     <a href="https://www.facebook.com/sheaciof7" target="_blank" rel="noopener" aria-label="SHEAC on Facebook" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/in/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/company/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
@@ -170,9 +170,11 @@
                             <span>Gallery &amp; News</span>
                             <i class="fa-solid fa-chevron-down text-xs text-gray-500 group-hover:rotate-180 transition-transform"></i>
                         </button>
-                        <div class="absolute left-0 top-full pt-1 w-48 hidden group-hover:block z-50">
+                        <div class="absolute left-0 top-full pt-1 w-56 hidden group-hover:block z-50">
                             <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2">
-                                <a href="../gallery/" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Photos &amp; Gallery</a>
+                                <a href="../gallery/#photos" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Photos</a>
+                                <a href="../gallery/#videos" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Videos &amp; Posters</a>
+                                <a href="../gallery/#news" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Articles &amp; News</a>
                             </div>
                         </div>
                     </div>
@@ -224,7 +226,15 @@
             <a href="../projects/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Projects</a>
             <a href="../research/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Research</a>
             <a href="../activities/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Activities</a>
-            <a href="../gallery/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary nav-active-mobile">Gallery &amp; News</a>
+            <button onclick="toggleMobileAccordion('mGallery')" class="w-full flex items-center justify-between px-3 py-2 rounded-md font-medium text-brandPrimary hover:bg-emerald-50 nav-active-mobile">
+                <span>Gallery &amp; News</span>
+                <i id="mGallery-icon" class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+            </button>
+            <div id="mGallery" class="hidden pl-4 space-y-1 border-l-2 border-brandLeaf ml-3">
+                <a href="../gallery/#photos" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-emerald-50 hover:text-brandPrimary">Photos</a>
+                <a href="../gallery/#videos" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-emerald-50 hover:text-brandPrimary">Videos &amp; Posters</a>
+                <a href="../gallery/#news" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-emerald-50 hover:text-brandPrimary">Articles &amp; News</a>
+            </div>
 
             <!-- Get Involved accordion -->
             <button onclick="toggleMobileAccordion('mGI')" class="w-full flex items-center justify-between px-3 py-2 rounded-md font-medium text-brandPrimary hover:bg-emerald-50">
@@ -245,37 +255,120 @@
 
         <section class="page-hero text-white py-16 sm:py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-3xl sm:text-4xl font-extrabold font-heading mb-3">Photos &amp; Gallery</h1>
+                <h1 class="text-3xl sm:text-4xl font-extrabold font-heading mb-3">Gallery &amp; News</h1>
                 <p class="text-emerald-100 max-w-2xl mx-auto text-sm sm:text-base">
-                    Moments from SHEAC's field activities, awareness camps, and conservation work.
+                    Photos, videos, and updates from SHEAC's conservation work.
                 </p>
             </div>
         </section>
 
-        <section class="py-16 bg-white">
+        <section id="videos" class="py-8 bg-brandSoftBg">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold font-heading text-brandDark mb-6">Videos</h2>
+                <div class="gallery-slider mx-auto max-w-5xl gap-3"
+                     role="region" aria-label="SHEAC videos" tabindex="0">
+                    <article class="flex h-full min-w-0 flex-col overflow-hidden rounded-lg border-4 border-brandPrimary bg-brandDark p-2">
+                        <div class="aspect-video overflow-hidden rounded-md bg-black">
+                            <iframe
+                                title="SHEAC documentary reel on Facebook"
+                                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F892377220486769%2F&show_text=false&width=350"
+                                class="block h-full w-full border-0"
+                                width="350"
+                                height="200"
+                                scrolling="no"
+                                frameborder="0"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                                allowfullscreen="true"
+                                loading="lazy"></iframe>
+                        </div>
+                        <h3 class="flex h-12 items-center px-1 pt-3 text-sm font-bold leading-snug text-white">
+                            Environmental Awareness Program
+                        </h3>
+                    </article>
+
+                    <article class="flex h-full min-w-0 flex-col overflow-hidden rounded-lg border-4 border-brandPrimary bg-brandDark p-2">
+                        <div class="aspect-video overflow-hidden rounded-md bg-black">
+                            <iframe
+                                title="SHEAC drama reel on Facebook"
+                                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F960391559907576%2F&show_text=false&width=350"
+                                class="block h-full w-full border-0"
+                                width="350"
+                                height="200"
+                                scrolling="no"
+                                frameborder="0"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                                allowfullscreen="true"
+                                loading="lazy"></iframe>
+                        </div>
+                        <h3 class="flex h-12 items-center px-1 pt-3 text-sm font-bold leading-snug text-white">
+                            Forest Fire Awareness Video
+                        </h3>
+                    </article>
+
+                    <article class="flex h-full min-w-0 flex-col overflow-hidden rounded-lg border-4 border-brandPrimary bg-brandDark p-2">
+                        <div class="aspect-video overflow-hidden rounded-md bg-black">
+                            <iframe
+                                title="International Snow Leopard Day awareness video on Facebook"
+                                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1474474494547570%2F&show_text=false&width=350"
+                                class="block h-full w-full border-0"
+                                width="350"
+                                height="200"
+                                scrolling="no"
+                                frameborder="0"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                                allowfullscreen="true"
+                                loading="lazy"></iframe>
+                        </div>
+                        <h3 class="flex h-12 items-center px-1 pt-3 text-sm font-bold leading-snug text-white">
+                            International Snow Leopard Day Awareness Video
+                        </h3>
+                    </article>
+                    </div>
+            </div>
+        </section>
+
+        <section id="posters" class="py-8 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold font-heading text-brandDark mb-6">Posters</h2>
+                <div class="gallery-slider gap-4" role="region" aria-label="SHEAC posters" tabindex="0">
+                    <a href="https://www.facebook.com/reel/960391559907576/" target="_blank" rel="noopener noreferrer" class="gallery-item block" aria-label="Open SHEAC forest fire awareness drama on Facebook">
+                        <img src="../images/drama.png" alt="Poster for SHEAC's Nepali forest fire awareness drama" loading="lazy">
+                        <div class="gallery-caption">
+                            Forest Fire Awareness Drama
+                            <i class="fa-brands fa-facebook ml-1"></i>
+                        </div>
+                    </a>
+                    <a href="https://www.facebook.com/photo/?fbid=1538348335003249&amp;set=a.464644335706993"
+                       target="_blank" rel="noopener noreferrer"
+                       class="gallery-item block"
+                       aria-label="Open original SHEAC environmental awareness photo on Facebook">
+                        <img
+                            src="https://scontent.fbwa1-1.fna.fbcdn.net/v/t39.30808-6/819094186_1538348338336582_4462652999583683694_n.jpg?stp=dst-jpg_s350x350_tt6&amp;_nc_cat=100&amp;_nc_map=urlgen_bucketless&amp;ccb=1-7&amp;_nc_sid=e5c1b6&amp;_nc_ohc=LPx4laFlkZgQ7kNvwHgeneq&amp;_nc_oc=AdpEk_AfUxiEwhAdtE1rx-BUl1ZBmgoZQFEx79py7M1HiUOa1VWIM3gFY_LbzKM8u00&amp;_nc_zt=23&amp;_nc_ht=scontent.fbwa1-1.fna&amp;edm=AN6CN6oEAAAA&amp;_nc_gid=bwGbo0N8Q3NDbBM0Pqrwlw&amp;oh=00_AQNlgejpmfSEpjn22i2vR_Uk3OqdzIM9dgAy_TMvSq3Zkw&amp;oe=6AE5510F"
+                            alt="SHEAC environmental awareness poster shared on Facebook"
+                            class="block h-full w-full object-cover"
+                            loading="lazy">
+                    </a>
+                    <a href="https://www.facebook.com/photo?fbid=1453371310167619&amp;set=a.464644335706993"
+                       target="_blank" rel="noopener noreferrer"
+                       class="gallery-item block"
+                       aria-label="Open original SHEAC photo on Facebook">
+                        <img
+                            src="https://scontent.fbwa1-1.fna.fbcdn.net/v/t39.30808-6/727457431_1453371313500952_3765590576677440396_n.jpg?stp=dst-jpg_s370x247_tt6&amp;_nc_cat=105&amp;_nc_map=urlgen_bucketless&amp;ccb=1-7&amp;_nc_sid=e5c1b6&amp;_nc_ohc=v2QIcu9CShAQ7kNvwEOT1Fk&amp;_nc_oc=Adq_EIa1LL9r-hcI4geuSBXT1g-_6mf3UD53osl9YP3YaUpMos315mlp-fyzz0cyeBQ&amp;_nc_zt=23&amp;_nc_ht=scontent.fbwa1-1.fna&amp;edm=AN6CN6oEAAAA&amp;_nc_gid=BB8cpxK_oUndUgWXgICpJA&amp;oh=00_AQO4i9erLISbO_2WTbVo20f-pafznNUEPvdsAzDoiStiow&amp;oe=6AE541E5"
+                            alt="SHEAC photo shared on Facebook"
+                            class="block h-full w-full object-cover"
+                            loading="lazy">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="photos" class="py-8 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold font-heading text-brandDark mb-3">Photos</h2>
                 <p class="text-sm text-gray-500 mb-8">
                     <i class="fa-solid fa-hand-pointer text-brandPrimary mr-1"></i> Click any photo to view it larger.
                 </p>
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-<!-- =====================================================
-     GALLERY ITEM — DOCUMENTARY
-     ===================================================== -->
-<div class="gallery-item"
-     onclick="window.open('https://www.facebook.com/share/v/1JGWVSS5tW/', '_blank')"
-     role="button"
-     tabindex="0"
-     aria-label="Watch documentary on Facebook">
-
-    <img src="../images/LOGO.png"
-         alt="SHEAC documentary"
-         loading="lazy">
-
-    <div class="gallery-caption">
-        Watch Our Documentary
-        <i class="fa-brands fa-facebook ml-1"></i>
-    </div>
-</div>
+                <div class="gallery-slider gap-4" role="region" aria-label="SHEAC photos" tabindex="0">
         <!-- =====================================================
              GALLERY ITEM — COPY THIS BLOCK TO ADD A NEW PHOTO
              ===================================================== -->
@@ -283,32 +376,6 @@
             <img src="../images/BU.jpg" alt="SHEAC volunteers holding a Save the Environment banner outside the Institute of Forestry, Pokhara" loading="lazy">
             <div class="gallery-caption">Butterfly Species </div>
         </div>
-
-        <!-- =====================================================
-     GALLERY ITEM — SHEAC DRAMA / DOCUMENTARY VIDEO
-     ===================================================== -->
-<div class="gallery-item"
-     onclick="window.open('https://www.facebook.com/share/v/1bZUuRoRgG/', '_blank')"
-     role="button"
-     tabindex="0"
-     aria-label="Watch SHEAC drama video on Facebook">
-
-    <div class="documentary-thumbnail">
-        <img src="../images/drama.png"
-             alt="Drama performance by SHEAC members"
-             loading="lazy">
-
-        <div class="play-button">
-            <i class="fa-solid fa-play"></i>
-        </div>
-    </div>
-
-    <div class="gallery-caption">
-        SHEAC Drama — Watch Video
-        <i class="fa-brands fa-facebook ml-1"></i>
-    </div>
-</div>
-
 
         <!-- =====================================================
              GALLERY ITEM PLACEHOLDER — replace image path & caption
@@ -419,6 +486,33 @@
                 </div>
             </div>
         </section>
+
+        <section id="news" class="py-8 bg-brandSoftBg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold font-heading text-brandDark mb-6">Articles &amp; News</h2>
+                <div class="max-w-md">
+                    <article>
+                        <iframe
+                            title="SHEAC Facebook post"
+                            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fsheaciof7%2Fposts%2Fpfbid02Qbvs16wLL1TYaj9haEXmFFudu1BjeMsyBtr8nJW7ZAtrQga5AkqvjKUiM6EZVuogl&show_text=true&width=350"
+                            width="350"
+                            height="460"
+                            style="width: 350px; height: 460px; border: none; overflow: hidden;"
+                            scrolling="no"
+                            frameborder="0"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            allowfullscreen="true"
+                            loading="lazy"></iframe>
+                        <p class="mt-2">
+                            <a href="https://www.facebook.com/share/p/1Esug32Koi/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-brandPrimary hover:text-brandDark">
+                                <i class="fa-brands fa-facebook"></i> Open post on Facebook
+                            </a>
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
     </main>
     <!-- SITE FOOTER -->
     <footer class="bg-brandDark text-gray-300 pt-14 pb-6">
@@ -464,7 +558,7 @@
                     <p><a href="tel:+9779749798229" class="hover:text-brandGold transition-colors"><i class="fa-solid fa-phone text-brandLeaf mr-1.5"></i> +977 9749798229</a></p>
                     <div class="flex items-center gap-3 pt-2 text-base">
                         <a href="https://www.facebook.com/sheaciof7" target="_blank" rel="noopener" aria-label="SHEAC on Facebook" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.linkedin.com/in/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/company/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
