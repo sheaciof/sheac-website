@@ -66,6 +66,46 @@ h1, h2, h3, h4, h5, h6 {
 /* -----------------------------------------------------
    3. HEADER / NAVIGATION DROPDOWNS
    ----------------------------------------------------- */
+header img[alt="SHEAC Official Logo"] {
+    height: 4.5rem;
+    width: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+@media (max-width: 639px) {
+    header img[alt="SHEAC Official Logo"] {
+        height: 4rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    header a.group {
+        column-gap: 0.5rem !important;
+    }
+
+    header img[alt="SHEAC Official Logo"] {
+        height: 3.5rem;
+    }
+
+    header nav[aria-label="Primary navigation"] {
+        gap: 0.125rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    header nav[aria-label="Primary navigation"] > a:not(:last-child),
+    header nav[aria-label="Primary navigation"] > .relative > button {
+        padding-right: 0.375rem !important;
+        padding-left: 0.375rem !important;
+    }
+
+    header nav[aria-label="Primary navigation"] > a:last-child {
+        margin-left: 0.25rem !important;
+        padding-right: 0.625rem !important;
+        padding-left: 0.625rem !important;
+    }
+}
+
 .dropdown-menu {
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
@@ -117,6 +157,38 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-1px);
 }
 
+.home-hero {
+    isolation: isolate;
+}
+.home-hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+.home-hero-slide,
+.home-hero-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+.home-hero-slide {
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+.home-hero-slide.is-active {
+    opacity: 1;
+}
+.home-hero-overlay {
+    background: linear-gradient(90deg, rgba(15, 61, 19, 0.68) 0%, rgba(15, 61, 19, 0.44) 55%, rgba(15, 61, 19, 0.24) 100%);
+}
+@media (prefers-reduced-motion: reduce) {
+    .home-hero-slide {
+        transition: none;
+    }
+}
+
 /* -----------------------------------------------------
    5. CARDS (projects, people, activities, research)
    Reused across About / Projects / Research / Activities
@@ -132,6 +204,83 @@ h1, h2, h3, h4, h5, h6 {
 .card:hover {
     box-shadow: 0 10px 25px rgba(15,61,19,0.12);
     transform: translateY(-3px);
+}
+
+.activities-page article.card {
+    cursor: pointer;
+}
+
+.activities-page article.card:focus-visible {
+    outline: 2px solid rgba(27, 94, 32, 0.35);
+    outline-offset: 3px;
+    border-radius: 1rem;
+}
+
+.activities-page .activity-intro {
+    display: flex;
+    min-height: 4rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: activity-intro-enter 0.7s ease-out both;
+}
+
+.activities-page .activity-intro p {
+    margin: 0;
+}
+
+.activities-page .activity-details-panel {
+    animation: activity-details-enter 0.18s ease-out;
+}
+
+.activities-page .activity-toggle {
+    width: 100%;
+    margin-top: 0.9rem;
+    border: 1px solid rgba(27, 94, 32, 0.2);
+    background: rgba(27, 94, 32, 0.03);
+    color: var(--primary);
+    border-radius: 0.75rem;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.activities-page .activity-toggle:hover {
+    background: rgba(27, 94, 32, 0.08);
+    border-color: rgba(27, 94, 32, 0.3);
+}
+
+@keyframes activity-details-enter {
+    from {
+        opacity: 0;
+        transform: translateY(0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes activity-intro-enter {
+    from {
+        opacity: 0;
+        transform: translateY(0.75rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .activities-page .activity-details-panel,
+    .activities-page .activity-intro {
+        animation: none;
+    }
 }
 
 /* Person profile card (Founding Members / Alumni / Executive Team) */
@@ -222,19 +371,6 @@ h1, h2, h3, h4, h5, h6 {
     isolation: isolate;
 }
 
-.page-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: saturate(0.9) contrast(1.04);
-    opacity: 0.92;
-    animation: heroBackgroundCycle 18s ease-in-out infinite;
-    z-index: 0;
-}
-
 .page-hero::after {
     content: "";
     position: absolute;
@@ -248,27 +384,95 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
-@keyframes heroBackgroundCycle {
-    0%, 28% {
-        background-image:
-            linear-gradient(135deg, rgba(7, 52, 24, 0.68), rgba(27, 94, 32, 0.52)),
-            url("../images/community.jpg");
-    }
-    33%, 61% {
-        background-image:
-            linear-gradient(135deg, rgba(7, 52, 24, 0.68), rgba(27, 94, 32, 0.52)),
-            url("../images/wetland.jpg");
-    }
-    66%, 100% {
-        background-image:
-            linear-gradient(135deg, rgba(7, 52, 24, 0.68), rgba(27, 94, 32, 0.52)),
-            url("../images/BU.jpg");
+.page-hero-video {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.9) contrast(1.04);
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-hero-video {
+        display: none;
     }
 }
 
 /* -----------------------------------------------------
    7. GALLERY / LIGHTBOX
    ----------------------------------------------------- */
+.gallery-slider {
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+.gallery-slider::-webkit-scrollbar {
+    display: none;
+}
+.gallery-slider > * {
+    flex: 0 0 min(480px, 38vw);
+    min-width: 0;
+    scroll-snap-align: start;
+}
+.gallery-slider > article {
+    align-self: stretch;
+}
+.gallery-slider > .gallery-item {
+    height: auto;
+    aspect-ratio: 4 / 3;
+}
+.gallery-slider-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+.gallery-slider-control {
+    display: inline-flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(27, 94, 32, 0.25);
+    border-radius: 9999px;
+    background: #fff;
+    color: var(--primary);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.gallery-slider-control:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-1px);
+}
+.gallery-slider-control:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+@media (max-width: 639px) {
+    .gallery-slider > * {
+        flex-basis: min(350px, calc(100vw - 3rem));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gallery-slider {
+        scroll-behavior: auto;
+    }
+
+    .gallery-slider-control {
+        transition: none;
+    }
+}
+
 .gallery-item {
     position: relative;
     overflow: hidden;
