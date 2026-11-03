@@ -87,7 +87,7 @@
       },
       "sameAs": [
         "https://www.facebook.com/sheaciof7",
-        "https://www.linkedin.com/in/sheaciof"
+        "https://www.linkedin.com/company/sheaciof"
       ]
     }
     </script>
@@ -114,7 +114,7 @@
                 <span class="font-semibold text-brandGold hidden md:inline tracking-wide uppercase text-xs">Think Globally, Act Locally</span>
                 <div class="flex items-center gap-3 text-sm">
                     <a href="https://www.facebook.com/sheaciof7" target="_blank" rel="noopener" aria-label="SHEAC on Facebook" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/in/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/company/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
@@ -170,9 +170,11 @@
                             <span>Gallery &amp; News</span>
                             <i class="fa-solid fa-chevron-down text-xs text-gray-500 group-hover:rotate-180 transition-transform"></i>
                         </button>
-                        <div class="absolute left-0 top-full pt-1 w-48 hidden group-hover:block z-50">
+                        <div class="absolute left-0 top-full pt-1 w-56 hidden group-hover:block z-50">
                             <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2">
-                                <a href="../gallery/" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Photos &amp; Gallery</a>
+                                <a href="../gallery/#photos" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Photos</a>
+                                <a href="../gallery/#videos" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Videos &amp; Posters</a>
+                                <a href="../gallery/#news" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Articles &amp; News</a>
                             </div>
                         </div>
                     </div>
@@ -224,7 +226,15 @@
             <a href="../projects/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Projects</a>
             <a href="../research/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Research</a>
             <a href="../activities/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Activities</a>
-            <a href="../gallery/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Gallery &amp; News</a>
+            <button onclick="toggleMobileAccordion('mGallery')" class="w-full flex items-center justify-between px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">
+                <span>Gallery &amp; News</span>
+                <i id="mGallery-icon" class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+            </button>
+            <div id="mGallery" class="hidden pl-4 space-y-1 border-l-2 border-brandLeaf ml-3">
+                <a href="../gallery/#photos" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-emerald-50 hover:text-brandPrimary">Photos</a>
+                <a href="../gallery/#videos" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-emerald-50 hover:text-brandPrimary">Videos &amp; Posters</a>
+                <a href="../gallery/#news" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-emerald-50 hover:text-brandPrimary">Articles &amp; News</a>
+            </div>
 
             <!-- Get Involved accordion -->
             <button onclick="toggleMobileAccordion('mGI')" class="w-full flex items-center justify-between px-3 py-2 rounded-md font-medium text-brandPrimary hover:bg-emerald-50">
@@ -258,7 +268,7 @@
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <span class="text-brandLeaf font-bold text-xs uppercase tracking-widest">Who We Are</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-brandDark mt-2 mb-5">Our Story</h2>
-                <p class="text-gray-600 leading-relaxed mb-4 text-sm sm:text-base">
+                <p class="text-gray-600 leading-relaxed text-sm sm:text-base bg-brandSoftBg border border-gray-100 rounded-xl p-5 sm:p-7">
                   Self Help Environment Awareness Camp (SHEAC) was established in 1990 at the Institute of Forestry (IOF), Pokhara, as one of the early student-led green organizations of IOF. Guided by the theme “Think Globally, Act Locally” and the message “Save the Environment,” SHEAC has promoted environmental awareness and conservation through student volunteering and community engagement.
 
 The organization was founded with a focus on creating awareness in the fields of forestry and the environment, particularly among rural and local communities, while engaging IOF students in voluntary conservation initiatives. Over the years, SHEAC has participated in and supported various conservation and environmental projects through collaboration with different organizations, mobilizing the knowledge, skills, and manpower of IOF students.
@@ -381,9 +391,12 @@ After years of functioning as a non-registered student-led organization and coll
 
                     <!-- DAO Kaski -->
                     <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
-                        <h4 class="font-bold text-brandDark text-sm mb-2">
-                            District Administration Office, Kaski
-                        </h4>
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h4 class="font-bold text-brandDark text-sm">
+                                District Administration Office, Kaski
+                            </h4>
+                            <img src="../images/partner-forest-directorate.png" alt="Government of Nepal emblem" class="h-14 w-14 shrink-0 object-contain" loading="lazy" decoding="async">
+                        </div>
                         <p class="text-gray-500 text-xs">
                             Registered NGO, District Administration Office, Kaski, Nepal
                         </p>
@@ -394,9 +407,12 @@ After years of functioning as a non-registered student-led organization and coll
 
                     <!-- Social Welfare Council -->
                     <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
-                        <h4 class="font-bold text-brandDark text-sm mb-2">
-                            Social Welfare Council, Nepal
-                        </h4>
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h4 class="font-bold text-brandDark text-sm">
+                                Social Welfare Council, Nepal
+                            </h4>
+                            <img src="../images/affiliate-social-welfare-council.png" alt="Social Welfare Council symbol" class="h-14 w-14 shrink-0 object-contain" loading="lazy" decoding="async">
+                        </div>
                         <p class="text-gray-500 text-xs">
                             Affiliated with the Social Welfare Council, Nepal
                         </p>
@@ -404,9 +420,12 @@ After years of functioning as a non-registered student-led organization and coll
 
                     <!-- IOF -->
                     <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm md:col-span-2">
-                        <h4 class="font-bold text-brandDark text-sm mb-2">
-                            Institute of Forestry, Pokhara Campus
-                        </h4>
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h4 class="font-bold text-brandDark text-sm">
+                                Institute of Forestry, Pokhara Campus
+                            </h4>
+                            <img src="../images/affiliate-institute-of-forestry.png" alt="Tribhuvan University Institute of Forestry logo" class="h-14 w-40 shrink-0 object-contain" loading="lazy" decoding="async">
+                        </div>
                         <p class="text-gray-500 text-xs">
                             SHEAC is affiliated with the Institute of Forestry, Pokhara Campus,
                             with a long-standing connection to students and environmental
@@ -440,9 +459,9 @@ After years of functioning as a non-registered student-led organization and coll
                             <a href="https://www.facebook.com/pokharamun"
                                target="_blank"
                                rel="noopener noreferrer"
-                               aria-label="Pokhara Metropolitan City Office Facebook"
-                               class="text-[#1877F2] hover:opacity-75 transition text-lg shrink-0">
-                                <i class="fab fa-facebook-f"></i>
+                               aria-label="Visit Pokhara Metropolitan City Office Facebook page"
+                               class="shrink-0 transition hover:opacity-75">
+                                <img src="https://pokharamun.gov.np/sites/all/themes/newmun/new_logo.png" alt="Pokhara Metropolitan City logo" class="h-12 w-12 object-contain" loading="lazy" decoding="async">
                             </a>
 
                         </div>
@@ -459,9 +478,9 @@ After years of functioning as a non-registered student-led organization and coll
                             <a href="https://www.facebook.com/ntncacap"
                                target="_blank"
                                rel="noopener noreferrer"
-                               aria-label="NTNC Annapurna Conservation Area Project Facebook"
-                               class="text-[#1877F2] hover:opacity-75 transition text-lg shrink-0">
-                                <i class="fab fa-facebook-f"></i>
+                               aria-label="Visit NTNC Annapurna Conservation Area Project Facebook page"
+                               class="shrink-0 transition hover:opacity-75">
+                                <img src="../images/partner-ntnc.svg" alt="NTNC logo" class="h-12 w-24 object-contain" loading="lazy" decoding="async">
                             </a>
 
                         </div>
@@ -478,9 +497,9 @@ After years of functioning as a non-registered student-led organization and coll
                             <a href="https://www.facebook.com/safenepal.iof"
                                target="_blank"
                                rel="noopener noreferrer"
-                               aria-label="SAFE Nepal Facebook"
-                               class="text-[#1877F2] hover:opacity-75 transition text-lg shrink-0">
-                                <i class="fab fa-facebook-f"></i>
+                               aria-label="Visit SAFE Nepal Facebook page"
+                               class="shrink-0 transition hover:opacity-75">
+                                <img src="https://scontent.fsif1-1.fna.fbcdn.net/v/t39.30808-1/286273304_1891568441039131_1968901513278693830_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx960x960&amp;ctp=s720x720&amp;_nc_cat=109&amp;_nc_map=urlgen_bucketless&amp;ccb=1-7&amp;_nc_sid=3ab345&amp;_nc_ohc=XeNZ_JMLKeEQ7kNvwF41jOP&amp;_nc_oc=AdoTsBbIJLhQKjUwEByP-gne9_xutth-3wL79anKaXES1eX_dcQ8WKM7yZdj08QwLE4&amp;_nc_zt=24&amp;_nc_ht=scontent.fsif1-1.fna&amp;_nc_gid=9o_Q-awBv2K-LDHp7B9FXA&amp;_nc_ss=79289&amp;oh=00_AQMZEf6HZwj_RxKSAlG1GhLmpq8GvyDp7LsjRijO5GtI4g&amp;oe=6ADA440E" alt="SAFE Nepal profile picture" class="h-12 w-12 object-contain" loading="lazy" decoding="async">
                             </a>
 
                         </div>
@@ -500,9 +519,9 @@ After years of functioning as a non-registered student-led organization and coll
                             <a href="https://www.facebook.com/profile.php?id=61561045620662"
                                target="_blank"
                                rel="noopener noreferrer"
-                               aria-label="Forest Directorate Gandaki Province Facebook"
-                               class="text-[#1877F2] hover:opacity-75 transition text-lg shrink-0">
-                                <i class="fab fa-facebook-f"></i>
+                               aria-label="Visit Forest Directorate Gandaki Province Facebook page"
+                               class="shrink-0 transition hover:opacity-75">
+                                <img src="../images/partner-forest-directorate.png" alt="Government of Nepal emblem" class="h-12 w-12 object-contain" loading="lazy" decoding="async">
                             </a>
 
                         </div>
@@ -519,9 +538,9 @@ After years of functioning as a non-registered student-led organization and coll
                             <a href="https://www.facebook.com/officialzsl"
                                target="_blank"
                                rel="noopener noreferrer"
-                               aria-label="ZSL Facebook"
-                               class="text-[#1877F2] hover:opacity-75 transition text-lg shrink-0">
-                                <i class="fab fa-facebook-f"></i>
+                               aria-label="Visit ZSL Facebook page"
+                               class="shrink-0 transition hover:opacity-75">
+                                <img src="../images/partner-zsl.svg" alt="ZSL logo" class="h-12 w-24 object-contain" loading="lazy" decoding="async">
                             </a>
 
                         </div>
@@ -535,14 +554,110 @@ After years of functioning as a non-registered student-led organization and coll
                                 Small Mammals Conservation and Research Foundation (SMCRF)
                             </p>
 
-                            <a href="https://www.facebook.com/"
+                                     <a href="https://www.facebook.com/smcrfnepal/"
                                target="_blank"
                                rel="noopener noreferrer"
-                               aria-label="Small Mammals Conservation and Research Foundation Facebook"
-                               class="text-[#1877F2] hover:opacity-75 transition text-lg shrink-0">
-                                <i class="fab fa-facebook-f"></i>
+                                         aria-label="Visit Small Mammals Conservation and Research Foundation Facebook page"
+                                         class="shrink-0 transition hover:opacity-75">
+                                        <img src="https://scontent.fsif1-1.fna.fbcdn.net/v/t39.30808-1/360136701_664408269052870_1434751945841025920_n.png?stp=dst-png&amp;cstp=mx200x200&amp;ctp=s200x200&amp;_nc_cat=103&amp;_nc_map=urlgen_bucketless&amp;ccb=1-7&amp;_nc_sid=3ab345&amp;_nc_ohc=DMLJQwPGbPIQ7kNvwEnHwCG&amp;_nc_oc=AdohTajz6ERet60VASyCa8BdPyZbmmJWpFDFlIKca1iKu-bSLR3Bf9TPa_UG-3OHX10&amp;_nc_zt=24&amp;_nc_ht=scontent.fsif1-1.fna&amp;_nc_gid=FEbOCovy6VoPmbOKv9O8lg&amp;_nc_ss=79289&amp;oh=00_AQNDHDajL-6__jhdiDsWE8ixjBW6slMNmadgstsMWQ8zig&amp;oe=6ADA5A72" alt="SMCRF profile picture" class="h-12 w-12 object-contain" loading="lazy" decoding="async">
                             </a>
 
+                        </div>
+                    </div>
+
+                    <!-- SOWREC -->
+                    <div class="bg-white rounded-lg p-4 border border-gray-100">
+                        <div class="flex items-start justify-between gap-3">
+                            <p class="font-semibold text-brandDark text-sm leading-snug">
+                                Society for Wildlife Research and Conservation (SOWREC)
+                            </p>
+                            <a href="https://www.facebook.com/SOWREC"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="Visit SOWREC Facebook page"
+                               class="shrink-0 transition hover:opacity-75">
+                                <img src="https://scontent.fsif1-1.fna.fbcdn.net/v/t39.30808-1/294809164_410204947807927_6094380160717807218_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx217x227&amp;ctp=s217x227&amp;_nc_cat=100&amp;_nc_map=urlgen_bucketless&amp;ccb=1-7&amp;_nc_sid=3ab345&amp;_nc_ohc=XX2o4t34pkgQ7kNvwHcoTUC&amp;_nc_oc=Ado0VZSiwyjqQz7EQMNIPsJpBCRIVV2i8jzBJ-hbyPIqKHmzuYslyexa_MML50DUCF8&amp;_nc_zt=24&amp;_nc_ht=scontent.fsif1-1.fna&amp;_nc_gid=kEC_iCyDCgpa8LFI1_Xlmg&amp;_nc_ss=79289&amp;oh=00_AQMoLN8rLtUyUKKWdZyN3cXgyPEEwT_jyl_v-0t_040R1w&amp;oe=6ADA3036" alt="SOWREC profile picture" class="h-12 w-12 object-contain" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- IFSA Pokhara -->
+                    <div class="bg-white rounded-lg p-4 border border-gray-100">
+                        <div class="flex items-start justify-between gap-3">
+                            <p class="font-semibold text-brandDark text-sm leading-snug">
+                                International Forestry Students’ Association (IFSA), Pokhara
+                            </p>
+                            <a href="https://www.facebook.com/IFSAPokhara"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="Visit IFSA Pokhara Facebook page"
+                               class="shrink-0 transition hover:opacity-75">
+                                <img src="https://scontent.fsif1-1.fna.fbcdn.net/v/t39.30808-1/253853903_101676419001479_6327329699944802698_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx1628x1631&amp;ctp=s720x720&amp;_nc_cat=100&amp;_nc_map=urlgen_bucketless&amp;ccb=1-7&amp;_nc_sid=3ab345&amp;_nc_ohc=y9zJox2kqwsQ7kNvwHE1Xqj&amp;_nc_oc=Adq7IcbrqLHEdBpHtzCU_Hlyl8eNN50WkGCsGSEsMwmmJNwmPw3in12u4LTT4Iz9mdM&amp;_nc_zt=24&amp;_nc_ht=scontent.fsif1-1.fna&amp;_nc_gid=luV55_YOt6dAwfMWpQ20WQ&amp;_nc_ss=79289&amp;oh=00_AQMqkvepdjhL-Ut1bbUej2AG5Ch39pL3P2dkbY7zcaJnvQ&amp;oe=6ADA53C8" alt="IFSA Pokhara profile picture" class="h-12 w-12 object-contain" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Butterfly Watchers Nepal -->
+                    <div class="bg-white rounded-lg p-4 border border-gray-100">
+                        <div class="flex items-start justify-between gap-3">
+                            <p class="font-semibold text-brandDark text-sm leading-snug">
+                                Butterfly Watchers Nepal
+                            </p>
+                            <a href="https://www.facebook.com/sanejprasadsuwal"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="Visit Butterfly Watchers Nepal Facebook page"
+                               class="shrink-0 transition hover:opacity-75">
+                                <img src="https://scontent.fsif1-1.fna.fbcdn.net/v/t39.30808-1/457370035_844340651135579_3525156956199910365_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx400x400&amp;ctp=s400x400&amp;_nc_cat=106&amp;_nc_map=urlgen_bucketless&amp;ccb=1-7&amp;_nc_sid=3ab345&amp;_nc_ohc=bxjvT9gs6oQQ7kNvwGfDkkr&amp;_nc_oc=AdoAMvBwMJybRATyKuWiCCtsliXBOESA0aJXlZ7KBpgWJrVHi_SnMofHnH72jp7I5VU&amp;_nc_zt=24&amp;_nc_ht=scontent.fsif1-1.fna&amp;_nc_gid=u3Kb3Y2JBbyRSFn3PIwwLA&amp;_nc_ss=79289&amp;oh=00_AQNNIAicBPG6YqL9UVExOecpBE3PQLbkL87lxl2xiwJRpA&amp;oe=6ADA595F" alt="Butterfly Watchers Nepal profile picture" class="h-12 w-12 object-contain" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- BCN Pokhara Branch -->
+                    <div class="bg-white rounded-lg p-4 border border-gray-100">
+                        <div class="flex items-start justify-between gap-3">
+                            <p class="font-semibold text-brandDark text-sm leading-snug">
+                                Bird Conservation Nepal (BCN), Pokhara Branch
+                            </p>
+                            <a href="https://www.facebook.com/profile.php?id=100064516007361"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="Visit BCN Pokhara Branch Facebook page"
+                               class="shrink-0 transition hover:opacity-75">
+                                <img src="https://scontent.fsif1-1.fna.fbcdn.net/v/t39.30808-1/309554674_463854919108371_6905746139500434511_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx180x297&amp;ctp=s180x297&amp;_nc_cat=108&amp;_nc_map=urlgen_bucketless&amp;ccb=1-7&amp;_nc_sid=3ab345&amp;_nc_ohc=-y9xCU4sXDkQ7kNvwGRUy6r&amp;_nc_oc=AdrY38A4EQjsH7dpMoljGLfPORFNgZOXjFSPRLew5Lftth3NVLQmcE8sSS5YWEEyon0&amp;_nc_zt=24&amp;_nc_ht=scontent.fsif1-1.fna&amp;_nc_gid=0AkXthzaVVYLIXo79r6FLw&amp;_nc_ss=79289&amp;oh=00_AQOId5UuRFG0t5opmT9O1h2lVSUR4WzoVcP-qKJ6DYncEA&amp;oe=6ADA367C" alt="BCN Pokhara Branch profile picture" class="h-12 w-12 object-contain" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- International Nepal Fellowship -->
+                    <div class="bg-white rounded-lg p-4 border border-gray-100">
+                        <div class="flex items-start justify-between gap-3">
+                            <p class="font-semibold text-brandDark text-sm leading-snug">
+                                International Nepal Fellowship (INF)
+                            </p>
+                            <a href="https://www.facebook.com/internationalnepalfellowship/"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="Visit International Nepal Fellowship Facebook page"
+                               class="shrink-0 transition hover:opacity-75">
+                                <img src="https://inf.org.np/wp-content/uploads/2024/08/inf-nepal-logo-white.svg" alt="International Nepal Fellowship logo" class="h-12 w-12 rounded bg-brandPrimary p-1 object-contain" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- NAFAN -->
+                    <div class="bg-white rounded-lg p-4 border border-gray-100">
+                        <div class="flex items-start justify-between gap-3">
+                            <p class="font-semibold text-brandDark text-sm leading-snug">
+                                National Forum for Advocacy Nepal (NAFAN)
+                            </p>
+                            <a href="https://www.facebook.com/nafanngo"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="Visit NAFAN Facebook page"
+                               class="shrink-0 transition hover:opacity-75">
+                                <img src="https://scontent.fsif1-1.fna.fbcdn.net/v/t39.30808-1/329363005_873022933961271_8812136856137817111_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx420x428&amp;ctp=s420x428&amp;_nc_cat=107&amp;_nc_map=urlgen_bucketless&amp;ccb=1-7&amp;_nc_sid=3ab345&amp;_nc_ohc=xyys9BjlCBUQ7kNvwFaNf84&amp;_nc_oc=Adqc5dH8Coyut_i1hR2Bqem9khQHGiKkmtElmsMb-gx-efL1w0gdqiVZ_4e2lOxhcyA&amp;_nc_zt=24&amp;_nc_ht=scontent.fsif1-1.fna&amp;_nc_gid=jr5b0IoV80d1I75aKjsUxg&amp;_nc_ss=79289&amp;oh=00_AQOclT0qYorAmE2r9Ta_1kwinh_AubUIa0LELGI52ZdHJw&amp;oe=6ADA3C0C" alt="NAFAN profile picture" class="h-12 w-12 object-contain" loading="lazy" decoding="async">
+                            </a>
                         </div>
                     </div>
 
@@ -618,7 +733,7 @@ After years of functioning as a non-registered student-led organization and coll
                     <p><a href="tel:+9779749798229" class="hover:text-brandGold transition-colors"><i class="fa-solid fa-phone text-brandLeaf mr-1.5"></i> +977 9749798229</a></p>
                     <div class="flex items-center gap-3 pt-2 text-base">
                         <a href="https://www.facebook.com/sheaciof7" target="_blank" rel="noopener" aria-label="SHEAC on Facebook" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.linkedin.com/in/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/company/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
