@@ -16,6 +16,49 @@
    ===================================================== */
 
 /* -----------------------------------------------------
+    PAGE HERO VIDEO BACKGROUND
+    ----------------------------------------------------- */
+function addPageHeroVideo() {
+     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+     const scriptUrl = document.currentScript?.src;
+     if (!scriptUrl) return;
+
+     document.querySelectorAll('.page-hero').forEach((hero) => {
+          const video = document.createElement('video');
+          video.className = 'page-hero-video';
+          video.autoplay = true;
+          video.muted = true;
+          video.loop = true;
+          video.playsInline = true;
+          video.preload = 'metadata';
+          video.setAttribute('aria-hidden', 'true');
+
+          const source = document.createElement('source');
+          source.src = new URL('../videos/SHEAC_Intro_VIDEO.mp4', scriptUrl).href;
+          source.type = 'video/mp4';
+          video.appendChild(source);
+          hero.prepend(video);
+     });
+}
+
+addPageHeroVideo();
+
+function startHomeHeroSlideshow() {
+    const slides = document.querySelectorAll('.home-hero-slide');
+    if (slides.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let activeIndex = 0;
+    window.setInterval(() => {
+        slides[activeIndex].classList.remove('is-active');
+        activeIndex = (activeIndex + 1) % slides.length;
+        slides[activeIndex].classList.add('is-active');
+    }, 3000);
+}
+
+startHomeHeroSlideshow();
+
+/* -----------------------------------------------------
    1. MOBILE MENU TOGGLE
    ----------------------------------------------------- */
 function toggleMobileMenu() {
@@ -135,4 +178,176 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    const activityModal = document.getElementById('activityDetailsModal');
+    const activityCards = document.querySelectorAll('.activities-page article.card');
+
+    if (activityModal) {
+        const modalImage = document.getElementById('activityDetailsImage');
+        const modalCategory = document.getElementById('activityDetailsCategory');
+        const modalTitle = document.getElementById('activityDetailsTitle');
+        const modalLocation = document.getElementById('activityDetailsLocation');
+        const modalDescription = document.getElementById('activityDetailsDescription');
+        const closeButton = document.getElementById('closeActivityDetails');
+        let lastFocusedElement = null;
+
+        const openActivityDetails = (card) => {
+            const image = card.querySelector('img');
+            const category = card.querySelector('.badge');
+            const title = card.querySelector('h3');
+            const location = card.querySelector('p.text-xs');
+            const description = card.querySelector('p.text-gray-600.text-sm.leading-relaxed');
+
+            if (!image || !category || !title || !location || !description) return;
+
+            modalImage.src = image.src;
+            modalImage.alt = image.alt;
+            modalCategory.textContent = category.textContent.trim();
+            modalTitle.textContent = title.textContent.trim();
+            modalLocation.textContent = location.textContent.trim();
+            modalDescription.textContent = description.textContent.trim();
+
+            lastFocusedElement = document.activeElement;
+            activityModal.classList.remove('hidden');
+            activityModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            closeButton.focus();
+        };
+
+        const closeActivityDetails = () => {
+            activityModal.classList.add('hidden');
+            activityModal.classList.remove('flex');
+            document.body.style.overflow = '';
+            if (lastFocusedElement) lastFocusedElement.focus();
+        };
+
+        closeButton.addEventListener('click', closeActivityDetails);
+        activityModal.addEventListener('click', (event) => {
+            if (event.target === activityModal) closeActivityDetails();
+        });
+        activityModal.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeActivityDetails();
+        });
+
+        activityCards.forEach((card) => {
+            const description = card.querySelector('p.text-gray-600.text-sm.leading-relaxed');
+            if (description) description.classList.add('hidden');
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'activity-toggle';
+            button.textContent = 'View details';
+            button.addEventListener('click', (event) => {
+                event.stopPropagation();
+                openActivityDetails(card);
+            });
+            card.appendChild(button);
+
+            card.addEventListener('click', (event) => {
+                if (event.target.closest('button')) return;
+                openActivityDetails(card);
+            });
+
+            card.setAttribute('tabindex', '0');
+            card.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openActivityDetails(card);
+                }
+            });
+        });
+    }
+
+    const gallerySliders = document.querySelectorAll('.gallery-slider');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    gallerySliders.forEach((slider) => {
+        let pausedUntil = 0;
+        const pauseTemporarily = () => {
+            pausedUntil = Date.now() + 5000;
+        };
+
+        const controls = document.createElement('div');
+        controls.className = 'gallery-slider-controls';
+
+        const createControl = (direction, icon, label) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'gallery-slider-control';
+            button.setAttribute('aria-label', `${label} ${slider.getAttribute('aria-label') || 'items'}`);
+            button.innerHTML = `<i class="fa-solid ${icon}" aria-hidden="true"></i>`;
+            button.addEventListener('click', () => {
+                const firstItem = slider.firstElementChild;
+                if (!firstItem) return;
+
+                const styles = window.getComputedStyle(slider);
+                const gap = parseFloat(styles.columnGap) || 0;
+                const distance = firstItem.getBoundingClientRect().width + gap;
+                const maxScroll = slider.scrollWidth - slider.clientWidth;
+                const nextPosition = slider.scrollLeft + direction * distance;
+                const targetPosition = direction > 0
+                    ? (slider.scrollLeft >= maxScroll - 2 ? 0 : Math.min(nextPosition, maxScroll))
+                    : (slider.scrollLeft <= 2 ? maxScroll : Math.max(nextPosition, 0));
+
+                slider.scrollTo({
+                    left: targetPosition,
+                    behavior: 'smooth'
+                });
+                pauseTemporarily();
+            });
+            return button;
+        };
+
+        controls.append(
+            createControl(-1, 'fa-chevron-left', 'Previous'),
+            createControl(1, 'fa-chevron-right', 'Next')
+        );
+        slider.after(controls);
+
+        slider.addEventListener('pointerdown', pauseTemporarily);
+        slider.addEventListener('mouseenter', () => {
+            pausedUntil = Number.POSITIVE_INFINITY;
+        });
+        slider.addEventListener('mouseleave', () => {
+            pausedUntil = 0;
+        });
+        slider.addEventListener('focusin', () => {
+            pausedUntil = Number.POSITIVE_INFINITY;
+        });
+        slider.addEventListener('focusout', (event) => {
+            if (!slider.contains(event.relatedTarget)) pausedUntil = 0;
+        });
+
+        if (reduceMotion) return;
+
+        window.setInterval(() => {
+            if (Date.now() < pausedUntil) return;
+
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+            if (maxScroll <= 1) return;
+
+            if (slider.scrollLeft >= maxScroll - 2) {
+                slider.scrollLeft = 0;
+                return;
+            }
+
+            const firstItem = slider.firstElementChild;
+            if (!firstItem) return;
+
+            const styles = window.getComputedStyle(slider);
+            const gap = parseFloat(styles.columnGap) || 0;
+            slider.scrollBy({
+                left: firstItem.getBoundingClientRect().width + gap,
+                behavior: 'smooth'
+            });
+        }, 3500);
+    });
 });
+
+function closeActivityDetailsModal() {
+    const modal = document.getElementById('activityDetailsModal');
+    if (!modal || modal.classList.contains('hidden')) return;
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+}
