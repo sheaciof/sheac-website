@@ -87,7 +87,7 @@
       },
       "sameAs": [
         "https://www.facebook.com/sheaciof7",
-        "https://www.linkedin.com/in/sheaciof"
+        "https://www.linkedin.com/company/sheaciof"
       ]
     }
     </script>
@@ -114,7 +114,7 @@
                 <span class="font-semibold text-brandGold hidden md:inline tracking-wide uppercase text-xs">Think Globally, Act Locally</span>
                 <div class="flex items-center gap-3 text-sm">
                     <a href="https://www.facebook.com/sheaciof7" target="_blank" rel="noopener" aria-label="SHEAC on Facebook" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/in/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/company/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
@@ -170,9 +170,11 @@
                             <span>Gallery &amp; News</span>
                             <i class="fa-solid fa-chevron-down text-xs text-gray-500 group-hover:rotate-180 transition-transform"></i>
                         </button>
-                        <div class="absolute left-0 top-full pt-1 w-48 hidden group-hover:block z-50">
+                        <div class="absolute left-0 top-full pt-1 w-56 hidden group-hover:block z-50">
                             <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2">
-                                <a href="../../gallery/" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Photos &amp; Gallery</a>
+                                <a href="../../gallery/#photos" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Photos</a>
+                                <a href="../../gallery/#videos" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Videos &amp; Posters</a>
+                                <a href="../../gallery/#news" class="block px-4 py-2 hover:bg-emerald-50 hover:text-brandPrimary transition-colors">Articles &amp; News</a>
                             </div>
                         </div>
                     </div>
@@ -224,7 +226,15 @@
             <a href="../../projects/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Projects</a>
             <a href="../../research/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Research</a>
             <a href="../../activities/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Activities</a>
-            <a href="../../gallery/" class="block px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">Gallery &amp; News</a>
+            <button onclick="toggleMobileAccordion('mGallery')" class="w-full flex items-center justify-between px-3 py-2 rounded-md font-medium text-gray-800 hover:bg-emerald-50 hover:text-brandPrimary">
+                <span>Gallery &amp; News</span>
+                <i id="mGallery-icon" class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+            </button>
+            <div id="mGallery" class="hidden pl-4 space-y-1 border-l-2 border-brandLeaf ml-3">
+                <a href="../../gallery/#photos" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-emerald-50 hover:text-brandPrimary">Photos</a>
+                <a href="../../gallery/#videos" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-emerald-50 hover:text-brandPrimary">Videos &amp; Posters</a>
+                <a href="../../gallery/#news" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-emerald-50 hover:text-brandPrimary">Articles &amp; News</a>
+            </div>
 
             <!-- Get Involved accordion -->
             <button onclick="toggleMobileAccordion('mGI')" class="w-full flex items-center justify-between px-3 py-2 rounded-md font-medium text-brandPrimary hover:bg-emerald-50">
@@ -258,7 +268,6 @@
                     <div>
                         <p class="text-xs text-gray-500 uppercase tracking-wide font-semibold">Membership Fee</p>
                         <p class="text-3xl font-extrabold font-heading text-brandPrimary">NRs. 150</p>
-                    
                     </div>
                     <button onclick="toggleBankDetailsModal()" class="px-5 py-2.5 btn-primary rounded-lg font-semibold text-sm">
                         <i class="fa-solid fa-building-columns mr-1.5"></i> View Bank Details
@@ -269,7 +278,7 @@
                 <h2 class="text-2xl font-extrabold font-heading text-brandDark mt-2 mb-5">How to Apply</h2>
                 <p class="text-gray-600 text-sm leading-relaxed mb-8">
                     Fill in the form below, complete the membership payment using the bank details, and submit —
-                    your default email app will open with your details pre-filled so you can attach your photo and
+                    Gmail or your default email app will open with your details pre-filled so you can attach your photo and
                     payment confirmation before sending.
                 </p>
 
@@ -292,16 +301,52 @@
                         <label class="form-label" for="email">Email Address</label>
                         <input class="form-input" type="email" id="email" name="email" required>
                     </div>
-                    <p class="text-xs text-gray-500">
-                        <i class="fa-solid fa-paperclip text-brandLeaf mr-1"></i>
-                        After clicking submit, please attach your <strong>photo</strong> and
-                        <strong>payment confirmation</strong> to the email before sending it.
-                    </p>
+                    <div class="border-t border-brandLeaf/20 pt-5">
+                        <h3 class="font-heading font-bold text-brandDark mb-4">Address Details</h3>
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="form-label" for="province">Province</label>
+                                <select class="form-input" id="province" name="province" required>
+                                    <option value="">Select Province</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="form-label" for="district">District</label>
+                                <select class="form-input" id="district" name="district" required disabled>
+                                    <option value="">Select District</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-5 mt-5">
+                            <div>
+                                <label class="form-label" for="localGovernment">Local Government</label>
+                                <select class="form-input" id="localGovernment" name="localGovernment" required disabled>
+                                    <option value="">Select Local Government</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="form-label" for="wardNumber">Ward Number</label>
+                                <select class="form-input" id="wardNumber" name="wardNumber" required disabled>
+                                    <option value="">Select Ward</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg border border-brandLeaf/30 bg-brandSoftBg px-5 py-4 text-gray-700">
+                        <p class="flex items-start gap-3 text-base font-semibold leading-7">
+                            <i class="fa-solid fa-paperclip mt-1 text-brandPrimary" aria-hidden="true"></i>
+                            <span>
+                                After submitting, attach these two files in Gmail or your email app:
+                                <span class="block text-brandDark">1. Your passport-size photo</span>
+                                <span class="block text-brandDark">2. Your membership payment confirmation</span>
+                            </span>
+                        </p>
+                    </div>
                     <button type="submit" class="w-full py-3 btn-primary rounded-lg font-bold text-sm">
                         Submit Membership Application
                     </button>
                     <p class="text-[11px] text-gray-400 text-center">
-                        This form opens your email app — SHEAC does not store submitted data on this website.
+                        This form opens Gmail or your email app — SHEAC does not store submitted data on this website.
                     </p>
                 </form>
             </div>
@@ -351,7 +396,7 @@
                     <p><a href="tel:+9779749798229" class="hover:text-brandGold transition-colors"><i class="fa-solid fa-phone text-brandLeaf mr-1.5"></i> +977 9749798229</a></p>
                     <div class="flex items-center gap-3 pt-2 text-base">
                         <a href="https://www.facebook.com/sheaciof7" target="_blank" rel="noopener" aria-label="SHEAC on Facebook" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.linkedin.com/in/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/company/sheaciof" target="_blank" rel="noopener" aria-label="SHEAC on LinkedIn" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -371,17 +416,23 @@
             <h3 class="text-xl font-bold text-brandDark font-heading flex items-center gap-2">
                 <i class="fa-solid fa-building-columns text-brandPrimary"></i> SHEAC Bank Details
             </h3>
-            <p class="text-xs text-gray-600">Use these details to complete payment for membership (NRs. 150) or a donation. <strong>Placeholder — update with real account details.</strong></p>
+            <p class="text-xs text-gray-600">Use these details to complete the NRs. 150 membership payment.</p>
 
-            <div class="bg-brandSoftBg p-4 rounded-xl space-y-2 text-xs font-mono border border-gray-200">
-                <div><strong>Bank Name:</strong> Official SHEAC Account</div>
-                <div><strong>Account No:</strong> XXXXXXXXXXXXXXXX</div>
-                <div><strong>Branch:</strong> Pokhara, Nepal</div>
-                <div><strong>Account Holder:</strong> Self Help Environment Awareness Camp</div>
+            <div class="mx-auto max-w-[14rem] rounded-xl border border-gray-200 bg-white p-2">
+                <img src="../../images/bank qr.jpg" alt="Official SHEAC bank payment QR code"
+                     class="block h-auto w-full object-contain" width="560" height="560">
             </div>
 
-            <button onclick="copyBankDetails()" class="w-full py-2.5 btn-primary rounded-lg font-bold text-xs">
-                Copy Details
+            <div class="bg-brandSoftBg p-4 rounded-xl space-y-2 text-xs font-mono border border-gray-200">
+                <div><strong>Bank Name:</strong> Rastriya Banijya Bank (RBB)</div>
+                <div><strong>Account Holder:</strong> SWAYAM SEVI BATAWARAN JAGARAN SAMUHA</div>
+                <div><strong>Account Number:</strong> 3020100002445001</div>
+                <div><strong>Branch:</strong> Prithvi Chowk, Pokhara</div>
+                <div><strong>Account Type:</strong> Current Account (NPR)</div>
+            </div>
+
+            <button type="button" id="copy-membership-account" onclick="copyMembershipAccountNumber()" class="w-full py-2.5 btn-primary rounded-lg font-bold text-xs">
+                <span>Copy Account Number</span>
             </button>
         </div>
     </div>
@@ -397,7 +448,48 @@
         </div>
     </div>
 
+    <script src="../../js/nepal-address.js"></script>
     <script src="../../js/script.js"></script>
-    <script>document.getElementById('copyrightYear').textContent = new Date().getFullYear();</script>
+    <script>
+        function copyMembershipAccountNumber() {
+            const accountNumber = "3020100002445001";
+            const button = document.getElementById("copy-membership-account");
+            const label = button ? button.querySelector("span") : null;
+
+            const showCopied = function () {
+                if (label) label.textContent = "Account Number Copied";
+                if (button) button.setAttribute("aria-label", "Account number copied");
+                if (button && label) {
+                    window.setTimeout(function () {
+                        label.textContent = "Copy Account Number";
+                        button.setAttribute("aria-label", "Copy Account Number");
+                    }, 2200);
+                }
+            };
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(accountNumber).then(showCopied).catch(function () {
+                    fallbackCopyMembershipAccount(accountNumber, showCopied);
+                });
+            } else {
+                fallbackCopyMembershipAccount(accountNumber, showCopied);
+            }
+        }
+
+        function fallbackCopyMembershipAccount(accountNumber, onSuccess) {
+            const textarea = document.createElement("textarea");
+            textarea.value = accountNumber;
+            textarea.setAttribute("readonly", "");
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.select();
+            const copied = document.execCommand("copy");
+            document.body.removeChild(textarea);
+            if (copied) onSuccess();
+        }
+
+        document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
