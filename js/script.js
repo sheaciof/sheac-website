@@ -15,34 +15,94 @@
    used everywhere instead of JavaScript navigation.
    ===================================================== */
 
-/* -----------------------------------------------------
-    PAGE HERO VIDEO BACKGROUND
-    ----------------------------------------------------- */
+function showPartnerLogoFallback(logo) {
+    const fallback = document.createElement('span');
+    fallback.className = `${logo.className} inline-flex shrink-0 items-center justify-center rounded bg-emerald-100 text-emerald-900 text-[10px] font-bold text-center`;
+    fallback.setAttribute('role', 'img');
+    fallback.setAttribute('aria-label', `${logo.alt} unavailable`);
+    fallback.textContent = logo.dataset.initials;
+    logo.replaceWith(fallback);
+}
+
+document.querySelectorAll('img.partner-logo').forEach((logo) => {
+    if (logo.complete && logo.naturalWidth === 0) {
+        showPartnerLogoFallback(logo);
+        return;
+    }
+
+    logo.addEventListener('error', () => showPartnerLogoFallback(logo), { once: true });
+});
+
+const themedPages = ['about', 'projects', 'research', 'activities', 'gallery', 'get-involved', 'contact'];
+const currentPage = window.location.pathname
+    .split('/')
+    .filter(Boolean)
+    .reverse()
+    .find((page) => themedPages.includes(page)) || 'home';
+document.body.setAttribute('data-page', currentPage);
+
 function addPageHeroVideo() {
-     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-     const scriptUrl = document.currentScript?.src;
-     if (!scriptUrl) return;
+    const scriptUrl = document.currentScript?.src;
+    if (!scriptUrl) return;
 
-     document.querySelectorAll('.page-hero').forEach((hero) => {
-          const video = document.createElement('video');
-          video.className = 'page-hero-video';
-          video.autoplay = true;
-          video.muted = true;
-          video.loop = true;
-          video.playsInline = true;
-          video.preload = 'metadata';
-          video.setAttribute('aria-hidden', 'true');
+    document.querySelectorAll('.page-hero').forEach((hero) => {
+        const video = document.createElement('video');
+        video.className = 'page-hero-video';
+        video.autoplay = true;
+        video.defaultMuted = true;
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.preload = 'metadata';
+        video.setAttribute('aria-hidden', 'true');
 
-          const source = document.createElement('source');
-          source.src = new URL('../videos/SHEAC_Intro_VIDEO.mp4', scriptUrl).href;
-          source.type = 'video/mp4';
-          video.appendChild(source);
-          hero.prepend(video);
-     });
+        const source = document.createElement('source');
+        source.src = new URL('../videos/SHEAC_Intro_VIDEO.mp4', scriptUrl).href;
+        source.type = 'video/mp4';
+        video.appendChild(source);
+        hero.prepend(video);
+    });
 }
 
 addPageHeroVideo();
+
+function initializeScrollReveal() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const sections = document.querySelectorAll(
+        'main > section:not(.home-hero):not(.page-hero)'
+    );
+    if (!sections.length) return;
+
+    document.body.classList.add('js-reveal');
+    sections.forEach((section) => section.classList.add('reveal'));
+
+    if (!('IntersectionObserver' in window)) {
+        sections.forEach((section) => section.classList.add('is-visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        });
+    }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -8% 0px'
+    });
+
+    sections.forEach((section) => observer.observe(section));
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeScrollReveal);
+} else {
+    initializeScrollReveal();
+}
 
 function startHomeHeroSlideshow() {
     const slides = document.querySelectorAll('.home-hero-slide');
@@ -105,10 +165,11 @@ function toggleBankDetailsModal() {
    ----------------------------------------------------- */
 function copyBankDetails() {
     const textToCopy =
-        "Bank: Official SHEAC Account\n" +
-        "Account No: XXXXXXXXXXXXXXXX\n" +
-        "Branch: Pokhara, Nepal\n" +
-        "Account Holder: Self Help Environment Awareness Camp";
+        "Bank: Rastriya Banijya Bank (RBB)\n" +
+        "Account Holder: SWAYAM SEVI BATAWARAN JAGARAN SAMUHA\n" +
+        "Account Number: 3020100002445001\n" +
+        "Branch: Prithvi Chowk, Pokhara\n" +
+        "Account Type: Current Account (NPR)";
 
     navigator.clipboard.writeText(textToCopy).then(() => {
         alert("Bank account details copied to clipboard!");
@@ -160,9 +221,117 @@ document.addEventListener('keydown', (e) => {
    ----------------------------------------------------- */
 function handleMembershipSubmit(event) {
     event.preventDefault();
-    alert("Thank you! Your email app will now open so you can send your membership details to SHEAC.");
-    window.location.href =
-        "mailto:info@sheac.org.np?subject=SHEAC%20Membership%20Application&body=Full%20Name%3A%0ADate%20of%20Birth%3A%0AContact%20Number%3A%0AEmail%3A%0A%0A(Attach%20your%20photo%20and%20payment%20confirmation%20to%20this%20email)";
+    const form = event.currentTarget;
+    if (!form.reportValidity()) return;
+
+    const value = (id) => (document.getElementById(id)?.value || "").trim();
+    const provinceValue = value("province") === "Madesh Province"
+        ? "Madhesh Province"
+        : value("province");
+    const subject = "SHEAC Membership Application";
+    const body = [
+        "SHEAC Membership Application",
+        "",
+        `Full Name: ${value("fullName")}`,
+        `Date of Birth: ${value("dob") || "Not provided"}`,
+        `Contact Number: ${value("contact") || "Not provided"}`,
+        `Email Address: ${value("email")}`,
+        "",
+        "Address Details:",
+        `Province: ${provinceValue}`,
+        `District: ${value("district")}`,
+        `Local Government: ${value("localGovernment")}`,
+        `Ward Number: ${value("wardNumber")}`,
+        "",
+        "Please attach your photo and membership payment confirmation.",
+        "Membership Fee: NRs. 150"
+    ].join("\n");
+
+    const recipient = "info@sheac.org.np";
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(body);
+    const isMobile = /Android|iPhone|iPad|iPod|IEMobile|BlackBerry/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        window.location.href =
+            `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody}`;
+    } else {
+        const gmailUrl =
+            `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&su=${encodedSubject}&body=${encodedBody}`;
+        const gmailWindow = window.open(gmailUrl, "_blank", "noopener");
+        if (!gmailWindow) window.location.href =
+            `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody}`;
+    }
+}
+
+function initializeNepalAddressDropdowns() {
+    const province = document.getElementById("province");
+    const district = document.getElementById("district");
+    const localGovernment = document.getElementById("localGovernment");
+    const ward = document.getElementById("wardNumber");
+    const addressData = window.NEPAL_ADDRESS_DATA;
+
+    if (!province || !district || !localGovernment || !ward || !addressData) return;
+
+    const provinceNames = Object.keys(addressData).sort();
+    provinceNames.forEach((name) => {
+        const option = document.createElement("option");
+        option.value = name;
+        option.textContent = name === "Madesh Province" ? "Madhesh Province" : name;
+        province.appendChild(option);
+    });
+
+    const resetOptions = (select, placeholder) => {
+        select.replaceChildren();
+        const option = document.createElement("option");
+        option.value = "";
+        option.textContent = placeholder;
+        select.appendChild(option);
+        select.disabled = true;
+    };
+
+    province.addEventListener("change", () => {
+        resetOptions(district, "Select District");
+        resetOptions(localGovernment, "Select Local Government");
+        resetOptions(ward, "Select Ward");
+        if (!province.value) return;
+
+        Object.keys(addressData[province.value]).sort().forEach((name) => {
+            const option = document.createElement("option");
+            option.value = name;
+            option.textContent = name;
+            district.appendChild(option);
+        });
+        district.disabled = false;
+    });
+
+    district.addEventListener("change", () => {
+        resetOptions(localGovernment, "Select Local Government");
+        resetOptions(ward, "Select Ward");
+        if (!province.value || !district.value) return;
+
+        Object.keys(addressData[province.value][district.value]).sort().forEach((name) => {
+            const option = document.createElement("option");
+            option.value = name;
+            option.textContent = name;
+            localGovernment.appendChild(option);
+        });
+        localGovernment.disabled = false;
+    });
+
+    localGovernment.addEventListener("change", () => {
+        resetOptions(ward, "Select Ward");
+        if (!province.value || !district.value || !localGovernment.value) return;
+
+        const wards = addressData[province.value][district.value][localGovernment.value] || [];
+        wards.forEach((number) => {
+            const option = document.createElement("option");
+            option.value = number;
+            option.textContent = `Ward ${number}`;
+            ward.appendChild(option);
+        });
+        ward.disabled = wards.length === 0;
+    });
 }
 
 /* -----------------------------------------------------
@@ -170,6 +339,7 @@ function handleMembershipSubmit(event) {
       (nice UX when navigating to a new real page)
    ----------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
+    initializeNepalAddressDropdowns();
     const mobileMenu = document.getElementById('mobileMenu');
     if (mobileMenu) {
         mobileMenu.querySelectorAll('a').forEach(link => {
@@ -259,14 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const gallerySliders = document.querySelectorAll('.gallery-slider');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
     gallerySliders.forEach((slider) => {
-        let pausedUntil = 0;
-        const pauseTemporarily = () => {
-            pausedUntil = Date.now() + 5000;
-        };
-
         const controls = document.createElement('div');
         controls.className = 'gallery-slider-controls';
 
@@ -291,9 +454,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 slider.scrollTo({
                     left: targetPosition,
-                    behavior: 'smooth'
+                    behavior: 'auto'
                 });
-                pauseTemporarily();
             });
             return button;
         };
@@ -303,44 +465,6 @@ document.addEventListener('DOMContentLoaded', () => {
             createControl(1, 'fa-chevron-right', 'Next')
         );
         slider.after(controls);
-
-        slider.addEventListener('pointerdown', pauseTemporarily);
-        slider.addEventListener('mouseenter', () => {
-            pausedUntil = Number.POSITIVE_INFINITY;
-        });
-        slider.addEventListener('mouseleave', () => {
-            pausedUntil = 0;
-        });
-        slider.addEventListener('focusin', () => {
-            pausedUntil = Number.POSITIVE_INFINITY;
-        });
-        slider.addEventListener('focusout', (event) => {
-            if (!slider.contains(event.relatedTarget)) pausedUntil = 0;
-        });
-
-        if (reduceMotion) return;
-
-        window.setInterval(() => {
-            if (Date.now() < pausedUntil) return;
-
-            const maxScroll = slider.scrollWidth - slider.clientWidth;
-            if (maxScroll <= 1) return;
-
-            if (slider.scrollLeft >= maxScroll - 2) {
-                slider.scrollLeft = 0;
-                return;
-            }
-
-            const firstItem = slider.firstElementChild;
-            if (!firstItem) return;
-
-            const styles = window.getComputedStyle(slider);
-            const gap = parseFloat(styles.columnGap) || 0;
-            slider.scrollBy({
-                left: firstItem.getBoundingClientRect().width + gap,
-                behavior: 'smooth'
-            });
-        }, 3500);
     });
 });
 
